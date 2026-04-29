@@ -1,0 +1,2491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasaar | Telecom &amp; AI Infrastructure Software</title>
+<meta name="description" content="Tasaar builds enterprise software for Telecom, Satcom &amp; AI Infrastructure. Sovereign domain expertise in OSS/BSS, 5G, AAA, and network intelligence — built from the inside.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Tasaar">
+<link rel="canonical" href="https://tasaar.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tasaar | Telecom &amp; AI Infrastructure Software">
+<meta property="og:description" content="Sovereign domain expertise in Telecom, Satcom and AI Infrastructure. Built from the inside.">
+<meta property="og:url" content="https://tasaar.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tasaar | Telecom &amp; AI Infrastructure Software">
+<meta name="twitter:description" content="Sovereign domain expertise in Telecom, Satcom and AI Infrastructure.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Tasaar","url":"https://tasaar.com","description":"Enterprise software and AI infrastructure solutions across Telecom, Satcom and AI Infrastructure. Infrastructure always wins.","foundingDate":"2025"}</script>
+<meta property="og:image" content="https://tasaar.com/og-image.png">
+<meta property="og:site_name" content="Tasaar">
+<meta name="twitter:image" content="https://tasaar.com/og-image.png">
+<meta name="twitter:site" content="@tasaar">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2304040A'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='%23C9A84C'>T</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   ENTERPRISE FONT STACK (Apple SF Pro grade)
+═══════════════════════════════════════════ */
+:root {
+  --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", "SFMono-Regular", ui-monospace, "Cascadia Code", "Fira Code", Menlo, monospace;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+}
+/* ═══════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --void:     #04040A;
+  --deep:     #07080F;
+  --surface:  #0C0E18;
+  --card:     #101420;
+  --raised:   #161C2A;
+  --gold:     #C9A84C;
+  --gold-lt:  #E0C070;
+  --gold-dk:  #7A5A18;
+  --crimson:  #B01030;
+  --crim-lt:  #D42848;
+  --crim-dk:  #6E0A1E;
+  --teal:     #156050;
+  --teal-lt:  #1E8A6E;
+  --white:    #EAE6DF;
+  --dim:      #9E9A92;
+  --muted:    #706C64;
+  --border:   #1A2030;
+  --line:     #20283A;
+  --nav-h:    60px;
+  --bar-h:    48px;
+}
+*,*::before,*::after { box-sizing:border-box;margin:0;padding:0 }
+h1,h2,h3,h4,h5,h6 { font-weight:inherit; font-size:inherit; margin:0 }
+
+html { scroll-behavior:smooth;height:100% }
+body {
+  font-family:var(--font-body);
+  background:var(--void);
+  color:var(--white);
+  font-size:17px;
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+  min-height:100%;
+  overflow-x:hidden;
+}
+
+/* ═══════════════════════════════════════════
+   CANVAS — star field
+═══════════════════════════════════════════ */
+#starfield {
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  opacity:1;
+}
+
+/* ═══════════════════════════════════════════
+   TOP NAVIGATION
+═══════════════════════════════════════════ */
+.nav {
+  position:fixed;
+  top:0;left:0;right:0;
+  height:var(--nav-h);
+  background:rgba(4,4,10,.88);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 48px;
+  z-index:1000;
+}
+.nav-logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;
+  font-weight:300;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:var(--white);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:2px;
+}
+.nav-logo .g { color:var(--gold) }
+.nav-logo .cr { color:var(--crimson) }
+.nav-logo-dot {
+  width:5px;height:5px;
+  border-radius:50%;
+  background:var(--crimson);
+  margin-left:4px;
+  animation:pulse 3s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.4}50%{opacity:1} }
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.nav-link {
+  font-family:var(--font-mono);
+  font-size:14px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:var(--dim);
+  padding:8px 16px;
+  cursor:pointer;
+  border:1px solid transparent;
+  border-radius:2px;
+  transition:all .25s ease;
+  position:relative;
+}
+.nav-link:hover { color:var(--white);border-color:var(--border) }
+.nav-link.active {
+  color:var(--gold);
+  border-color:var(--gold-dk);
+}
+.nav-link.active::before {
+  content:'';
+  position:absolute;
+  bottom:-1px;left:50%;
+  transform:translateX(-50%);
+  width:20px;height:2px;
+  background:var(--gold);
+}
+
+.nav-cta {
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--crimson);
+  padding:8px 20px;
+  border:1px solid var(--crim-dk);
+  border-radius:2px;
+  cursor:pointer;
+  transition:all .25s ease;
+}
+.nav-cta:hover { background:var(--crimson);color:var(--white) }
+
+/* ═══════════════════════════════════════════
+   BOTTOM STATUS BAR (fixed)
+═══════════════════════════════════════════ */
+.statusbar {
+  position:fixed;
+  bottom:0;left:0;right:0;
+  height:var(--bar-h);
+  background:rgba(4,4,10,.92);
+  backdrop-filter:blur(18px);
+  border-top:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 48px;
+  z-index:1000;
+}
+.bar-left {
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+.bar-item {
+  font-family:var(--font-mono);
+  font-size:9px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--muted);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.bar-dot {
+  width:5px;height:5px;
+  border-radius:50%;
+}
+.bar-dot.g  { background:var(--gold);    animation:pulse 4s ease-in-out infinite }
+.bar-dot.cr { background:var(--crimson); animation:pulse 4s ease-in-out infinite .8s }
+.bar-dot.t  { background:var(--teal);    animation:pulse 4s ease-in-out infinite 1.6s }
+.bar-right {
+  font-family:var(--font-mono);
+  font-size:9px;
+  letter-spacing:2px;
+  color:var(--muted);
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+.bar-coord { color:var(--dim) }
+.bar-time { color:var(--dim) }
+
+/* ═══════════════════════════════════════════
+   PAGE SYSTEM
+═══════════════════════════════════════════ */
+.page {
+  display:none;
+  min-height:100vh;
+  padding-top:var(--nav-h);
+  padding-bottom:calc(var(--bar-h) + 20px);
+  position:relative;
+  z-index:1;
+}
+.page.active { display:block }
+
+/* ═══════════════════════════════════════════
+   ── HOME PAGE ──────────────────────────────
+═══════════════════════════════════════════ */
+.home-hero {
+  min-height:calc(100vh - var(--nav-h) - var(--bar-h));
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:80px 48px;
+  position:relative;
+}
+
+/* Crosshair reticle */
+.reticle {
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:320px;height:320px;
+  pointer-events:none;
+  opacity:.06;
+}
+.reticle-h,.reticle-v {
+  position:absolute;
+  background:var(--gold);
+}
+.reticle-h { top:50%;left:0;right:0;height:1px;transform:translateY(-50%) }
+.reticle-v { left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%) }
+.reticle-ring {
+  position:absolute;
+  border-radius:50%;
+  border:1px solid var(--gold);
+}
+.reticle-ring:nth-child(3) { inset:0 }
+.reticle-ring:nth-child(4) { inset:40px }
+.reticle-ring:nth-child(5) { inset:100px }
+
+.hero-coord {
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:48px;
+  opacity:0;
+  animation:fadeUp .8s ease forwards .3s;
+}
+h1.hero-word, .hero-word {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(96px,16vw,148px);
+  font-weight:100;
+  letter-spacing:-2px;
+  line-height:.88;
+  color:var(--white);
+  opacity:0;
+  animation:fadeUp .9s ease forwards .5s;
+  position:relative;
+  display:inline-block;
+}
+.hero-word::after {
+  content:'';
+  position:absolute;
+  bottom:-4px;left:0;
+  width:0;height:2px;
+  background:linear-gradient(to right,var(--crimson),var(--gold));
+  animation:lineGrow 1.2s ease forwards 1.2s;
+}
+@keyframes lineGrow { to{width:100%} }
+
+.hero-rule {
+  width:1px;height:60px;
+  background:linear-gradient(to bottom,var(--gold),var(--crimson),transparent);
+  margin:32px auto;
+  opacity:0;
+  animation:fadeIn .8s ease forwards 1s;
+}
+.hero-poem {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(18px,2.8vw,26px);
+  font-style:italic;
+  font-weight:300;
+  color:rgba(234,230,223,.92);
+  max-width:600px;
+  line-height:1.8;
+  margin:0 auto 48px;
+  opacity:0;
+  animation:fadeUp .8s ease forwards 1.2s;
+}
+.hero-sub {
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:3.5px;
+  text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:56px;
+  opacity:0;
+  animation:fadeUp .8s ease forwards 1.4s;
+}
+.hero-verticals {
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+  opacity:0;
+  animation:fadeUp .8s ease forwards 1.6s;
+}
+.hero-vert {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:11px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-weight:500;
+  color:var(--dim);
+  border:1px solid var(--border);
+  padding:10px 20px;
+  border-radius:2px;
+  cursor:pointer;
+  transition:all .3s ease;
+}
+.hero-vert:hover { color:var(--white);border-color:var(--gold-dk) }
+.hero-vert .dot {
+  width:6px;height:6px;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.hero-vert .dot.g  { background:var(--gold) }
+.hero-vert .dot.t  { background:var(--teal) }
+.hero-vert .dot.cr { background:var(--crimson) }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+/* ── Home: Metrics Strip ── */
+.metrics-strip {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line);
+  margin:0;
+  border-top:1px solid var(--line);
+}
+.metric {
+  background:var(--surface);
+  padding:36px 28px;
+  text-align:center;
+  transition:background .3s;
+}
+.metric:hover { background:var(--card) }
+.metric-n {
+  font-family:'Cormorant Garamond',serif;
+  font-size:52px;
+  font-weight:300;
+  line-height:1;
+  margin-bottom:10px;
+}
+.metric-n.g  { color:var(--gold-lt) }
+.metric-n.cr { color:var(--crim-lt) }
+.metric-n.t  { color:var(--teal-lt) }
+.metric-d {
+  font-size:13px;
+  color:var(--dim);
+  font-weight:400;
+  line-height:1.5;
+}
+
+/* ── Home: Thesis Section ── */
+.home-thesis {
+  max-width:900px;
+  margin:0 auto;
+  padding:100px 48px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:start;
+}
+.thesis-label {
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--crimson);
+  margin-bottom:20px;
+}
+.thesis-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:38px;
+  font-weight:600;
+  color:var(--white);
+  line-height:1.15;
+  margin-bottom:24px;
+  letter-spacing:-.3px;
+}
+.thesis-title em {
+  font-style:italic;
+  font-weight:300;
+  color:var(--gold-lt);
+}
+.thesis-body {
+  font-size:15px;
+  font-weight:300;
+  color:rgba(234,230,223,.85);
+  line-height:1.9;
+}
+.thesis-body p { margin-bottom:16px }
+.thesis-body p:last-child { margin-bottom:0 }
+.thesis-aside {
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.ta-card {
+  background:var(--card);
+  border-left:3px solid transparent;
+  padding:24px 28px;
+  transition:all .3s ease;
+}
+.ta-card.v1 { border-left-color:var(--gold) }
+.ta-card.v2 { border-left-color:var(--teal) }
+.ta-card.v3 { border-left-color:var(--crimson) }
+.ta-card:hover { background:var(--raised) }
+.ta-label {
+  font-family:var(--font-mono);
+  font-size:9px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.ta-card.v1 .ta-label { color:var(--gold) }
+.ta-card.v2 .ta-label { color:var(--teal-lt) }
+.ta-card.v3 .ta-label { color:var(--crimson) }
+.ta-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:19px;
+  font-weight:600;
+  color:var(--white);
+  margin-bottom:6px;
+}
+.ta-desc {
+  font-size:13px;
+  font-weight:300;
+  color:var(--dim);
+  line-height:1.65;
+}
+
+/* ═══════════════════════════════════════════
+   ── ABOUT PAGE ─────────────────────────────
+═══════════════════════════════════════════ */
+.page-inner {
+  max-width:1060px;
+  margin:0 auto;
+  padding:80px 48px;
+}
+.page-hero {
+  padding:80px 0 60px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:72px;
+}
+.ph-eyebrow {
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:20px;
+}
+.ph-eyebrow.cr { color:var(--crimson) }
+h2.ph-title, .ph-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,6.5vw,76px);
+  font-weight:600;
+  line-height:1.05;
+  letter-spacing:-.5px;
+  color:var(--white);
+  margin-bottom:24px;
+}
+.ph-title em { font-style:italic;font-weight:300;color:var(--gold-lt) }
+.ph-title em.cr { color:var(--crim-lt) }
+.ph-desc {
+  font-family:var(--font-body);
+  font-size:18px;
+  font-style:normal;
+  font-weight:300;
+  letter-spacing:.01em;
+  color:rgba(234,230,223,.78);
+  max-width:640px;
+  line-height:1.7;
+}
+
+.origin-box {
+  background:var(--card);
+  border:1px solid var(--gold-dk);
+  padding:44px 52px;
+  margin:0 0 56px;
+  position:relative;
+  overflow:hidden;
+}
+.origin-box::after {
+  content:'ЦАРЬ';
+  position:absolute;right:-10px;top:50%;
+  transform:translateY(-50%);
+  font-family:'Cormorant Garamond',serif;
+  font-size:140px;font-weight:700;
+  color:rgba(201,168,76,.03);
+  pointer-events:none;user-select:none;white-space:nowrap;
+}
+.orig-lbl {
+  font-family:var(--font-mono);
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;
+}
+.orig-word {
+  font-family:'Cormorant Garamond',serif;
+  font-size:56px;font-weight:300;
+  color:var(--white);letter-spacing:6px;margin-bottom:6px;
+}
+.orig-meaning {
+  font-family:'Cormorant Garamond',serif;
+  font-size:19px;font-style:italic;
+  color:var(--gold-lt);margin-bottom:24px;
+}
+.orig-body {
+  font-size:15px;font-weight:300;
+  color:rgba(234,230,223,.82);
+  line-height:1.85;max-width:600px;
+  border-top:1px solid var(--line);padding-top:20px;
+}
+
+.two-col {
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-bottom:72px;
+}
+.prose-block p {
+  font-size:16px;font-weight:300;
+  color:rgba(234,230,223,.88);
+  line-height:1.95;margin-bottom:20px;
+  max-width:560px;
+}
+.prose-block p:last-child { margin-bottom:0 }
+.prose-block strong { color:var(--white);font-weight:600 }
+.prose-block .lead {
+  font-family:var(--font-body);
+  font-size:22px;font-style:italic;font-weight:300;
+  color:rgba(234,230,223,.84);
+  line-height:1.65;margin-bottom:28px;
+}
+
+.iq {
+  padding:40px 52px;
+  background:var(--surface);
+  border-left:3px solid var(--gold);
+  margin:0 0 56px;position:relative;overflow:hidden;
+}
+.iq.cr { border-left-color:var(--crimson) }
+.iq::before {
+  content:'\201C';
+  font-family:'Cormorant Garamond',serif;
+  font-size:130px;line-height:1;
+  color:var(--gold-dk);
+  position:absolute;top:-14px;left:38px;
+  pointer-events:none;
+}
+.iq.cr::before { color:var(--crim-dk) }
+.iq p {
+  font-family:var(--font-display);
+  font-size:26px;font-style:italic;font-weight:300;
+  color:var(--white);line-height:1.65;
+  max-width:660px;margin:0;position:relative;z-index:1;
+}
+
+/* ═══════════════════════════════════════════
+   ── VERTICALS PAGE ─────────────────────────
+═══════════════════════════════════════════ */
+.vert-tabs {
+  display:flex;gap:2px;
+  background:var(--line);
+  margin-bottom:2px;
+}
+.vtab {
+  flex:1;padding:18px 24px;
+  background:var(--card);
+  font-family:var(--font-mono);
+  font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--dim);
+  cursor:pointer;
+  transition:all .25s;
+  border-bottom:2px solid transparent;
+  text-align:center;
+}
+.vtab:hover { color:var(--white);background:var(--raised) }
+.vtab.active.v1 { color:var(--gold);border-bottom-color:var(--gold);background:var(--raised) }
+.vtab.active.v2 { color:var(--teal-lt);border-bottom-color:var(--teal);background:var(--raised) }
+.vtab.active.v3 { color:var(--crim-lt);border-bottom-color:var(--crimson);background:var(--raised) }
+
+.vtab-content { display:none }
+.vtab-content.active { display:block }
+
+.vert-hero {
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2px;background:var(--line);margin-bottom:2px;
+}
+.vert-hero-left {
+  background:var(--card);padding:56px 48px;
+}
+.vert-hero-right {
+  background:var(--surface);padding:56px 48px;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.vert-hero-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:120px;font-weight:300;line-height:1;
+  margin-bottom:24px;
+}
+.v1 .vert-hero-num { color:rgba(201,168,76,.15) }
+.v2 .vert-hero-num { color:rgba(21,96,80,.25) }
+.v3 .vert-hero-num { color:rgba(176,16,48,.2) }
+.vert-hero-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:36px;font-weight:600;
+  color:var(--white);line-height:1.1;margin-bottom:16px;
+}
+.vert-hero-desc {
+  font-size:15px;font-weight:300;
+  color:rgba(234,230,223,.82);
+  line-height:1.85;
+}
+.vert-hero-right-label {
+  font-family:var(--font-mono);
+  font-size:9px;letter-spacing:3px;
+  text-transform:uppercase;margin-bottom:12px;
+}
+.v1 .vert-hero-right-label { color:var(--gold) }
+.v2 .vert-hero-right-label { color:var(--teal-lt) }
+.v3 .vert-hero-right-label { color:var(--crimson) }
+.vert-hero-quote {
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-style:italic;font-weight:300;
+  color:rgba(234,230,223,.75);
+  line-height:1.6;border-left:2px solid;padding-left:20px;
+}
+.v1 .vert-hero-quote { border-left-color:var(--gold) }
+.v2 .vert-hero-quote { border-left-color:var(--teal) }
+.v3 .vert-hero-quote { border-left-color:var(--crimson) }
+.vert-stats {
+  display:flex;gap:32px;flex-wrap:wrap;
+  margin-top:32px;
+}
+.vs { text-align:center }
+.vs-n {
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-weight:300;
+  margin-bottom:4px;
+}
+.v1 .vs-n { color:var(--gold-lt) }
+.v2 .vs-n { color:var(--teal-lt) }
+.v3 .vs-n { color:var(--crim-lt) }
+.vs-d { font-size:11px;color:var(--dim);font-weight:400 }
+
+.gap-grid {
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  background:var(--line);margin-top:2px;margin-bottom:2px;
+}
+.gap-card {
+  background:var(--card);padding:32px 36px;
+  transition:background .3s;
+}
+.gap-card:hover { background:var(--raised) }
+.gap-label {
+  font-family:var(--font-mono);
+  font-size:9px;letter-spacing:2.5px;text-transform:uppercase;
+  margin-bottom:12px;
+}
+.v1 .gap-label { color:var(--gold) }
+.v2 .gap-label { color:var(--teal-lt) }
+.v3 .gap-label { color:var(--crimson) }
+.gap-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:600;
+  color:var(--white);margin-bottom:10px;line-height:1.2;
+}
+.gap-desc {
+  font-size:13.5px;font-weight:300;
+  color:rgba(234,230,223,.78);line-height:1.75;
+}
+
+/* ═══════════════════════════════════════════
+   ── PRODUCTS PAGE ──────────────────────────
+═══════════════════════════════════════════ */
+.products-list {
+  display:flex;flex-direction:column;gap:2px;
+  background:var(--line);
+}
+.pcard {
+  display:grid;grid-template-columns:240px 1fr;
+  gap:2px;background:var(--line);
+}
+.pcard-id {
+  background:var(--card);
+  padding:36px 30px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;overflow:hidden;
+}
+.pcard-id::after {
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;height:2px;
+}
+.pcard.g .pcard-id::after { background:var(--gold) }
+.pcard.t .pcard-id::after { background:var(--teal) }
+.pcard.cr .pcard-id::after { background:var(--crimson) }
+.p-dtag {
+  font-family:var(--font-mono);
+  font-size:9px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--dim);margin-bottom:10px;
+}
+.p-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:36px;font-weight:600;
+  color:var(--white);line-height:1;margin-bottom:5px;
+}
+.p-sub { font-size:12px;color:var(--dim);letter-spacing:.3px }
+.p-price {
+  margin-top:24px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:19px;font-weight:300;
+}
+.pcard.g  .p-price { color:var(--gold-lt) }
+.pcard.t  .p-price { color:var(--teal-lt) }
+.pcard.cr .p-price { color:var(--crim-lt) }
+.p-price span {
+  display:block;font-family:var(--font-body);
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--dim);margin-bottom:2px;
+}
+.pcard-det {
+  background:var(--surface);padding:36px 40px;
+}
+.pd-desc {
+  font-size:14px;font-weight:300;
+  color:rgba(234,230,223,.82);
+  line-height:1.8;margin-bottom:24px;max-width:560px;
+}
+.pd-feats {
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:8px 28px;margin-bottom:22px;
+}
+.pd-feat {
+  font-size:12.5px;font-weight:300;
+  color:rgba(234,230,223,.75);
+  display:flex;gap:8px;align-items:flex-start;line-height:1.5;
+}
+.pd-feat::before { content:'◆';font-size:6px;margin-top:4px;flex-shrink:0 }
+.pcard.g  .pd-feat::before { color:var(--gold-dk) }
+.pcard.t  .pd-feat::before { color:var(--teal) }
+.pcard.cr .pd-feat::before { color:var(--crim-dk) }
+.chips { display:flex;gap:8px;flex-wrap:wrap }
+.chip {
+  font-family:var(--font-mono);
+  font-size:10px;letter-spacing:1px;
+  padding:5px 12px;
+  border:1px solid var(--border);color:var(--dim);border-radius:1px;
+}
+.chip.g  { border-color:var(--gold-dk);color:var(--gold) }
+.chip.cr { border-color:var(--crim-dk);color:var(--crim-lt) }
+
+/* ═══════════════════════════════════════════
+   ── VISION PAGE ────────────────────────────
+═══════════════════════════════════════════ */
+.vision-grid {
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;background:var(--line);margin:40px 0;
+}
+.vision-cell {
+  background:var(--card);padding:44px 32px;
+}
+.vc-n {
+  font-family:'Cormorant Garamond',serif;
+  font-size:72px;font-weight:300;line-height:1;margin-bottom:16px;
+}
+.vision-cell:nth-child(1) .vc-n { color:rgba(201,168,76,.12) }
+.vision-cell:nth-child(2) .vc-n { color:rgba(176,16,48,.14) }
+.vision-cell:nth-child(3) .vc-n { color:rgba(21,96,80,.2) }
+.vc-t {
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:600;
+  color:var(--white);margin-bottom:14px;line-height:1.15;
+}
+.vc-b {
+  font-size:13.5px;font-weight:300;
+  color:rgba(234,230,223,.78);line-height:1.8;
+}
+
+.timeline-v {
+  margin:48px 0;position:relative;padding-left:44px;
+}
+.tv-track {
+  position:absolute;left:5px;top:14px;bottom:14px;width:1px;
+  background:linear-gradient(to bottom,var(--gold),var(--crimson),var(--teal));
+}
+.tv-item { position:relative;margin-bottom:52px }
+.tv-item:last-child { margin-bottom:0 }
+.tv-node {
+  position:absolute;left:-39px;top:9px;
+  width:12px;height:12px;border-radius:50%;
+  border:2px solid var(--deep);
+}
+.tv-item:nth-child(1) .tv-node { background:var(--gold) }
+.tv-item:nth-child(2) .tv-node { background:var(--crim-lt) }
+.tv-item:nth-child(3) .tv-node { background:#3A9278 }
+.tv-item:nth-child(4) .tv-node { background:var(--teal);box-shadow:0 0 16px rgba(21,96,80,.6) }
+.tv-phase {
+  font-family:var(--font-mono);
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;
+}
+.tv-item:nth-child(1) .tv-phase { color:var(--gold) }
+.tv-item:nth-child(2) .tv-phase { color:var(--crimson) }
+.tv-item:nth-child(3) .tv-phase { color:#3A9278 }
+.tv-item:nth-child(4) .tv-phase { color:var(--teal) }
+.tv-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;font-weight:600;
+  color:var(--white);margin-bottom:10px;
+}
+.tv-desc {
+  font-size:14px;font-weight:300;
+  color:rgba(234,230,223,.78);
+  line-height:1.82;max-width:640px;
+}
+
+/* ═══════════════════════════════════════════
+   ── AI INFRASTRUCTURE PAGE ─────────────────
+═══════════════════════════════════════════ */
+.ai-hero-banner {
+  background:var(--card);
+  border:1px solid var(--crim-dk);
+  padding:52px 56px;margin-bottom:2px;
+  position:relative;overflow:hidden;
+}
+.ai-hero-banner::after {
+  content:'AI';
+  position:absolute;right:-10px;top:50%;
+  transform:translateY(-50%);
+  font-family:'Cormorant Garamond',serif;
+  font-size:220px;font-weight:700;
+  color:rgba(176,16,48,.03);
+  pointer-events:none;user-select:none;
+  line-height:1;letter-spacing:-8px;
+}
+.ai-label {
+  font-family:var(--font-mono);
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--crimson);margin-bottom:20px;
+}
+.ai-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,4vw,44px);font-weight:600;
+  color:var(--white);line-height:1.15;letter-spacing:-.3px;margin-bottom:20px;
+}
+.ai-body {
+  font-size:15px;font-weight:300;
+  color:rgba(234,230,223,.85);
+  line-height:1.88;max-width:640px;
+}
+
+.ai-cats {
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;background:var(--line);margin:2px 0;
+}
+.ai-cat {
+  background:var(--card);padding:36px 30px;
+  border-bottom:2px solid transparent;
+  transition:all .3s;cursor:default;
+}
+.ai-cat:hover { background:var(--raised);border-bottom-color:var(--crimson) }
+.page#page-energy .ai-cat:hover { border-bottom-color:var(--teal-lt) }
+.page#page-energy .ai-label { color:var(--teal-lt) }
+.ai-cat-icon { font-size:28px;margin-bottom:16px;display:block }
+.ai-cat-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:600;
+  color:var(--white);margin-bottom:10px;
+}
+.ai-cat-desc {
+  font-size:13px;font-weight:300;
+  color:rgba(234,230,223,.75);line-height:1.72;
+}
+
+.thesis-panels {
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2px;background:var(--line);margin:2px 0;
+}
+.tp {
+  background:var(--surface);padding:32px 36px;
+}
+.tp-lbl {
+  font-family:var(--font-mono);
+  font-size:9px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--crimson);margin-bottom:12px;
+}
+.tp-title {
+  font-size:16px;font-weight:600;color:var(--white);margin-bottom:10px;
+}
+.tp-body {
+  font-size:13.5px;font-weight:300;
+  color:rgba(234,230,223,.78);line-height:1.75;
+}
+
+/* ═══════════════════════════════════════════
+   ── CONTACT PAGE ───────────────────────────
+═══════════════════════════════════════════ */
+.contact-grid {
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:56px;margin-top:48px;
+}
+.contact-info { }
+.ci-item {
+  display:flex;gap:20px;align-items:flex-start;
+  margin-bottom:36px;padding-bottom:36px;
+  border-bottom:1px solid var(--line);
+}
+.ci-item:last-child { border-bottom:none;margin-bottom:0;padding-bottom:0 }
+.ci-icon {
+  width:40px;height:40px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:2px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+.ci-label {
+  font-family:var(--font-mono);
+  font-size:9px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--dim);margin-bottom:8px;
+}
+.ci-value {
+  font-size:15px;font-weight:300;color:var(--white);margin-bottom:4px;
+}
+.ci-note { font-size:12px;color:var(--dim) }
+
+.contact-form { }
+.form-field { margin-bottom:20px }
+.form-label {
+  font-family:var(--font-mono);
+  font-size:9px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--dim);margin-bottom:8px;display:block;
+}
+.form-input,
+.form-select,
+.form-textarea {
+  width:100%;
+  background:var(--card);
+  border:1px solid var(--border);
+  color:var(--white);
+  font-family:var(--font-body);
+  font-size:14px;font-weight:300;
+  padding:12px 16px;
+  border-radius:2px;
+  outline:none;
+  transition:border-color .25s;
+  appearance:none;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color:var(--gold-dk);
+}
+.form-textarea { resize:vertical;min-height:120px }
+.form-row { display:grid;grid-template-columns:1fr 1fr;gap:16px }
+.form-btn {
+  width:100%;
+  background:transparent;
+  border:1px solid var(--crimson);
+  color:var(--crim-lt);
+  font-family:var(--font-mono);
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  padding:16px;cursor:pointer;
+  border-radius:2px;
+  transition:all .3s;
+  margin-top:8px;
+}
+.form-btn:hover { background:var(--crimson);color:var(--white) }
+
+/* ═══════════════════════════════════════════
+   SHARED COMPONENTS
+═══════════════════════════════════════════ */
+.sec-divider {
+  width:100%;height:1px;
+  background:linear-gradient(to right,var(--crimson),var(--gold),transparent);
+  margin:56px 0;opacity:.3;
+}
+
+/* Floating coordinate display */
+.coord-display {
+  position:fixed;
+  right:24px;top:50%;
+  transform:translateY(-50%);
+  z-index:200;
+  pointer-events:none;
+}
+.cd-inner {
+  font-family:var(--font-mono);
+  font-size:8px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(106,102,98,.5);
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+}
+.cd-line {
+  width:1px;height:40px;
+  background:linear-gradient(to bottom,transparent,var(--gold-dk),transparent);
+}
+
+@media(max-width:860px) {
+  .nav { padding:0 20px }
+  .nav-links { display:none }
+  .home-thesis,.two-col,.vert-hero,.gap-grid,.vision-grid,.ai-cats,.thesis-panels,.contact-grid,.pcard,.products-list .pcard { grid-template-columns:1fr }
+  .pd-feats { grid-template-columns:1fr }
+  .metrics-strip { grid-template-columns:1fr 1fr }
+  .statusbar { padding:0 20px }
+  .bar-right { display:none }
+  .page-inner { padding:60px 24px }
+  .coord-display { display:none }
+}
+/* ═══════════════════════════════════════════
+   ── PRODUCT CARDS (new MVP grid)
+═══════════════════════════════════════════ */
+.mvp-grid {
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2px;background:var(--line);
+}
+.mvp-card {
+  background:var(--card);
+  display:flex;flex-direction:column;
+  cursor:pointer;position:relative;
+  transition:background .25s;
+  border-bottom:2px solid transparent;
+  outline:none;
+}
+.mvp-card:hover { background:var(--raised) }
+.mvp-card.g:hover  { border-bottom-color:var(--gold) }
+.mvp-card.cr:hover { border-bottom-color:var(--crimson) }
+.mvp-card.t:hover  { border-bottom-color:var(--teal-lt) }
+.mvp-card-top {
+  padding:36px 36px 20px;
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+}
+.mvp-icon { font-size:28px;flex-shrink:0;line-height:1 }
+.mvp-title-group { flex:1 }
+.mvp-dtag {
+  font-family:var(--font-mono);
+  font-size:9px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:8px;
+}
+.mvp-card.g  .mvp-dtag { color:var(--gold) }
+.mvp-card.cr .mvp-dtag { color:var(--crim-lt) }
+.mvp-card.t  .mvp-dtag { color:var(--teal-lt) }
+.mvp-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:34px;font-weight:600;color:var(--white);line-height:1;margin-bottom:4px;
+}
+.mvp-sub { font-size:12px;color:var(--dim);letter-spacing:.2px }
+.mvp-arrow {
+  font-size:18px;color:var(--muted);transition:transform .25s,color .25s;
+  margin-top:4px;flex-shrink:0;
+}
+.mvp-card:hover .mvp-arrow { transform:translateX(5px);color:var(--gold) }
+.mvp-body { padding:22px 36px 32px;flex:1;display:flex;flex-direction:column;gap:14px; }
+.mvp-desc {
+  font-size:14px;font-weight:300;color:rgba(234,230,223,.84);line-height:1.8;
+}
+.mvp-feats { display:flex;flex-direction:column;gap:7px; }
+.mvp-feat {
+  font-size:13px;font-weight:300;color:rgba(234,230,223,.72);
+  display:flex;gap:10px;align-items:flex-start;line-height:1.5;
+}
+.mvp-feat::before { content:'◆';font-size:6px;margin-top:5px;flex-shrink:0 }
+.mvp-card.g  .mvp-feat::before { color:var(--gold-dk) }
+.mvp-card.cr .mvp-feat::before { color:var(--crim-dk) }
+.mvp-card.t  .mvp-feat::before { color:var(--teal) }
+.mvp-chips { display:flex;gap:8px;flex-wrap:wrap;padding:0 36px 28px; }
+
+/* Full-width 5th card */
+.mvp-full-row { background:var(--line);margin-top:2px; }
+.mvp-card-full {
+  display:grid;grid-template-columns:260px 1fr;
+  gap:2px;background:var(--line);
+}
+.mvp-card-full:hover .aegis-left { border-bottom-color:var(--crimson) }
+.mvp-card-full .mvp-card-top {
+  flex-direction:column;justify-content:flex-start;border-right:1px solid var(--line);border-bottom:none;padding:44px 36px;
+}
+.mvp-card-full .mvp-body { padding:44px 48px; }
+.aegis-left { border-bottom:2px solid transparent;transition:border-color .25s }
+
+/* ═══════════════════════════════════════════
+   ── PRODUCT MODAL
+═══════════════════════════════════════════ */
+.modal-overlay {
+  display:none;position:fixed;inset:0;z-index:5000;
+  background:rgba(4,4,10,.92);backdrop-filter:blur(16px);
+  align-items:center;justify-content:center;padding:24px;
+}
+.modal-overlay.open { display:flex }
+.modal-box {
+  background:var(--surface);border:1px solid var(--border);
+  max-width:880px;width:100%;max-height:90vh;overflow-y:auto;
+  border-radius:2px;position:relative;
+  box-shadow:0 40px 100px rgba(0,0,0,.7);
+}
+.modal-close {
+  position:sticky;top:20px;float:right;margin:20px 24px -40px;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:2px;
+  color:var(--dim);cursor:pointer;border:1px solid var(--border);
+  padding:6px 14px;transition:all .2s;z-index:10;display:inline-block;
+}
+.modal-close:hover { color:var(--white);border-color:var(--gold-dk) }
+.modal-head {
+  padding:48px 52px 32px;border-bottom:1px solid var(--line);
+}
+.modal-eyebrow {
+  font-family:var(--font-mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  margin-bottom:14px;
+}
+.modal-title {
+  font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;
+  color:var(--white);line-height:1;margin-bottom:8px;
+}
+.modal-subtitle { font-size:16px;color:var(--dim);font-weight:300 }
+.modal-body { padding:40px 52px 52px; }
+.modal-section { margin-bottom:36px }
+.modal-section-label {
+  font-family:var(--font-mono);font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:16px;
+}
+.modal-desc {
+  font-size:16px;font-weight:300;color:rgba(234,230,223,.9);line-height:1.9;
+}
+.modal-feats-grid {
+  display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;margin-top:20px;
+}
+.modal-feat {
+  font-size:14px;font-weight:300;color:rgba(234,230,223,.8);
+  display:flex;gap:10px;align-items:flex-start;line-height:1.55;
+}
+.modal-feat::before { content:'◆';font-size:6px;margin-top:5px;flex-shrink:0;color:var(--gold-dk) }
+
+/* SVG mock screenshot */
+.modal-screenshot {
+  background:var(--card);border:1px solid var(--border);border-radius:2px;
+  overflow:hidden;margin-bottom:8px;
+}
+.modal-screenshot svg { display:block;width:100% }
+.modal-screenshot-caption {
+  font-family:var(--font-mono);font-size:10px;letter-spacing:1.5px;
+  color:var(--muted);text-align:center;margin-bottom:24px;
+}
+.modal-market {
+  background:var(--card);border:1px solid var(--border);
+  padding:24px 28px;margin-top:24px;border-radius:2px;
+}
+.modal-market-label {
+  font-family:var(--font-mono);font-size:10px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--crimson);margin-bottom:10px;
+}
+.modal-market-text {
+  font-size:15px;font-weight:300;color:rgba(234,230,223,.86);line-height:1.82;
+}
+.modal-cta { display:flex;gap:12px;margin-top:32px; }
+.modal-cta-btn {
+  font-family:var(--font-mono);font-size:11px;letter-spacing:2px;
+  text-transform:uppercase;padding:13px 28px;border-radius:2px;cursor:pointer;transition:all .25s;
+}
+.modal-cta-btn.primary {
+  background:transparent;border:1px solid var(--crimson);color:var(--crim-lt);
+}
+.modal-cta-btn.primary:hover { background:var(--crimson);color:var(--white) }
+.modal-cta-btn.secondary {
+  background:transparent;border:1px solid var(--border);color:var(--dim);
+}
+.modal-cta-btn.secondary:hover { border-color:var(--gold-dk);color:var(--gold) }
+
+/* ═══════════════════════════════════════════
+   ── ENERGY FUTURE HINT
+═══════════════════════════════════════════ */
+.energy-horizon {
+  background:var(--surface);border:1px solid rgba(21,96,80,.2);
+  padding:28px 36px;margin-top:32px;border-radius:2px;
+  display:flex;align-items:center;gap:20px;opacity:.72;
+  transition:opacity .3s;
+}
+.energy-horizon:hover { opacity:1 }
+.energy-horizon-icon { font-size:22px;flex-shrink:0;filter:grayscale(.4) }
+.energy-horizon-text { font-size:13.5px;font-weight:300;color:rgba(234,230,223,.7);line-height:1.7 }
+.energy-horizon-text strong { color:var(--teal-lt);font-weight:400 }
+
+/* ═══════════════════════════════════════════
+   ── PILLAR DIAGRAM
+═══════════════════════════════════════════ */
+.pillar-diagram-wrap {
+  max-width:940px;margin:0 auto;padding:72px 48px 100px;
+}
+.pillar-diagram-label {
+  font-family:var(--font-mono);font-size:9px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--muted);margin-bottom:32px;text-align:center;
+}
+.pillar-svg { width:100%;height:auto;display:block; }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════ STAR FIELD ═══════ -->
+<canvas id="starfield"></canvas>
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-logo" onclick="showPage('home')">
+    Tasaar
+  </div>
+  <div class="nav-links">
+    <div class="nav-link active" data-page="home"      onclick="showPage('home')">Home</div>
+    <div class="nav-link"        data-page="products"  onclick="showPage('products')">Products</div>
+    <div class="nav-link"        data-page="vision"    onclick="showPage('vision')">Vision</div>
+    <div class="nav-link"        data-page="about"     onclick="showPage('about')">About</div>
+  </div>
+  <div class="nav-cta" onclick="showPage('contact')">Contact</div>
+</nav>
+
+<!-- ═══════ COORD DISPLAY ═══════ -->
+<!-- <div class="coord-display">
+  <div class="cd-inner">
+    <div class="cd-line"></div>
+    <span id="cd-text">28.6139°N · 77.2090°E</span>
+    <div class="cd-line"></div>
+  </div>
+</div> -->
+
+<main id="main-content">
+<!-- ════════════════════════════════════════════
+     PAGE: HOME
+════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+  <div class="home-hero">
+    <div class="reticle">
+      <div class="reticle-h"></div>
+      <div class="reticle-v"></div>
+      <div class="reticle-ring"></div>
+      <div class="reticle-ring"></div>
+      <div class="reticle-ring"></div>
+    </div>
+    <div class="hero-coord" id="hero-coord">LAT 18.5204°N &nbsp;·&nbsp; LON 73.8567°E &nbsp;·&nbsp; STACK ∞</div>
+    <h1 class="hero-word">TASAAR</h1>
+    <div class="hero-rule"></div>
+    <div class="hero-poem">
+      The world runs on networks and energy.<br>
+      <em>We make them intelligent.</em>
+    </div>
+    <div class="hero-verticals">
+      <div class="hero-vert" onclick="showPage('products')"><div class="dot g"></div>Products</div>
+      <div class="hero-vert" onclick="showPage('vision')"><div class="dot t"></div>Vision</div>
+      <div class="hero-vert" onclick="showPage('about')"><div class="dot cr"></div>About</div>
+    </div>
+  </div>
+
+  <div class="metrics-strip">
+    <div class="metric"><div class="metric-n g">$132B</div><div class="metric-d">Network OSS/BSS by 2030</div></div>
+    <div class="metric"><div class="metric-n t">$1.3T</div><div class="metric-d">Global Energy Software by 2030</div></div>
+    <div class="metric"><div class="metric-n cr">$477B</div><div class="metric-d">AI Infrastructure by 2035</div></div>
+    <div class="metric"><div class="metric-n g">5</div><div class="metric-d">Products in Active Development</div></div>
+  </div>
+
+  <div class="home-thesis">
+    <div>
+      <div class="thesis-label">The Architecture</div>
+      <div class="thesis-title">Two pillars.<br><em>One thesis.</em></div>
+      <div class="thesis-body">
+        <p>Every intelligent system — every AI model, every autonomous machine, every connected city — runs on two things: a network and an energy supply.</p>
+        <p>Tasaar builds the intelligence software for both. Products for Networks now. Investment positions and products for Energy next. Together, they are the substrate of everything the future runs on.</p>
+      </div>
+    </div>
+    <div class="thesis-aside">
+      <div class="ta-card v1">
+        <div class="ta-label">Pillar I · Products &amp; Solutions</div>
+        <div class="ta-title">Networks</div>
+        <div class="ta-desc">Telecom and IoT intelligence software. Five products in active development. The commercial and operational layer the connected world was missing.</div>
+      </div>
+      <div class="ta-card v2">
+        <div class="ta-label">Pillar II · Products &amp; Investments</div>
+        <div class="ta-title">Energy</div>
+        <div class="ta-desc">Energy management, grid intelligence, and commodity infrastructure software. Investment positions in the sector. The domain we are building towards.</div>
+      </div>
+      <div class="ta-card v3">
+        <div class="ta-label">What stands on both</div>
+        <div class="ta-title">AI Infrastructure</div>
+        <div class="ta-desc">AI runs on networks and energy. Own both substrates. That is the thesis.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILLAR DIAGRAM -->
+  <div class="pillar-diagram-wrap">
+    <div class="pillar-diagram-label">The Architecture</div>
+    <svg class="pillar-svg" viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- ── AI / FUTURE TECH CROWN ── -->
+      <rect x="250" y="20" width="400" height="90" rx="3" fill="#101420" stroke="#C9A84C" stroke-width="1.2"/>
+      <text x="450" y="52" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif" font-size="11" font-weight="500" letter-spacing="3" fill="#C9A84C" text-anchor="middle" text-transform="uppercase">AI · FUTURE TECHNOLOGY</text>
+      <text x="450" y="76" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif" font-size="14" font-weight="300" fill="rgba(234,230,223,.6)" text-anchor="middle">Autonomous Systems · Intelligence · Connectivity</text>
+      <text x="450" y="97" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.35)" text-anchor="middle">runs on</text>
+
+      <!-- ── CONNECTING LINES down from crown ── -->
+      <!-- left pillar line -->
+      <line x1="340" y1="110" x2="225" y2="158" stroke="rgba(201,168,76,.3)" stroke-width="1" stroke-dasharray="4,4"/>
+      <!-- right pillar line -->
+      <line x1="560" y1="110" x2="675" y2="158" stroke="rgba(30,138,110,.3)" stroke-width="1" stroke-dasharray="4,4"/>
+
+      <!-- ── PILLAR I: NETWORKS ── -->
+      <rect x="40" y="160" width="370" height="160" rx="3" fill="#101420" stroke="#C9A84C" stroke-width="1.2"/>
+      <!-- top accent bar -->
+      <rect x="40" y="160" width="370" height="3" rx="1" fill="#C9A84C" opacity=".8"/>
+      <text x="62" y="195" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif" font-size="10" font-weight="500" letter-spacing="3" fill="#C9A84C">NETWORKS</text>
+      <text x="62" y="220" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif" font-size="19" font-weight="300" fill="rgba(234,230,223,.9)">Telecom · IoT · Cloud</text>
+
+      <!-- sub-items -->
+      <rect x="62" y="236" width="1" height="62" fill="rgba(201,168,76,.2)"/>
+      <text x="74" y="253" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">5G Core &amp; Slicing</text>
+      <text x="74" y="272" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">AAA &amp; Fraud Intelligence</text>
+      <text x="74" y="291" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">RAN &amp; Outage Prediction</text>
+      <text x="74" y="310" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">IoT &amp; Building Intelligence</text>
+
+      <!-- label badge -->
+      <rect x="302" y="270" width="84" height="24" rx="2" fill="rgba(201,168,76,.08)" stroke="rgba(201,168,76,.25)" stroke-width="1"/>
+      <text x="344" y="286" font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" font-size="9" font-weight="500" letter-spacing="1.5" fill="#C9A84C" text-anchor="middle">PRODUCTS</text>
+
+      <!-- ── PILLAR II: ENERGY ── -->
+      <rect x="490" y="160" width="370" height="160" rx="3" fill="#101420" stroke="#1E8A6E" stroke-width="1.2"/>
+      <!-- top accent bar -->
+      <rect x="490" y="160" width="370" height="3" rx="1" fill="#1E8A6E" opacity=".8"/>
+      <text x="512" y="195" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif" font-size="10" font-weight="500" letter-spacing="3" fill="#1E8A6E">ENERGY</text>
+      <text x="512" y="220" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif" font-size="19" font-weight="300" fill="rgba(234,230,223,.9)">Grid · Power · Commodities</text>
+
+      <!-- sub-items -->
+      <rect x="512" y="236" width="1" height="62" fill="rgba(30,138,110,.2)"/>
+      <text x="524" y="253" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">PPA Lifecycle Management</text>
+      <text x="524" y="272" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">Grid Intelligence &amp; DER</text>
+      <text x="524" y="291" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">Renewable ETRM</text>
+      <text x="524" y="310" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">Commodity Trading Intelligence</text>
+
+      <!-- label badge -->
+      <rect x="728" y="270" width="108" height="24" rx="2" fill="rgba(30,138,110,.07)" stroke="rgba(30,138,110,.25)" stroke-width="1"/>
+      <text x="782" y="286" font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" font-size="9" font-weight="500" letter-spacing="1.5" fill="#1E8A6E" text-anchor="middle">INVESTMENTS</text>
+
+      <!-- ── TASAAR POSITION dot ── -->
+      <circle cx="450" cy="240" r="6" fill="#C9A84C" opacity=".9"/>
+      <circle cx="450" cy="240" r="12" fill="none" stroke="#C9A84C" stroke-width="1" opacity=".3"/>
+      <text x="450" y="268" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="10" font-weight="400" letter-spacing="2" fill="rgba(201,168,76,.6)" text-anchor="middle">TASAAR</text>
+      <line x1="416" y1="240" x2="262" y2="240" stroke="rgba(201,168,76,.15)" stroke-width="1" stroke-dasharray="3,5"/>
+      <line x1="484" y1="240" x2="638" y2="240" stroke="rgba(30,138,110,.15)" stroke-width="1" stroke-dasharray="3,5"/>
+
+      <!-- ground line -->
+      <line x1="40" y1="340" x2="860" y2="340" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+      <text x="450" y="355" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="10" font-weight="300" letter-spacing="2" fill="rgba(234,230,223,.2)" text-anchor="middle">THE SUBSTRATE OF EVERYTHING INTELLIGENT</text>
+    </svg>
+  </div>
+
+</div>
+<!-- ════════════════════════════════════════════
+     PAGE: ABOUT
+════════════════════════════════════════════ -->
+<div class="page" id="page-about">
+<div class="page-inner">
+  <div class="page-hero">
+    <div class="ph-eyebrow">About Tasaar</div>
+    <h2 class="ph-title">Built on the inside<br><em>of both pillars.</em></h2>
+    <div class="ph-desc">Years inside telecom networks. Eyes on energy markets. The engineering depth to build software that actually fits the domain — not software that was built around it.</div>
+  </div>
+
+  <div class="origin-box">
+    <div class="orig-lbl">The Name</div>
+    <div class="orig-word">TASAAR</div>
+    <div class="orig-meaning">From Tsar — sovereign command over a domain.</div>
+    <div class="orig-body">The Tsar didn't govern from a distance. He knew the terrain from within, over years. We are not consultants who studied networks and energy. We are engineers who operated inside them. The domain is the moat. The name is the strategy.</div>
+  </div>
+
+  <div class="two-col">
+    <div class="prose-block">
+      <p class="lead">Two domains. One thesis.</p>
+      <p>Networks and Energy are the two physical substrates that everything intelligent depends on. AI models train on power. They infer over networks. Smart cities run on both. Autonomous systems need both reliable and cheap.</p>
+      <p><strong>Tasaar builds the intelligence software for both.</strong> Not as a diversified portfolio — as a single converging thesis about where infrastructure is going.</p>
+    </div>
+    <div class="prose-block">
+      <p class="lead">Products and investments. Not one or the other.</p>
+      <p>In Networks: five products in active development. In Energy: investments alongside product development. The combination means we see both domains from the inside — and that informational advantage compounds with every deployment and every position we take.</p>
+      <p><strong>We build where the gap demands a builder. We invest where a builder already exists.</strong></p>
+    </div>
+  </div>
+
+  <div class="iq">
+    <p>The world runs on networks and energy. We make them intelligent.</p>
+  </div>
+
+  <div class="sec-divider"></div>
+
+  <div class="two-col">
+    <div class="prose-block">
+      <p class="lead">Domain depth is the only moat that compounds.</p>
+      <p>The most durable enterprise software businesses are built on institutional knowledge — data models, business rules, operational reality. That knowledge takes years to acquire inside real environments. It cannot be purchased or replicated by a team that learned the domain from a report.</p>
+    </div>
+    <div class="prose-block">
+      <p class="lead">We build software the way engineers build load-bearing structures.</p>
+      <p>From the data model up. Not the interface down. Every product starts with the operational reality — the signalling flow, the grid constraint, what the operator actually needs at 3am — and works outward from there.</p>
+    </div>
+  </div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════
+     PAGE: PRODUCTS
+════════════════════════════════════════════ -->
+<div class="page" id="page-products">
+<div class="page-inner">
+  <div class="page-hero">
+    <div class="ph-eyebrow">Product Suite</div>
+    <h2 class="ph-title">Networks, now.<br><em>Energy, next.</em></h2>
+    <div class="ph-desc">Intelligence software for the Networks pillar — built now. Energy domain products in development. Not dashboards. Systems of record that own the data and run at 3am without anyone watching.</div>
+  </div>
+
+  <div class="mvp-grid">
+
+    <!-- P1: 5G Slice Monetization -->
+    <div class="mvp-card g" onclick="openModal('slice')" style="cursor:pointer">
+      <div class="mvp-card-top">
+        <div class="mvp-icon">⚡</div>
+        <div class="mvp-title-group">
+          <div class="mvp-dtag">5G Core · Monetization</div>
+          <div class="mvp-name">Nexus</div>
+          <div class="mvp-sub">5G Network Slicing Monetization Platform</div>
+        </div>
+        <div class="mvp-arrow">→</div>
+      </div>
+      <div class="mvp-body">
+        <div class="mvp-desc">Operators built 5G. Nobody built the billing layer. Nexus is the commerce engine — enterprises provision slices in plain English, the AI translates to 3GPP parameters, billing runs automatically.</div>
+        <div class="mvp-feats">
+          <div class="mvp-feat">Natural language → 3GPP slice parameters, automatically</div>
+          <div class="mvp-feat">SLA breach detected in under 60 seconds. Auto-remediated.</div>
+          <div class="mvp-feat">B2B2X billing, partner settlement, CAMARA API marketplace</div>
+        </div>
+      </div>
+      <div class="mvp-chips">
+        <span class="chip g">CAGR 41.7%</span><span class="chip">$13.5B by 2030</span><span class="chip">MNOs · Tier-1 &amp; Tier-2</span>
+      </div>
+    </div>
+
+    <!-- P2: IoT Operations Intelligence -->
+    <div class="mvp-card t" onclick="openModal('iot')" style="cursor:pointer">
+      <div class="mvp-card-top">
+        <div class="mvp-icon">🏗</div>
+        <div class="mvp-title-group">
+          <div class="mvp-dtag">IoT · Smart Infrastructure</div>
+          <div class="mvp-name">Lattice</div>
+          <div class="mvp-sub">IoT Operations Intelligence Platform</div>
+        </div>
+        <div class="mvp-arrow">→</div>
+      </div>
+      <div class="mvp-body">
+        <div class="mvp-desc">Any device fault. Resolved in plain English. Under 8 minutes. Failures predicted 24–72 hours before they happen.</div>
+        <div class="mvp-feats">
+          <div class="mvp-feat">Chat-to-Fix — plain English, any device, under 8 minutes</div>
+          <div class="mvp-feat">Failure predicted 24–72 hours ahead. Work order auto-created.</div>
+          <div class="mvp-feat">GNN traces cascade failures to single root cause in 8 seconds</div>
+        </div>
+      </div>
+      <div class="mvp-chips">
+        <span class="chip t">CAGR 24.8%</span><span class="chip">$477B Smart Buildings 2035</span><span class="chip">Facilities · NOC</span>
+      </div>
+    </div>
+
+    <!-- P3: AI Range Detection -->
+    <div class="mvp-card g" onclick="openModal('range')" style="cursor:pointer">
+      <div class="mvp-card-top">
+        <div class="mvp-icon">📡</div>
+        <div class="mvp-title-group">
+          <div class="mvp-dtag">RAN · Predictive Operations</div>
+          <div class="mvp-name">Foresight</div>
+          <div class="mvp-sub">AI Range Detection &amp; Outage Prediction</div>
+        </div>
+        <div class="mvp-arrow">→</div>
+      </div>
+      <div class="mvp-body">
+        <div class="mvp-desc">Operators learn about outages when users complain. Foresight predicts them 24–72 hours earlier — per cell, per hour, with a plain-English explanation of why.</div>
+        <div class="mvp-feats">
+          <div class="mvp-feat">0–100 risk score per cell per hour, 24–72 hours ahead</div>
+          <div class="mvp-feat">SHAP explains why — LLM tells the NOC what to do</div>
+          <div class="mvp-feat">Live heatmap. Per-cell timeline. Proactive action cards.</div>
+        </div>
+      </div>
+      <div class="mvp-chips">
+        <span class="chip g">CAGR 43.3%</span><span class="chip">$58.7B AI Telecom 2032</span><span class="chip">MNOs · ISPs · NOC</span>
+      </div>
+    </div>
+
+    <!-- P4: AURA BI Platform -->
+    <div class="mvp-card cr" onclick="openModal('aura')" style="cursor:pointer">
+      <div class="mvp-card-top">
+        <div class="mvp-icon">📊</div>
+        <div class="mvp-title-group">
+          <div class="mvp-dtag">5G · Executive Intelligence</div>
+          <div class="mvp-name">AURA</div>
+          <div class="mvp-sub">AI Unified Real-time Analytics for 5G</div>
+        </div>
+        <div class="mvp-arrow">→</div>
+      </div>
+      <div class="mvp-body">
+        <div class="mvp-desc">The CFO asks what network quality cost last quarter. AURA answers in 10 seconds from live 5G data, with a chart, in plain English.</div>
+        <div class="mvp-feats">
+          <div class="mvp-feat">Churn predicted per subscriber. ARPU risk in rupees, not percentages.</div>
+          <div class="mvp-feat">Monte Carlo ROI planner — board-ready NPV output in seconds</div>
+          <div class="mvp-feat">Ask any business question. Get a data-grounded answer in &lt;10 seconds.</div>
+        </div>
+      </div>
+      <div class="mvp-chips">
+        <span class="chip cr">$132B OSS/BSS 2030</span><span class="chip">CEO · CFO · CTO</span><span class="chip">White-label SaaS</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- P5: SIEM — full width -->
+  <div class="mvp-full-row">
+    <div class="mvp-card-full" onclick="openModal('siem')" style="cursor:pointer;transition:background .25s;" onmouseenter="this.style.background='var(--raised)'" onmouseleave="this.style.background=''">
+      <!-- Left label column -->
+      <div style="background:var(--card);border-right:1px solid var(--line);border-bottom:2px solid transparent;padding:44px 36px;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;transition:border-color .25s;" class="aegis-left">
+        <div class="mvp-icon">🛡</div>
+        <div>
+          <div class="mvp-dtag" style="color:var(--crim-lt)">Telecom · Cybersecurity · SIEM</div>
+          <div class="mvp-name">Aegis</div>
+          <div class="mvp-sub">AI-Driven SIEM Platform</div>
+        </div>
+        <div style="margin-top:auto;padding-top:20px">
+          <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:2px;color:var(--crim-lt)">Explore Platform →</div>
+        </div>
+      </div>
+      <!-- Right content column -->
+      <div style="background:var(--surface);padding:44px 48px;display:flex;flex-direction:column;gap:16px;">
+        <div class="mvp-desc">Every DNS query is a signal. Aegis reads all of them — detecting threats in seconds, containing them in under 60 seconds, and giving law enforcement court-admissible evidence in minutes.</div>
+        <div class="mvp-feats">
+          <div class="mvp-feat" style="color:rgba(234,230,223,.72)">6 AI models. Threat detected in &lt;5 seconds. Contained in &lt;60 seconds.</div>
+          <div class="mvp-feat" style="color:rgba(234,230,223,.72)">DGA: 98.7% accuracy. Fraud: 94% precision. Both in real time.</div>
+          <div class="mvp-feat" style="color:rgba(234,230,223,.72)">7-year DNS retention. Court-admissible evidence in minutes, not weeks.</div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
+          <span class="chip cr">$62.3B SIEM 2030</span><span class="chip">CAGR 14.5%</span><span class="chip">Operators · CERT-In · Law Enforcement</span><span class="chip">DPDP Compliant</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE: VISION
+════════════════════════════════════════════ -->
+<div class="page" id="page-vision">
+<div class="page-inner">
+  <div class="page-hero">
+    <div class="ph-eyebrow">Vision &amp; Roadmap</div>
+    <h2 class="ph-title">Own the substrate.<br><em>Both of them.</em></h2>
+    <div class="ph-desc">Networks first. Energy next. AI stands on both. The sequence is deliberate — depth in one domain funds and informs the next.</div>
+  </div>
+
+  <div class="iq cr">
+    <p>Infrastructure always wins. The company that owns the intelligence layer of both pillars owns the substrate of everything intelligent.</p>
+  </div>
+
+  <div class="vision-grid">
+    <div class="vision-cell">
+      <div class="vc-n">I</div>
+      <div class="vc-t">Networks — Own It</div>
+      <div class="vc-b">Five products. Five real gaps in the telecom and IoT stack. Every deployment deepens domain expertise that no generalist can replicate.</div>
+    </div>
+    <div class="vision-cell">
+      <div class="vc-n">II</div>
+      <div class="vc-t">Energy — Build It</div>
+      <div class="vc-b">The same thesis applied to the second pillar. Products and investments. Energy software is a decade behind. We are entering early, from the inside.</div>
+    </div>
+    <div class="vision-cell">
+      <div class="vc-n">III</div>
+      <div class="vc-t">AI — Where Both Converge</div>
+      <div class="vc-b">AI runs on networks and energy. Own both substrates and you own the intelligence layer of everything built this decade.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE: CONTACT
+════════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+<div class="page-inner">
+  <div class="page-hero">
+    <div class="ph-eyebrow">Contact</div>
+    <h2 class="ph-title">If the problem is real,<br><em>we want to hear it.</em></h2>
+    <div class="ph-desc">Network operator. Energy company. Infrastructure investor. Domain engineer. If you are building on either pillar — reach out.</div>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="ci-item">
+        <div class="ci-icon">✉</div>
+        <div>
+          <div class="ci-label">General</div>
+          <div class="ci-value">hello@tasaar.com</div>
+          <div class="ci-note">Product, partnership, and general questions</div>
+        </div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon">📡</div>
+        <div>
+          <div class="ci-label">Networks &amp; Products</div>
+          <div class="ci-value">products@tasaar.com</div>
+          <div class="ci-note">Enterprise software enquiries and product demonstrations</div>
+        </div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon">⚡</div>
+        <div>
+          <div class="ci-label">Energy &amp; Investment</div>
+          <div class="ci-value">invest@tasaar.com</div>
+          <div class="ci-note">Energy domain investment, co-investment, and partnerships</div>
+        </div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon">🔧</div>
+        <div>
+          <div class="ci-label">Engineering &amp; Careers</div>
+          <div class="ci-value">build@tasaar.com</div>
+          <div class="ci-note">Engineering roles and founding team enquiries</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label">Name</label>
+          <input class="form-input" type="text" placeholder="Your name">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Organisation</label>
+          <input class="form-input" type="text" placeholder="Company or institution">
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Email</label>
+        <input class="form-input" type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-field">
+        <label class="form-label">Nature of Enquiry</label>
+        <select class="form-select">
+          <option value="" style="background:#101420">Select category</option>
+          <option style="background:#101420">Networks — Product Enquiry</option>
+          <option style="background:#101420">Networks — Enterprise / Operator</option>
+          <option style="background:#101420">Energy — Product Enquiry</option>
+          <option style="background:#101420">Energy — Investment / Partnership</option>
+          <option style="background:#101420">AI Infrastructure — Convergence</option>
+          <option style="background:#101420">Engineering / Careers</option>
+          <option style="background:#101420">Other</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="Describe the problem you're working on, or what you'd like to explore with Tasaar."></textarea>
+      </div>
+      <button class="form-btn">Send Message →</button>
+    </div>
+  </div>
+</div>
+</div>
+
+</main>
+
+<!-- ═══════ STATUS BAR ═══════ -->
+<footer class="statusbar" aria-label="Site information">
+  <div class="bar-left">
+    <div class="bar-item"><div class="bar-dot g"></div>Networks</div>
+    <div class="bar-item"><div class="bar-dot t"></div>Energy</div>
+    <div class="bar-item"><div class="bar-dot cr"></div>AI Infrastructure</div>
+  </div>
+  <div class="bar-right">
+    <span class="bar-coord" id="bar-coord">18.5204°N · 73.8567°E</span>
+    <span class="bar-time" id="bar-time">--:--:-- UTC</span>
+    <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:2px;color:var(--muted)">TASAAR · EST. 2025</span>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════
+   STAR FIELD
+═══════════════════════════════════════════ */
+(function() {
+  var canvas = document.getElementById('starfield');
+  var ctx = canvas.getContext('2d');
+  var W, H, stars = [], t = 0;
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  function initStars() {
+    stars = [];
+    var count = Math.floor((W * H) / 2800);
+    for (var i = 0; i < count; i++) {
+      var r = Math.random();
+      stars.push({
+        x: Math.random() * W, y: Math.random() * H,
+        r: r > 0.96 ? (Math.random() * 0.6 + 1.0) : r > 0.75 ? (Math.random() * 0.4 + 0.55) : (Math.random() * 0.3 + 0.2),
+        alpha: r > 0.96 ? (Math.random() * 0.2 + 0.75) : r > 0.75 ? (Math.random() * 0.2 + 0.40) : (Math.random() * 0.15 + 0.18),
+        speed: Math.random() * 0.0008 + 0.0003,
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+  }
+  function draw() {
+    ctx.fillStyle = 'rgb(4,4,10)';
+    ctx.fillRect(0, 0, W, H);
+    t += 0.003;
+    var wash = ctx.createRadialGradient(W * 0.8, H * 0.15, 0, W * 0.8, H * 0.15, W * 0.6);
+    wash.addColorStop(0, 'rgba(70, 80, 140, 0.045)');
+    wash.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = wash;
+    ctx.fillRect(0, 0, W, H);
+    for (var i = 0; i < stars.length; i++) {
+      var s = stars[i];
+      var a = s.alpha * (0.7 + 0.3 * Math.sin(t * s.speed * 150 + s.phase));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(210, 218, 232, ' + a + ')';
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', function() { resize(); initStars(); });
+  resize(); initStars(); draw();
+})();
+
+/* ═══════════════════════════════════════════
+   PAGE NAVIGATION
+═══════════════════════════════════════════ */
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.nav-link').forEach(function(l) { l.classList.remove('active'); });
+  var page = document.getElementById('page-' + id);
+  if (page) { page.classList.add('active'); window.scrollTo(0, 0); }
+  var link = document.querySelector('.nav-link[data-page="' + id + '"]');
+  if (link) link.classList.add('active');
+}
+
+/* ═══════════════════════════════════════════
+   VERTICAL TABS
+═══════════════════════════════════════════ */
+function setVTab(idx) {
+  var tabs = document.querySelectorAll('.vtab');
+  tabs.forEach(function(t, i) {
+    t.classList.remove('active', 'v1', 'v2', 'v3');
+    t.classList.add(i === 0 ? 'v1' : 'v3');
+  });
+  if (tabs[idx]) tabs[idx].classList.add('active');
+  document.querySelectorAll('.vtab-content').forEach(function(c, i) {
+    c.classList.toggle('active', i === idx);
+  });
+}
+
+/* ═══════════════════════════════════════════
+   MODAL FUNCTIONS
+═══════════════════════════════════════════ */
+function openModal(id) {
+  var el = document.getElementById('modal-' + id);
+  if (el) { el.classList.add('open'); document.body.style.overflow = 'hidden'; }
+}
+function closeModal(id) {
+  var el = document.getElementById('modal-' + id);
+  if (el) { el.classList.remove('open'); document.body.style.overflow = ''; }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+    });
+  });
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(function(m) {
+      m.classList.remove('open'); document.body.style.overflow = '';
+    });
+  }
+});
+
+/* ═══════════════════════════════════════════
+   LIVE CLOCK
+═══════════════════════════════════════════ */
+function updateClock() {
+  var now = new Date();
+  var utc = now.toUTCString().split(' ')[4];
+  var el = document.getElementById('bar-time');
+  if (el) el.textContent = utc + ' UTC';
+  setTimeout(updateClock, 1000);
+}
+updateClock();
+</script>
+
+<!-- ════════════════════════════════════════════
+     MODALS — All 5 Products (PDF-accurate)
+════════════════════════════════════════════ -->
+
+<!-- Modal: Nexus — 5G Slicing -->
+<div class="modal-overlay" id="modal-slice">
+  <div class="modal-box">
+    <div class="modal-close" onclick="closeModal('slice')">✕ Close</div>
+    <div class="modal-head">
+      <div class="modal-eyebrow" style="color:var(--gold)">5G Core · Monetization · SaaS Platform</div>
+      <div class="modal-title">Nexus</div>
+      <div class="modal-subtitle">5G Network Slicing Monetization — self-service enterprise connectivity with AI intent orchestration and SLA assurance</div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="modal-section-label">The Problem</div>
+        <div class="modal-desc">Operators have invested over $500 billion in 5G globally, yet ARPU growth remains flat because connectivity is still sold as a commodity. Enterprises — factories, hospitals, stadiums, logistics companies — need guaranteed-SLA connectivity but cannot navigate 3GPP parameters. And operators have no commercial layer to bill for the slice capabilities they already have. Nexus bridges both gaps with an AI intent engine that removes all technical complexity from the buyer.</div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Platform — Slice Commerce Dashboard</div>
+        <div class="modal-screenshot">
+          <svg viewBox="0 0 820 440" xmlns="http://www.w3.org/2000/svg" style="background:#07080F;display:block">
+            <rect width="820" height="34" fill="#161C2A"/>
+            <circle cx="18" cy="17" r="4.5" fill="#EF4444"/><circle cx="34" cy="17" r="4.5" fill="#F59E0B"/><circle cx="50" cy="17" r="4.5" fill="#10B981"/>
+            <text x="72" y="21" font-family="monospace" font-size="10" fill="#9E9A92">nexus.tasaar.com  ·  5G Slice Commerce  ·  Operator Portal</text>
+            <rect x="0" y="34" width="148" height="406" fill="#04040A"/>
+            <text x="14" y="60" font-family="monospace" font-size="9" fill="#C9A84C" letter-spacing="1.5">NEXUS 5G</text>
+            <rect x="6" y="68" width="136" height="24" rx="2" fill="rgba(201,168,76,.1)"/><rect x="8" y="70" width="2" height="20" fill="#C9A84C"/>
+            <text x="18" y="84" font-family="monospace" font-size="10" fill="#C9A84C">Slice Wallet</text>
+            <text x="14" y="110" font-family="monospace" font-size="10" fill="#706C64">Provision</text>
+            <text x="14" y="130" font-family="monospace" font-size="10" fill="#706C64">Tenants</text>
+            <text x="14" y="150" font-family="monospace" font-size="10" fill="#706C64">SLA Monitor</text>
+            <text x="14" y="170" font-family="monospace" font-size="10" fill="#706C64">Billing</text>
+            <text x="14" y="190" font-family="monospace" font-size="10" fill="#706C64">Dev API</text>
+            <text x="14" y="220" font-family="monospace" font-size="9" fill="#20283A">──────────</text>
+            <text x="14" y="238" font-family="monospace" font-size="9" fill="#706C64">Slices Active: 247</text>
+            <text x="14" y="254" font-family="monospace" font-size="9" fill="#10B981">SLA OK: 241</text>
+            <text x="14" y="270" font-family="monospace" font-size="9" fill="#F59E0B">At Risk: 4</text>
+            <text x="14" y="286" font-family="monospace" font-size="9" fill="#EF4444">Breach: 2</text>
+            <rect x="148" y="34" width="672" height="406" fill="#0C0E18"/>
+            <text x="164" y="58" font-family="sans-serif" font-size="13" font-weight="600" fill="#EAE6DF">Slice Revenue — Live Overview</text>
+            <!-- KPIs -->
+            <rect x="160" y="68" width="152" height="62" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="172" y="84" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1">ACTIVE SLICES</text>
+            <text x="172" y="116" font-family="monospace" font-size="26" font-weight="300" fill="#E0C070">247</text>
+            <rect x="320" y="68" width="152" height="62" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="332" y="84" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1">MTD REVENUE</text>
+            <text x="332" y="112" font-family="monospace" font-size="22" font-weight="300" fill="#10B981">₹18.4Cr</text>
+            <rect x="480" y="68" width="152" height="62" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="492" y="84" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1">SLA COMPLIANCE</text>
+            <text x="492" y="112" font-family="monospace" font-size="22" font-weight="300" fill="#C9A84C">99.4<tspan font-size="10">%</tspan></text>
+            <rect x="640" y="68" width="152" height="62" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="652" y="84" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1">ARPU / SLICE</text>
+            <text x="652" y="112" font-family="monospace" font-size="22" font-weight="300" fill="#E0C070">₹74K</text>
+            <!-- AI intent provisioner -->
+            <text x="164" y="152" font-family="monospace" font-size="9" fill="#9E9A92" letter-spacing="1.5">AI INTENT ENGINE — PROVISION NEW SLICE</text>
+            <rect x="160" y="160" width="480" height="90" rx="2" fill="#04040A" stroke="#1A2030" stroke-width="1"/>
+            <text x="172" y="180" font-family="monospace" font-size="9" fill="#706C64">Enterprise describes requirement in plain English:</text>
+            <rect x="172" y="186" width="396" height="26" rx="2" fill="#161C2A" stroke="#20283A" stroke-width="1"/>
+            <text x="182" y="203" font-family="monospace" font-size="9" fill="#9E9A92">"Need sub-5ms latency for 500 robots, 8am-6pm weekdays, isolated from public traffic"</text>
+            <rect x="578" y="186" width="50" height="26" rx="2" fill="#C9A84C"/>
+            <text x="603" y="203" font-family="monospace" font-size="9" fill="#04040A" text-anchor="middle">AI →</text>
+            <text x="172" y="232" font-family="monospace" font-size="8" fill="#706C64">Translated: S-NSSAI: 01-000001  ·  5QI: 82 (URLLC)  ·  AMBR: 10Gbps  ·  GFBR: 1Gbps  ·  Isolation: Dedicated UPF</text>
+            <rect x="172" y="240" width="90" height="20" rx="2" fill="rgba(16,185,129,.15)" stroke="rgba(16,185,129,.3)" stroke-width="1"/>
+            <text x="217" y="254" font-family="monospace" font-size="8" fill="#10B981" text-anchor="middle">Provision Now →</text>
+            <!-- Slice table -->
+            <text x="164" y="274" font-family="monospace" font-size="9" fill="#9E9A92" letter-spacing="1.5">ACTIVE TENANT SLICES</text>
+            <rect x="160" y="282" width="480" height="148" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <rect x="160" y="282" width="480" height="26" fill="#161C2A"/>
+            <text x="172" y="299" font-family="monospace" font-size="8" fill="#706C64" letter-spacing="1">TENANT  ·  TYPE  ·  LATENCY  ·  USAGE  ·  BILL MTD</text>
+            <text x="172" y="322" font-family="monospace" font-size="9" fill="#9E9A92">Tata Motors Fleet</text>
+            <text x="310" y="322" font-family="monospace" font-size="9" fill="#C9A84C">URLLC · V2X</text>
+            <text x="410" y="322" font-family="monospace" font-size="9" fill="#10B981">3.8ms</text>
+            <text x="470" y="322" font-family="monospace" font-size="9" fill="#10B981">94%</text>
+            <text x="530" y="322" font-family="monospace" font-size="9" fill="#9E9A92">₹4.2L</text>
+            <rect x="160" y="328" width="480" height="1" fill="#20283A"/>
+            <text x="172" y="348" font-family="monospace" font-size="9" fill="#9E9A92">AIIMS Delhi</text>
+            <text x="310" y="348" font-family="monospace" font-size="9" fill="#C9A84C">URLLC · Critical</text>
+            <text x="410" y="348" font-family="monospace" font-size="9" fill="#10B981">4.1ms</text>
+            <text x="470" y="348" font-family="monospace" font-size="9" fill="#10B981">78%</text>
+            <text x="530" y="348" font-family="monospace" font-size="9" fill="#9E9A92">₹6.8L</text>
+            <rect x="160" y="354" width="480" height="1" fill="#20283A"/>
+            <text x="172" y="374" font-family="monospace" font-size="9" fill="#9E9A92">Infosys Campus</text>
+            <text x="310" y="374" font-family="monospace" font-size="9" fill="#C9A84C">mMTC · IoT</text>
+            <text x="410" y="374" font-family="monospace" font-size="9" fill="#F59E0B">12.4ms</text>
+            <text x="470" y="374" font-family="monospace" font-size="9" fill="#F59E0B">112%</text>
+            <text x="530" y="374" font-family="monospace" font-size="9" fill="#F59E0B">₹2.1L+ovr</text>
+            <!-- SLA live -->
+            <text x="650" y="274" font-family="monospace" font-size="9" fill="#9E9A92" letter-spacing="1.5">SLA LIVE</text>
+            <rect x="646" y="282" width="146" height="148" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="658" y="302" font-family="monospace" font-size="8" fill="#706C64">Latency</text>
+            <text x="658" y="318" font-family="monospace" font-size="20" font-weight="300" fill="#10B981">4.2<tspan font-size="9">ms</tspan></text>
+            <text x="658" y="332" font-family="monospace" font-size="7" fill="#10B981">SLA: &lt;5ms ✓</text>
+            <rect x="658" y="338" width="122" height="1" fill="#20283A"/>
+            <text x="658" y="356" font-family="monospace" font-size="8" fill="#706C64">Throughput</text>
+            <text x="658" y="372" font-family="monospace" font-size="20" font-weight="300" fill="#10B981">2.4<tspan font-size="9">G</tspan></text>
+            <text x="658" y="386" font-family="monospace" font-size="7" fill="#10B981">SLA: &gt;2G ✓</text>
+            <rect x="658" y="392" width="122" height="1" fill="#20283A"/>
+            <text x="658" y="410" font-family="monospace" font-size="8" fill="#706C64">Availability</text>
+            <text x="658" y="424" font-family="monospace" font-size="20" font-weight="300" fill="#C9A84C">99.6<tspan font-size="9">%</tspan></text>
+          </svg>
+        </div>
+        <div class="modal-screenshot-caption">NEXUS · 5G SLICE COMMERCE ENGINE · OPERATOR PORTAL · SIMULATED</div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Core Capabilities</div>
+        <div class="modal-feats-grid">
+          <div class="modal-feat">LLM intent engine: NL SLA description → S-NSSAI, 5QI, AMBR, GFBR parameters</div>
+          <div class="modal-feat">Isolation Forest SLA anomaly detection — sub-minute breach detection per slice</div>
+          <div class="modal-feat">TFT demand forecast — predicts load 1–72hr ahead, pre-provisions resources</div>
+          <div class="modal-feat">Contextual Bandit RL pricing — ARPU optimisation per slice tier</div>
+          <div class="modal-feat">CAMARA / Open Gateway compliant developer REST API marketplace</div>
+          <div class="modal-feat">B2B2X billing engine with usage-based and revenue-share models</div>
+          <div class="modal-feat">Open5GS / free5GC integration for demo; NEF API bridge for production operators</div>
+          <div class="modal-feat">URLLC · eMBB · mMTC all three 5G service types supported natively</div>
+        </div>
+      </div>
+      <div class="modal-market">
+        <div class="modal-market-label">Market Opportunity</div>
+        <div class="modal-market-text">5G network slicing is a $13.5B market by 2030 growing at 41.7% CAGR. 65 commercial slicing deployments are live globally (Ericsson Mobility Report 2025). The AI intent engine — natural language to 3GPP parameters — is the UX breakthrough no incumbent vendor has shipped. It reduces enterprise onboarding from weeks to minutes and is the core differentiator no telecom-agnostic vendor can replicate.</div>
+      </div>
+      <div class="modal-cta">
+        <button class="modal-cta-btn primary" onclick="showPage('contact');closeModal('slice')">Request a Demo</button>
+        <button class="modal-cta-btn secondary" onclick="closeModal('slice')">Back to Products</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Lattice — IoT Operations -->
+<div class="modal-overlay" id="modal-iot">
+  <div class="modal-box">
+    <div class="modal-close" onclick="closeModal('iot')">✕ Close</div>
+    <div class="modal-head">
+      <div class="modal-eyebrow" style="color:var(--teal-lt)">IoT · Smart Infrastructure · SaaS Platform</div>
+      <div class="modal-title">Lattice</div>
+      <div class="modal-subtitle">IoT Operations Intelligence — Chat-to-Fix any device fault in under 8 minutes. Predict failures 24–72 hours ahead.</div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="modal-section-label">The Problem</div>
+        <div class="modal-desc">Facility managers and NOC engineers work from entirely separate systems — siloed BMS consoles for HVAC, lighting, access control; SNMP trap floods for network devices. Neither system explains why a fault occurred or what to do. A 40–60 minute manual investigation per fault, hundreds of faults per day. Lattice unifies both device domains under one intelligent interface where operators resolve faults by chatting in plain English, and predictive models prevent failures before they occur.</div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Platform — Chat-to-Fix in Action</div>
+        <div class="modal-screenshot">
+          <svg viewBox="0 0 820 440" xmlns="http://www.w3.org/2000/svg" style="background:#07080F;display:block">
+            <rect width="820" height="34" fill="#161C2A"/>
+            <circle cx="18" cy="17" r="4.5" fill="#EF4444"/><circle cx="34" cy="17" r="4.5" fill="#F59E0B"/><circle cx="50" cy="17" r="4.5" fill="#10B981"/>
+            <text x="72" y="21" font-family="monospace" font-size="10" fill="#9E9A92">lattice.tasaar.com  ·  IoT Intelligence  ·  AIIMS Campus Operations</text>
+            <rect x="0" y="34" width="148" height="406" fill="#04040A"/>
+            <text x="14" y="60" font-family="monospace" font-size="9" fill="#1E8A6E" letter-spacing="1.5">LATTICE IoT</text>
+            <rect x="6" y="68" width="136" height="24" rx="2" fill="rgba(30,138,110,.1)"/><rect x="8" y="70" width="2" height="20" fill="#1E8A6E"/>
+            <text x="18" y="84" font-family="monospace" font-size="10" fill="#1E8A6E">Dashboard</text>
+            <text x="14" y="110" font-family="monospace" font-size="10" fill="#706C64">Floor Map</text>
+            <text x="14" y="130" font-family="monospace" font-size="10" fill="#706C64">Network Topo</text>
+            <text x="14" y="150" font-family="monospace" font-size="10" fill="#706C64">Chat-to-Fix</text>
+            <text x="14" y="170" font-family="monospace" font-size="10" fill="#706C64">Work Orders</text>
+            <text x="14" y="190" font-family="monospace" font-size="10" fill="#706C64">Energy</text>
+            <text x="14" y="220" font-family="monospace" font-size="9" fill="#20283A">──────────</text>
+            <text x="14" y="238" font-family="monospace" font-size="9" fill="#10B981">BMS Online: 5,420</text>
+            <text x="14" y="254" font-family="monospace" font-size="9" fill="#10B981">NMS Online: 3,102</text>
+            <text x="14" y="270" font-family="monospace" font-size="9" fill="#F59E0B">Faults: 31</text>
+            <text x="14" y="286" font-family="monospace" font-size="9" fill="#EF4444">Critical: 8</text>
+            <rect x="148" y="34" width="672" height="406" fill="#0C0E18"/>
+            <text x="164" y="58" font-family="sans-serif" font-size="13" font-weight="600" fill="#EAE6DF">Unified Operations — BMS + NMS Intelligence</text>
+            <!-- KPIs -->
+            <rect x="160" y="68" width="148" height="62" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="172" y="84" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1">ENERGY SAVED</text>
+            <text x="172" y="112" font-family="monospace" font-size="22" font-weight="300" fill="#1E8A6E">38.4<tspan font-size="10">%</tspan></text>
+            <rect x="316" y="68" width="148" height="62" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="328" y="84" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1">AVG MTTR</text>
+            <text x="328" y="112" font-family="monospace" font-size="22" font-weight="300" fill="#10B981">7.8<tspan font-size="10">min</tspan></text>
+            <rect x="472" y="68" width="148" height="62" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="484" y="84" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1">AI RESOLVED</text>
+            <text x="484" y="112" font-family="monospace" font-size="22" font-weight="300" fill="#C9A84C">73<tspan font-size="10">%</tspan></text>
+            <rect x="628" y="68" width="164" height="62" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="640" y="84" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1">SAVINGS MTD</text>
+            <text x="640" y="112" font-family="monospace" font-size="20" font-weight="300" fill="#E0C070">₹12.4L</text>
+            <!-- Chat to fix main -->
+            <text x="164" y="152" font-family="monospace" font-size="9" fill="#9E9A92" letter-spacing="1.5">CHAT-TO-FIX — 8 MINUTE AVERAGE RESOLUTION</text>
+            <rect x="160" y="160" width="432" height="260" rx="2" fill="#04040A" stroke="#1A2030" stroke-width="1"/>
+            <!-- User query bubble -->
+            <rect x="172" y="174" width="260" height="36" rx="2" fill="rgba(30,138,110,.07)" stroke="rgba(30,138,110,.2)" stroke-width="1"/>
+            <text x="182" y="188" font-family="monospace" font-size="9" fill="#9E9A92">Why is HVAC floor 3 consuming 23% more power</text>
+            <text x="182" y="201" font-family="monospace" font-size="9" fill="#9E9A92">than yesterday and what should I do?</text>
+            <text x="182" y="213" font-family="monospace" font-size="8" fill="#706C64">Facility Manager · 4m ago</text>
+            <!-- RAG retrieval indicator -->
+            <rect x="172" y="220" width="408" height="18" rx="2" fill="rgba(201,168,76,.05)" stroke="rgba(201,168,76,.1)" stroke-width="1"/>
+            <text x="182" y="233" font-family="monospace" font-size="8" fill="#706C64">RAG retrieved: AHU-3B sensor logs · maintenance history · SKF bearing guide · energy baseline · work order history</text>
+            <!-- AI response -->
+            <rect x="172" y="244" width="408" height="118" rx="2" fill="rgba(30,138,110,.06)" stroke="rgba(30,138,110,.15)" stroke-width="1"/>
+            <text x="182" y="260" font-family="monospace" font-size="9" fill="#1E8A6E">LATTICE AI</text>
+            <text x="182" y="276" font-family="monospace" font-size="8" fill="#9E9A92">Supply air damper actuator AHU-3B shows electrical</text>
+            <text x="182" y="290" font-family="monospace" font-size="8" fill="#9E9A92">resistance drift of +340Ω — consistent with early bearing</text>
+            <text x="182" y="304" font-family="monospace" font-size="8" fill="#9E9A92">wear. Accounts for the additional 2.1kW draw.</text>
+            <text x="182" y="318" font-family="monospace" font-size="8" fill="#9E9A92">Interim: reduce fan speed 15% in BAS (saves ~18%).</text>
+            <text x="182" y="332" font-family="monospace" font-size="8" fill="#9E9A92">Parts required: SKF 6205-2RS bearing kit ×2 units.</text>
+            <text x="182" y="346" font-family="monospace" font-size="8" fill="#1E8A6E">Work order WO-2847 created. Tech ETA: 23 minutes.</text>
+            <!-- Input row -->
+            <rect x="172" y="388" width="340" height="24" rx="2" fill="#161C2A" stroke="#20283A" stroke-width="1"/>
+            <text x="182" y="404" font-family="monospace" font-size="9" fill="#706C64">Ask about any device or fault...</text>
+            <rect x="520" y="388" width="40" height="24" rx="2" fill="#1E8A6E"/>
+            <text x="540" y="404" font-family="monospace" font-size="10" fill="#04040A" text-anchor="middle">→</text>
+            <!-- Predictive work orders panel -->
+            <text x="600" y="152" font-family="monospace" font-size="9" fill="#9E9A92" letter-spacing="1.5">PREDICTIVE QUEUE</text>
+            <rect x="596" y="160" width="196" height="260" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="608" y="180" font-family="monospace" font-size="8" fill="#706C64">LSTM · 24-72hr forecast</text>
+            <rect x="608" y="186" width="172" height="48" rx="2" fill="rgba(239,68,68,.06)" stroke="rgba(239,68,68,.2)" stroke-width="1"/>
+            <text x="618" y="200" font-family="monospace" font-size="8" fill="#EF4444">HVAC MOTOR — 24hr</text>
+            <text x="618" y="213" font-family="monospace" font-size="8" fill="#9E9A92">AHU-3B · Block A Floor 3</text>
+            <text x="618" y="226" font-family="monospace" font-size="7" fill="#706C64">87% failure probability</text>
+            <rect x="608" y="242" width="172" height="48" rx="2" fill="rgba(245,158,11,.06)" stroke="rgba(245,158,11,.2)" stroke-width="1"/>
+            <text x="618" y="256" font-family="monospace" font-size="8" fill="#F59E0B">UPS BATTERY — 48hr</text>
+            <text x="618" y="269" font-family="monospace" font-size="8" fill="#9E9A92">UPS-02 · Server Room</text>
+            <text x="618" y="282" font-family="monospace" font-size="7" fill="#706C64">72% failure probability</text>
+            <rect x="608" y="298" width="172" height="48" rx="2" fill="rgba(201,168,76,.05)" stroke="rgba(201,168,76,.15)" stroke-width="1"/>
+            <text x="618" y="312" font-family="monospace" font-size="8" fill="#C9A84C">LIFT BEARINGS — 72hr</text>
+            <text x="618" y="325" font-family="monospace" font-size="8" fill="#9E9A92">Elevator-B · Block B</text>
+            <text x="618" y="338" font-family="monospace" font-size="7" fill="#706C64">61% failure probability</text>
+            <text x="608" y="398" font-family="monospace" font-size="8" fill="#706C64">3 predictive WOs pending</text>
+            <text x="608" y="412" font-family="monospace" font-size="8" fill="#1E8A6E">Auto-order parts →</text>
+          </svg>
+        </div>
+        <div class="modal-screenshot-caption">LATTICE · IOT OPERATIONS INTELLIGENCE · CHAT-TO-FIX · SIMULATED</div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Core Capabilities</div>
+        <div class="modal-feats-grid">
+          <div class="modal-feat">Chat-to-Fix LLM + RAG — plain-English fault queries resolved in &lt;8 minutes average</div>
+          <div class="modal-feat">Isolation Forest anomaly detection per device class — 70% reduction in false positive alerts</div>
+          <div class="modal-feat">LSTM predictive maintenance — 87% precision, failure forecast 24–72hrs ahead</div>
+          <div class="modal-feat">GNN root cause analysis — traces cascade to single fault within 8 seconds</div>
+          <div class="modal-feat">Auto work order generation — CMMS integration (ServiceNow, Remedy, IBM Maximo)</div>
+          <div class="modal-feat">Protocol bridge: MQTT · SNMP · BACnet/IP · Modbus TCP · KNX · gRPC · REST</div>
+          <div class="modal-feat">Edge ML inference — sub-100ms local anomaly scoring, offline-resilient</div>
+          <div class="modal-feat">Mobile PWA — field technicians access Chat-to-Fix on-site from any device</div>
+        </div>
+      </div>
+      <div class="modal-market">
+        <div class="modal-market-label">Market Opportunity</div>
+        <div class="modal-market-text">AI in Smart Buildings reaches $477B by 2035 (CAGR 24.8%). No existing platform — AWS IoT, Azure IoT Hub, ThingsBoard, IBM Maximo — combines BMS + NMS telemetry with a RAG-powered Chat-to-Fix interface. This is a genuine and defensible product gap. Per-site onboarding in under 4 hours via automated device discovery. ROI within 6 months through maintenance cost reduction and energy savings tracked in-platform.</div>
+      </div>
+      <div class="modal-cta">
+        <button class="modal-cta-btn primary" onclick="showPage('contact');closeModal('iot')">Request a Demo</button>
+        <button class="modal-cta-btn secondary" onclick="closeModal('iot')">Back to Products</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Foresight — AI Range Detection -->
+<div class="modal-overlay" id="modal-range">
+  <div class="modal-box">
+    <div class="modal-close" onclick="closeModal('range')">✕ Close</div>
+    <div class="modal-head">
+      <div class="modal-eyebrow" style="color:var(--gold)">RAN · Predictive Operations · SaaS Platform</div>
+      <div class="modal-title">Foresight</div>
+      <div class="modal-subtitle">AI Range Detection &amp; Outage Prediction — predict cell site failures 24–72 hours before users notice</div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="modal-section-label">The Problem</div>
+        <div class="modal-desc">Telecom operators are reactive — they learn about coverage failures when users complain or when alarms fire after the damage is done. This platform inverts that model entirely. By fusing RAN telemetry, historical fault data, weather forecasts, terrain data, and IP session logs into a four-model ML ensemble, Foresight outputs a 0–100 outage risk score per cell site every hour — giving NOC engineers a 24–72 hour window to act before a single subscriber drops a call.</div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Platform — Live Risk Heatmap &amp; NOC View</div>
+        <div class="modal-screenshot">
+          <svg viewBox="0 0 820 440" xmlns="http://www.w3.org/2000/svg" style="background:#07080F;display:block">
+            <rect width="820" height="34" fill="#161C2A"/>
+            <circle cx="18" cy="17" r="4.5" fill="#EF4444"/><circle cx="34" cy="17" r="4.5" fill="#F59E0B"/><circle cx="50" cy="17" r="4.5" fill="#10B981"/>
+            <text x="72" y="21" font-family="monospace" font-size="10" fill="#9E9A92">foresight.tasaar.com  ·  AI Range Detection  ·  Coverage Risk Live</text>
+            <rect x="0" y="34" width="148" height="406" fill="#04040A"/>
+            <text x="14" y="60" font-family="monospace" font-size="9" fill="#C9A84C" letter-spacing="1.5">FORESIGHT</text>
+            <rect x="6" y="68" width="136" height="24" rx="2" fill="rgba(201,168,76,.1)"/><rect x="8" y="70" width="2" height="20" fill="#C9A84C"/>
+            <text x="18" y="84" font-family="monospace" font-size="10" fill="#C9A84C">Risk Heatmap</text>
+            <text x="14" y="110" font-family="monospace" font-size="10" fill="#706C64">Cell Timeline</text>
+            <text x="14" y="130" font-family="monospace" font-size="10" fill="#706C64">72hr Forecast</text>
+            <text x="14" y="150" font-family="monospace" font-size="10" fill="#706C64">Actions</text>
+            <text x="14" y="170" font-family="monospace" font-size="10" fill="#706C64">NOC Assistant</text>
+            <text x="14" y="200" font-family="monospace" font-size="9" fill="#20283A">──────────</text>
+            <text x="14" y="218" font-family="monospace" font-size="9" fill="#10B981">Healthy: 2,811</text>
+            <text x="14" y="234" font-family="monospace" font-size="9" fill="#F59E0B">Watch: 28</text>
+            <text x="14" y="250" font-family="monospace" font-size="9" fill="#EF4444">High Risk: 8</text>
+            <rect x="148" y="34" width="672" height="406" fill="#0C0E18"/>
+            <text x="164" y="58" font-family="sans-serif" font-size="13" font-weight="600" fill="#EAE6DF">Coverage Risk — Maharashtra Network · 24hr Prediction</text>
+            <!-- Geo heatmap representation -->
+            <rect x="160" y="66" width="340" height="220" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <!-- Grid lines -->
+            <line x1="160" y1="122" x2="500" y2="122" stroke="#1A2030" stroke-width="0.5"/>
+            <line x1="160" y1="178" x2="500" y2="178" stroke="#1A2030" stroke-width="0.5"/>
+            <line x1="240" y1="66" x2="240" y2="286" stroke="#1A2030" stroke-width="0.5"/>
+            <line x1="320" y1="66" x2="320" y2="286" stroke="#1A2030" stroke-width="0.5"/>
+            <line x1="420" y1="66" x2="420" y2="286" stroke="#1A2030" stroke-width="0.5"/>
+            <!-- Cell circles - green healthy -->
+            <circle cx="200" cy="94" r="14" fill="rgba(16,185,129,.25)" stroke="rgba(16,185,129,.4)" stroke-width="1"/>
+            <text x="200" y="98" font-family="monospace" font-size="8" fill="#10B981" text-anchor="middle">22%</text>
+            <circle cx="270" cy="94" r="14" fill="rgba(16,185,129,.25)" stroke="rgba(16,185,129,.4)" stroke-width="1"/>
+            <text x="270" y="98" font-family="monospace" font-size="8" fill="#10B981" text-anchor="middle">18%</text>
+            <circle cx="360" cy="94" r="14" fill="rgba(16,185,129,.25)" stroke="rgba(16,185,129,.4)" stroke-width="1"/>
+            <text x="360" y="98" font-family="monospace" font-size="8" fill="#10B981" text-anchor="middle">31%</text>
+            <circle cx="460" cy="94" r="14" fill="rgba(245,158,11,.3)" stroke="rgba(245,158,11,.5)" stroke-width="1"/>
+            <text x="460" y="98" font-family="monospace" font-size="8" fill="#F59E0B" text-anchor="middle">52%</text>
+            <!-- Yellow warning -->
+            <circle cx="200" cy="148" r="16" fill="rgba(245,158,11,.3)" stroke="rgba(245,158,11,.6)" stroke-width="1"/>
+            <text x="200" y="152" font-family="monospace" font-size="8" fill="#F59E0B" text-anchor="middle">67%</text>
+            <circle cx="270" cy="148" r="14" fill="rgba(16,185,129,.2)" stroke="rgba(16,185,129,.35)" stroke-width="1"/>
+            <text x="270" y="152" font-family="monospace" font-size="8" fill="#10B981" text-anchor="middle">28%</text>
+            <!-- RED high risk -->
+            <circle cx="360" cy="148" r="20" fill="rgba(239,68,68,.35)" stroke="rgba(239,68,68,.7)" stroke-width="1.5"/>
+            <text x="360" y="152" font-family="monospace" font-size="8" fill="#EF4444" text-anchor="middle">91%</text>
+            <circle cx="460" cy="148" r="14" fill="rgba(239,68,68,.25)" stroke="rgba(239,68,68,.5)" stroke-width="1"/>
+            <text x="460" y="152" font-family="monospace" font-size="8" fill="#EF4444" text-anchor="middle">78%</text>
+            <!-- more rows -->
+            <circle cx="200" cy="206" r="14" fill="rgba(16,185,129,.2)" stroke="rgba(16,185,129,.35)" stroke-width="1"/>
+            <text x="200" y="210" font-family="monospace" font-size="8" fill="#10B981" text-anchor="middle">15%</text>
+            <circle cx="270" cy="206" r="16" fill="rgba(245,158,11,.25)" stroke="rgba(245,158,11,.5)" stroke-width="1"/>
+            <text x="270" y="210" font-family="monospace" font-size="8" fill="#F59E0B" text-anchor="middle">44%</text>
+            <circle cx="360" cy="206" r="14" fill="rgba(16,185,129,.2)" stroke="rgba(16,185,129,.35)" stroke-width="1"/>
+            <text x="360" y="210" font-family="monospace" font-size="8" fill="#10B981" text-anchor="middle">26%</text>
+            <circle cx="460" cy="206" r="14" fill="rgba(16,185,129,.2)" stroke="rgba(16,185,129,.35)" stroke-width="1"/>
+            <text x="460" y="210" font-family="monospace" font-size="8" fill="#10B981" text-anchor="middle">19%</text>
+            <circle cx="200" cy="262" r="14" fill="rgba(239,68,68,.25)" stroke="rgba(239,68,68,.5)" stroke-width="1"/>
+            <text x="200" y="266" font-family="monospace" font-size="8" fill="#EF4444" text-anchor="middle">83%</text>
+            <circle cx="270" cy="262" r="14" fill="rgba(16,185,129,.2)" stroke="rgba(16,185,129,.35)" stroke-width="1"/>
+            <text x="270" y="266" font-family="monospace" font-size="8" fill="#10B981" text-anchor="middle">21%</text>
+            <!-- Legend -->
+            <circle cx="168" cy="300" r="5" fill="rgba(239,68,68,.5)"/><text x="178" y="304" font-family="monospace" font-size="8" fill="#706C64">High Risk (&gt;70%)</text>
+            <circle cx="248" cy="300" r="5" fill="rgba(245,158,11,.4)"/><text x="258" y="304" font-family="monospace" font-size="8" fill="#706C64">Watch (30-70%)</text>
+            <circle cx="328" cy="300" r="5" fill="rgba(16,185,129,.3)"/><text x="338" y="304" font-family="monospace" font-size="8" fill="#706C64">Healthy (&lt;30%)</text>
+            <!-- SHAP panel -->
+            <text x="510" y="82" font-family="monospace" font-size="9" fill="#9E9A92" letter-spacing="1.5">CELL RISK DETAIL</text>
+            <rect x="506" y="90" width="306" height="196" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="518" y="110" font-family="monospace" font-size="9" fill="#EF4444">Cell Mumbai-N-07  ·  Risk: 91%  HIGH</text>
+            <text x="518" y="126" font-family="monospace" font-size="8" fill="#706C64">SHAP — Top Contributing Factors</text>
+            <rect x="518" y="132" width="80" height="10" rx="1" fill="rgba(239,68,68,.5)"/>
+            <text x="604" y="142" font-family="monospace" font-size="8" fill="#9E9A92">42%  PRB util 94%</text>
+            <rect x="518" y="148" width="56" height="10" rx="1" fill="rgba(245,158,11,.5)"/>
+            <text x="578" y="158" font-family="monospace" font-size="8" fill="#9E9A92">31%  Rain fade -8dB</text>
+            <rect x="518" y="164" width="34" height="10" rx="1" fill="rgba(201,168,76,.4)"/>
+            <text x="556" y="174" font-family="monospace" font-size="8" fill="#9E9A92">19%  HO fail rate up</text>
+            <rect x="518" y="182" width="14" height="10" rx="1" fill="rgba(100,100,100,.3)"/>
+            <text x="536" y="192" font-family="monospace" font-size="8" fill="#9E9A92">8%  Other signals</text>
+            <rect x="518" y="200" width="274" height="44" rx="2" fill="rgba(201,168,76,.06)" stroke="rgba(201,168,76,.15)" stroke-width="1"/>
+            <text x="528" y="214" font-family="monospace" font-size="9" fill="#C9A84C">FORESIGHT AI</text>
+            <text x="528" y="228" font-family="monospace" font-size="8" fill="#9E9A92">Heavy PRB load + rain fade forecast in 4hrs</text>
+            <text x="528" y="240" font-family="monospace" font-size="8" fill="#9E9A92">→ predicted 8dB drop. Reduce tilt 2 degrees.</text>
+            <!-- 72hr timeline -->
+            <text x="510" y="308" font-family="monospace" font-size="9" fill="#9E9A92" letter-spacing="1.5">72-HOUR RISK FORECAST</text>
+            <rect x="506" y="316" width="306" height="104" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="518" y="334" font-family="monospace" font-size="8" fill="#706C64">Risk score · Cell Mumbai-N-07</text>
+            <!-- Risk line chart -->
+            <polyline points="520,400 540,395 560,388 580,376 600,362 620,350 640,340 660,328 680,318 700,308 720,308 740,302 760,298 780,294 800,286" stroke="rgba(239,68,68,.7)" stroke-width="2" fill="none"/>
+            <line x1="520" y1="380" x2="800" y2="380" stroke="#20283A" stroke-width="0.5" stroke-dasharray="2,4"/>
+            <text x="802" y="384" font-family="monospace" font-size="7" fill="#F59E0B">70%</text>
+            <text x="520" y="412" font-family="monospace" font-size="7" fill="#706C64">Now</text>
+            <text x="654" y="412" font-family="monospace" font-size="7" fill="#706C64">+36hr</text>
+            <text x="786" y="412" font-family="monospace" font-size="7" fill="#706C64">+72hr</text>
+          </svg>
+        </div>
+        <div class="modal-screenshot-caption">FORESIGHT · AI RANGE DETECTION · CELL RISK HEATMAP · SIMULATED</div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Core Capabilities</div>
+        <div class="modal-feats-grid">
+          <div class="modal-feat">LSTM/TFT time-series model — learns per-cell load patterns 1–72hr ahead</div>
+          <div class="modal-feat">GNN cascade model — propagates risk to neighbouring cells before failure</div>
+          <div class="modal-feat">Spatial RF propagation model — XGBoost + DEM terrain for coverage hole prediction</div>
+          <div class="modal-feat">Isolation Forest — sub-minute live KPI anomaly detection per cell</div>
+          <div class="modal-feat">SHAP explainability — top-3 contributing factors per cell per hour</div>
+          <div class="modal-feat">LLM NOC assistant — plain-English risk narration and intervention guidance</div>
+          <div class="modal-feat">Deploys as O-RAN compliant xApp on Near-RT RIC — zero network changes</div>
+          <div class="modal-feat">Cross-platform: feeds Nexus (slice reallocation triggers) and Lattice (device alerts)</div>
+        </div>
+      </div>
+      <div class="modal-market">
+        <div class="modal-market-label">Market Opportunity</div>
+        <div class="modal-market-text">AI in Telecom reaches $58.7B by 2032 at 43.3% CAGR. The NMS + IPLMS domain expertise embedded in Foresight's feature engineering is the competitive moat — it is the difference between 65% model accuracy (generic ML teams) and 90%+ in production. McKinsey reports AI-driven network operations reduces total network OPEX by 15–30%; Foresight directly enables that reduction through predictive rather than reactive maintenance.</div>
+      </div>
+      <div class="modal-cta">
+        <button class="modal-cta-btn primary" onclick="showPage('contact');closeModal('range')">Request a Demo</button>
+        <button class="modal-cta-btn secondary" onclick="closeModal('range')">Back to Products</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: AURA — BI Platform -->
+<div class="modal-overlay" id="modal-aura">
+  <div class="modal-box">
+    <div class="modal-close" onclick="closeModal('aura')">✕ Close</div>
+    <div class="modal-head">
+      <div class="modal-eyebrow" style="color:var(--crim-lt)">5G · Executive Intelligence · Enterprise SaaS</div>
+      <div class="modal-title">AURA</div>
+      <div class="modal-subtitle">AI Unified Real-time Analytics for 5G — turns network data into executive decisions on revenue, subscribers, SLA, and investment</div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="modal-section-label">The Problem</div>
+        <div class="modal-desc">Telecom operators sit on the richest data estates in enterprise — 5G KPI telemetry, CDR records for hundreds of millions of subscribers, SLA logs, financial data — yet almost none of it reaches the executives who need it. CFOs make capital allocation decisions from monthly reports. Network directors argue for infrastructure investment without quantified revenue upside. AURA eliminates this gap with a lakehouse BI platform that answers any business question from live network data in under 10 seconds.</div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Platform — Executive Revenue Intelligence</div>
+        <div class="modal-screenshot">
+          <svg viewBox="0 0 820 440" xmlns="http://www.w3.org/2000/svg" style="background:#07080F;display:block">
+            <rect width="820" height="34" fill="#161C2A"/>
+            <circle cx="18" cy="17" r="4.5" fill="#EF4444"/><circle cx="34" cy="17" r="4.5" fill="#F59E0B"/><circle cx="50" cy="17" r="4.5" fill="#10B981"/>
+            <text x="72" y="21" font-family="monospace" font-size="10" fill="#9E9A92">aura.tasaar.com  ·  AI Analytics for 5G  ·  Executive Dashboard</text>
+            <rect x="0" y="34" width="148" height="406" fill="#04040A"/>
+            <text x="14" y="60" font-family="monospace" font-size="9" fill="#D42848" letter-spacing="1.5">AURA</text>
+            <rect x="6" y="68" width="136" height="24" rx="2" fill="rgba(212,40,72,.1)"/><rect x="8" y="70" width="2" height="20" fill="#D42848"/>
+            <text x="18" y="84" font-family="monospace" font-size="10" fill="#D42848">Revenue Impact</text>
+            <text x="14" y="110" font-family="monospace" font-size="10" fill="#706C64">Subscribers</text>
+            <text x="14" y="130" font-family="monospace" font-size="10" fill="#706C64">Executive Chat</text>
+            <text x="14" y="150" font-family="monospace" font-size="10" fill="#706C64">SLA Reporting</text>
+            <text x="14" y="170" font-family="monospace" font-size="10" fill="#706C64">Capacity ROI</text>
+            <text x="14" y="190" font-family="monospace" font-size="10" fill="#706C64">Self-Serve</text>
+            <rect x="148" y="34" width="672" height="406" fill="#0C0E18"/>
+            <text x="164" y="58" font-family="sans-serif" font-size="13" font-weight="600" fill="#EAE6DF">Revenue Impact Dashboard — Live</text>
+            <!-- KPIs -->
+            <rect x="160" y="68" width="200" height="62" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="172" y="84" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1">REVENUE AT RISK / HR</text>
+            <text x="172" y="112" font-family="monospace" font-size="22" font-weight="300" fill="#EF4444">₹8.4L</text>
+            <rect x="368" y="68" width="200" height="62" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="380" y="84" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1">AT-RISK SUBSCRIBERS</text>
+            <text x="380" y="112" font-family="monospace" font-size="22" font-weight="300" fill="#F59E0B">340K</text>
+            <rect x="576" y="68" width="196" height="62" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="588" y="84" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1">CHURN PROBABILITY</text>
+            <text x="588" y="112" font-family="monospace" font-size="22" font-weight="300" fill="#C9A84C">12.4<tspan font-size="10">%</tspan></text>
+            <!-- Executive NL Chat panel -->
+            <text x="164" y="152" font-family="monospace" font-size="9" fill="#9E9A92" letter-spacing="1.5">EXECUTIVE NL CHAT — GOLD LAYER GROUNDED</text>
+            <rect x="160" y="160" width="340" height="260" rx="2" fill="#04040A" stroke="#1A2030" stroke-width="1"/>
+            <rect x="172" y="174" width="280" height="36" rx="2" fill="rgba(212,40,72,.06)" stroke="rgba(212,40,72,.15)" stroke-width="1"/>
+            <text x="182" y="188" font-family="monospace" font-size="9" fill="#9E9A92">What did our network quality cost us in churn</text>
+            <text x="182" y="201" font-family="monospace" font-size="9" fill="#9E9A92">last quarter broken down by region?</text>
+            <text x="182" y="213" font-family="monospace" font-size="8" fill="#706C64">CFO · 2m ago</text>
+            <!-- AI response -->
+            <rect x="172" y="220" width="312" height="140" rx="2" fill="rgba(212,40,72,.05)" stroke="rgba(212,40,72,.12)" stroke-width="1"/>
+            <text x="182" y="236" font-family="monospace" font-size="9" fill="#D42848">AURA AI  ·  Gold Layer · Q3 2025</text>
+            <text x="182" y="252" font-family="monospace" font-size="8" fill="#9E9A92">Churn-attributable revenue loss Q3: ₹24.6Cr.</text>
+            <text x="182" y="266" font-family="monospace" font-size="8" fill="#9E9A92">Top 3 regions by impact:</text>
+            <text x="182" y="280" font-family="monospace" font-size="8" fill="#EF4444">  Mumbai Metro — ₹9.2Cr (PRB congestion)</text>
+            <text x="182" y="294" font-family="monospace" font-size="8" fill="#F59E0B">  Pune Cluster — ₹6.8Cr (coverage gaps)</text>
+            <text x="182" y="308" font-family="monospace" font-size="8" fill="#C9A84C">  Nashik Rural — ₹4.1Cr (RSRP degradation)</text>
+            <text x="182" y="322" font-family="monospace" font-size="8" fill="#9E9A92">Causal model confidence: 87%.</text>
+            <text x="182" y="336" font-family="monospace" font-size="8" fill="#D42848">Export to PPT → or open Capacity ROI?</text>
+            <rect x="172" y="384" width="244" height="24" rx="2" fill="#161C2A" stroke="#20283A" stroke-width="1"/>
+            <text x="182" y="400" font-family="monospace" font-size="9" fill="#706C64">Ask any business question...</text>
+            <rect x="424" y="384" width="40" height="24" rx="2" fill="#D42848"/>
+            <text x="444" y="400" font-family="monospace" font-size="10" fill="#fff" text-anchor="middle">→</text>
+            <!-- Churn heatmap -->
+            <text x="510" y="152" font-family="monospace" font-size="9" fill="#9E9A92" letter-spacing="1.5">CHURN RISK — REGIONAL</text>
+            <rect x="506" y="160" width="306" height="260" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <!-- Simplified churn chart -->
+            <text x="518" y="180" font-family="monospace" font-size="8" fill="#706C64">Region  ·  ARPU Risk  ·  Churn%</text>
+            <rect x="518" y="186" width="282" height="1" fill="#20283A"/>
+            <text x="518" y="204" font-family="monospace" font-size="9" fill="#9E9A92">Mumbai Metro</text>
+            <rect x="626" y="196" width="80" height="10" rx="1" fill="rgba(239,68,68,.5)"/>
+            <text x="714" y="206" font-family="monospace" font-size="8" fill="#EF4444" text-anchor="end">16.2%</text>
+            <text x="518" y="224" font-family="monospace" font-size="9" fill="#9E9A92">Pune Cluster</text>
+            <rect x="626" y="216" width="60" height="10" rx="1" fill="rgba(245,158,11,.5)"/>
+            <text x="714" y="226" font-family="monospace" font-size="8" fill="#F59E0B" text-anchor="end">12.4%</text>
+            <text x="518" y="244" font-family="monospace" font-size="9" fill="#9E9A92">Nashik Rural</text>
+            <rect x="626" y="236" width="48" height="10" rx="1" fill="rgba(245,158,11,.4)"/>
+            <text x="714" y="246" font-family="monospace" font-size="8" fill="#F59E0B" text-anchor="end">9.8%</text>
+            <text x="518" y="264" font-family="monospace" font-size="9" fill="#9E9A92">Aurangabad</text>
+            <rect x="626" y="256" width="28" height="10" rx="1" fill="rgba(16,185,129,.4)"/>
+            <text x="714" y="266" font-family="monospace" font-size="8" fill="#10B981" text-anchor="end">5.1%</text>
+            <text x="518" y="284" font-family="monospace" font-size="9" fill="#9E9A92">Solapur</text>
+            <rect x="626" y="276" width="20" height="10" rx="1" fill="rgba(16,185,129,.3)"/>
+            <text x="714" y="286" font-family="monospace" font-size="8" fill="#10B981" text-anchor="end">3.8%</text>
+            <rect x="518" y="298" width="282" height="1" fill="#20283A"/>
+            <text x="518" y="318" font-family="monospace" font-size="8" fill="#706C64">Capacity ROI Planner</text>
+            <text x="518" y="334" font-family="monospace" font-size="8" fill="#9E9A92">Mumbai Metro · 40 new cells · ₹200Cr</text>
+            <text x="518" y="348" font-family="monospace" font-size="8" fill="#10B981">24-month NPV: ₹+84Cr  ·  Payback: 18mo</text>
+            <text x="518" y="362" font-family="monospace" font-size="8" fill="#9E9A92">Monte Carlo: 10,000 scenarios · p75 outcome</text>
+            <rect x="518" y="372" width="130" height="22" rx="2" fill="rgba(212,40,72,.12)" stroke="rgba(212,40,72,.3)" stroke-width="1"/>
+            <text x="583" y="387" font-family="monospace" font-size="8" fill="#D42848" text-anchor="middle">Export Board PDF →</text>
+          </svg>
+        </div>
+        <div class="modal-screenshot-caption">AURA · AI ANALYTICS FOR 5G · EXECUTIVE REVENUE DASHBOARD · SIMULATED</div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Core Capabilities</div>
+        <div class="modal-feats-grid">
+          <div class="modal-feat">XGBoost + LSTM churn prediction — per-subscriber ARPU-at-risk scoring, refreshed 4hr</div>
+          <div class="modal-feat">Temporal Fusion Transformer ARPU forecast — 30/90/365-day with confidence intervals</div>
+          <div class="modal-feat">Causal ML revenue attribution — quantifies rupee cost of network quality events</div>
+          <div class="modal-feat">Monte Carlo capacity ROI — 10,000 demand scenarios, board-ready NPV output</div>
+          <div class="modal-feat">RAG-grounded executive NL chat — any business question answered from live Gold layer</div>
+          <div class="modal-feat">SLA financial reporting — auto-generates TRAI-compliant compliance evidence PDFs</div>
+          <div class="modal-feat">Delta Lake lakehouse — Bronze/Silver/Gold, 5-minute refresh, petabyte-scale validated</div>
+          <div class="modal-feat">White-label React + ECharts + Superset — zero Microsoft or Google BI dependency</div>
+        </div>
+      </div>
+      <div class="modal-market">
+        <div class="modal-market-label">Market Opportunity</div>
+        <div class="modal-market-text">$132B Next-Gen OSS/BSS market by 2030. $58.7B AI in Telecom by 2032 at 43.3% CAGR. AURA's positioning at the intersection of both is the rare product that answers both the CFO's question and the CTO's — from the same data platform. T-Mobile ($600M+ Databricks investment) and Tata Play Fiber (25-source consolidation) prove the market demand. AURA is the deployable product version — available to any operator regardless of internal engineering capability.</div>
+      </div>
+      <div class="modal-cta">
+        <button class="modal-cta-btn primary" onclick="showPage('contact');closeModal('aura')">Request a Demo</button>
+        <button class="modal-cta-btn secondary" onclick="closeModal('aura')">Back to Products</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Aegis — AI SIEM -->
+<div class="modal-overlay" id="modal-siem">
+  <div class="modal-box">
+    <div class="modal-close" onclick="closeModal('siem')">✕ Close</div>
+    <div class="modal-head">
+      <div class="modal-eyebrow" style="color:var(--crim-lt)">Telecom · Cybersecurity · SIEM Platform</div>
+      <div class="modal-title">Aegis</div>
+      <div class="modal-subtitle">AI-Driven SIEM — DNS intelligence, 6-model threat detection, autonomous mitigation in &lt;60 seconds, forensic console for law enforcement</div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="modal-section-label">The Problem</div>
+        <div class="modal-desc">Telecom operators are the first line of defence against cyberattacks, fraud, and criminal activity on their networks — every DNS query traverses their infrastructure. Yet most rely on legacy SIEM tools that generate thousands of undifferentiated alerts, require manual correlation by scarce analysts, and provide no structured mechanism for investigators to search subscriber DNS history. Aegis provides the full stack: passive DNS intelligence, six AI detection models, autonomous threat mitigation, and a court-admissible forensic investigation console — built specifically for the telecom operator context and compliant with CERT-In, TRAI, and DPDP Act 2023 requirements.</div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Platform — SOC Threat Dashboard &amp; Forensic Console</div>
+        <div class="modal-screenshot">
+          <svg viewBox="0 0 820 440" xmlns="http://www.w3.org/2000/svg" style="background:#07080F;display:block">
+            <rect width="820" height="34" fill="#161C2A"/>
+            <circle cx="18" cy="17" r="4.5" fill="#EF4444"/><circle cx="34" cy="17" r="4.5" fill="#F59E0B"/><circle cx="50" cy="17" r="4.5" fill="#10B981"/>
+            <text x="72" y="21" font-family="monospace" font-size="10" fill="#9E9A92">aegis.tasaar.com  ·  AI-Driven SIEM  ·  SOC Dashboard · Live</text>
+            <rect x="0" y="34" width="148" height="406" fill="#04040A"/>
+            <text x="14" y="60" font-family="monospace" font-size="9" fill="#D42848" letter-spacing="1.5">AEGIS SIEM</text>
+            <rect x="6" y="68" width="136" height="24" rx="2" fill="rgba(212,40,72,.1)"/><rect x="8" y="70" width="2" height="20" fill="#D42848"/>
+            <text x="18" y="84" font-family="monospace" font-size="10" fill="#D42848">SOC Live</text>
+            <text x="14" y="110" font-family="monospace" font-size="10" fill="#706C64">DNS Forensics</text>
+            <text x="14" y="130" font-family="monospace" font-size="10" fill="#706C64">Threat Hunt</text>
+            <text x="14" y="150" font-family="monospace" font-size="10" fill="#706C64">AI Models</text>
+            <text x="14" y="170" font-family="monospace" font-size="10" fill="#706C64">Mitigation</text>
+            <text x="14" y="190" font-family="monospace" font-size="10" fill="#706C64">Evidence</text>
+            <text x="14" y="220" font-family="monospace" font-size="9" fill="#20283A">──────────</text>
+            <text x="14" y="238" font-family="monospace" font-size="9" fill="#706C64">DNS Queries/day</text>
+            <text x="14" y="252" font-family="monospace" font-size="9" fill="#9E9A92">2.1B</text>
+            <text x="14" y="270" font-family="monospace" font-size="9" fill="#EF4444">Threats Today: 1,247</text>
+            <text x="14" y="286" font-family="monospace" font-size="9" fill="#10B981">Blocked: 1,193</text>
+            <text x="14" y="302" font-family="monospace" font-size="9" fill="#F59E0B">Under Review: 54</text>
+            <rect x="148" y="34" width="672" height="406" fill="#0C0E18"/>
+            <text x="164" y="58" font-family="sans-serif" font-size="13" font-weight="600" fill="#EAE6DF">SOC — Live Threat Intelligence · Auto-Mitigation Active</text>
+            <!-- KPIs -->
+            <rect x="160" y="68" width="148" height="62" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="172" y="84" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1">DNS TODAY</text>
+            <text x="172" y="114" font-family="monospace" font-size="24" font-weight="300" fill="#E0C070">2.1B</text>
+            <rect x="316" y="68" width="148" height="62" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="328" y="84" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1">THREATS BLOCKED</text>
+            <text x="328" y="114" font-family="monospace" font-size="24" font-weight="300" fill="#EF4444">1,247</text>
+            <rect x="472" y="68" width="148" height="62" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="484" y="84" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1">MTTR MITIGATE</text>
+            <text x="484" y="114" font-family="monospace" font-size="24" font-weight="300" fill="#10B981">28<tspan font-size="11">sec</tspan></text>
+            <rect x="628" y="68" width="164" height="62" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="640" y="84" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1">DETECT ACCURACY</text>
+            <text x="640" y="114" font-family="monospace" font-size="24" font-weight="300" fill="#C9A84C">98.7<tspan font-size="11">%</tspan></text>
+            <!-- Live threat feed -->
+            <text x="164" y="152" font-family="monospace" font-size="9" fill="#9E9A92" letter-spacing="1.5">LIVE THREAT FEED — 6 AI MODELS ACTIVE</text>
+            <rect x="160" y="160" width="432" height="254" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <rect x="160" y="160" width="432" height="26" fill="#161C2A"/>
+            <text x="172" y="177" font-family="monospace" font-size="8" fill="#706C64" letter-spacing="1">TIME · MSISDN · MODEL · THREAT · SCORE · ACTION</text>
+            <rect x="160" y="186" width="432" height="28" fill="rgba(239,68,68,.06)"/>
+            <text x="172" y="203" font-family="monospace" font-size="8" fill="#706C64">14:31:02</text>
+            <text x="226" y="203" font-family="monospace" font-size="8" fill="#9E9A92">+91-98765-XXXXX</text>
+            <text x="336" y="203" font-family="monospace" font-size="8" fill="#C9A84C">LSTM+CNN</text>
+            <text x="404" y="203" font-family="monospace" font-size="8" fill="#EF4444">DGA Malware</text>
+            <text x="492" y="203" font-family="monospace" font-size="8" fill="#EF4444">0.97</text>
+            <text x="526" y="203" font-family="monospace" font-size="8" fill="#EF4444">SINKHOLED</text>
+            <rect x="160" y="216" width="432" height="28" fill="rgba(239,68,68,.04)"/>
+            <text x="172" y="233" font-family="monospace" font-size="8" fill="#706C64">14:29:48</text>
+            <text x="226" y="233" font-family="monospace" font-size="8" fill="#9E9A92">+91-91234-XXXXX</text>
+            <text x="336" y="233" font-family="monospace" font-size="8" fill="#C9A84C">XGBoost</text>
+            <text x="404" y="233" font-family="monospace" font-size="8" fill="#EF4444">SIM Swap Fraud</text>
+            <text x="492" y="233" font-family="monospace" font-size="8" fill="#EF4444">0.94</text>
+            <text x="526" y="233" font-family="monospace" font-size="8" fill="#EF4444">QUARANTINED</text>
+            <rect x="160" y="246" width="432" height="28" fill="rgba(245,158,11,.04)"/>
+            <text x="172" y="263" font-family="monospace" font-size="8" fill="#706C64">14:27:15</text>
+            <text x="226" y="263" font-family="monospace" font-size="8" fill="#9E9A92">+91-77890-XXXXX</text>
+            <text x="336" y="263" font-family="monospace" font-size="8" fill="#C9A84C">Autoencoder</text>
+            <text x="404" y="263" font-family="monospace" font-size="8" fill="#F59E0B">DNS Tunnelling</text>
+            <text x="492" y="263" font-family="monospace" font-size="8" fill="#F59E0B">0.84</text>
+            <text x="526" y="263" font-family="monospace" font-size="8" fill="#F59E0B">FLAGGED</text>
+            <rect x="160" y="276" width="432" height="28" fill="rgba(239,68,68,.03)"/>
+            <text x="172" y="293" font-family="monospace" font-size="8" fill="#706C64">14:25:52</text>
+            <text x="226" y="293" font-family="monospace" font-size="8" fill="#9E9A92">+91-66001-XXXXX</text>
+            <text x="336" y="293" font-family="monospace" font-size="8" fill="#C9A84C">GNN Threat</text>
+            <text x="404" y="293" font-family="monospace" font-size="8" fill="#EF4444">C2 Infrastructure</text>
+            <text x="492" y="293" font-family="monospace" font-size="8" fill="#EF4444">0.91</text>
+            <text x="526" y="293" font-family="monospace" font-size="8" fill="#EF4444">FW RULE PUSHED</text>
+            <!-- LLM SOC Explain -->
+            <text x="164" y="328" font-family="monospace" font-size="8" fill="#9E9A92" letter-spacing="1.5">LLM SOC ASSISTANT</text>
+            <rect x="160" y="336" width="432" height="80" rx="2" fill="rgba(212,40,72,.05)" stroke="rgba(212,40,72,.12)" stroke-width="1"/>
+            <text x="172" y="352" font-family="monospace" font-size="9" fill="#D42848">AEGIS AI  ·  Alert #1247 Explanation</text>
+            <text x="172" y="368" font-family="monospace" font-size="8" fill="#9E9A92">DGA malware detected: character entropy 4.2 bits (vs normal 2.8), LSTM beacon</text>
+            <text x="172" y="382" font-family="monospace" font-size="8" fill="#9E9A92">pattern every 303s matches Emotet C2. MITRE ATT&amp;CK T1568.002. GNN linked to</text>
+            <text x="172" y="396" font-family="monospace" font-size="8" fill="#9E9A92">47 related subscribers. DNS sinkholed in 28s. Evidence package ready for CERT-In.</text>
+            <!-- Forensic panel -->
+            <text x="602" y="152" font-family="monospace" font-size="9" fill="#9E9A92" letter-spacing="1.5">FORENSIC CONSOLE</text>
+            <rect x="598" y="160" width="214" height="254" rx="2" fill="#101420" stroke="#1A2030" stroke-width="1"/>
+            <text x="610" y="178" font-family="monospace" font-size="8" fill="#706C64">7-YEAR DNS RETENTION</text>
+            <rect x="610" y="184" width="190" height="24" rx="2" fill="#161C2A" stroke="#20283A" stroke-width="1"/>
+            <text x="618" y="200" font-family="monospace" font-size="8" fill="#706C64">+91-98765-XXXXX  ·  Jan-Mar 2025</text>
+            <rect x="790" y="184" width="8" height="24" rx="1" fill="#D42848"/>
+            <text x="610" y="228" font-family="monospace" font-size="8" fill="#706C64">Results: 8,420 DNS queries found</text>
+            <text x="610" y="244" font-family="monospace" font-size="8" fill="#EF4444">malware.ru: 47 queries</text>
+            <text x="610" y="258" font-family="monospace" font-size="8" fill="#EF4444">c2-infra.net: 312 queries</text>
+            <text x="610" y="272" font-family="monospace" font-size="8" fill="#F59E0B">vpn-proxy.io: 89 queries</text>
+            <rect x="610" y="282" width="190" height="1" fill="#20283A"/>
+            <text x="610" y="300" font-family="monospace" font-size="8" fill="#706C64">CHAIN OF CUSTODY</text>
+            <text x="610" y="315" font-family="monospace" font-size="8" fill="#9E9A92">Queried by: SOC Analyst</text>
+            <text x="610" y="329" font-family="monospace" font-size="8" fill="#9E9A92">Warrant ref: CY-2025-0847</text>
+            <text x="610" y="343" font-family="monospace" font-size="8" fill="#9E9A92">Approved: DCP Cybercrime</text>
+            <rect x="610" y="356" width="190" height="1" fill="#20283A"/>
+            <rect x="610" y="364" width="190" height="26" rx="2" fill="rgba(212,40,72,.15)" stroke="rgba(212,40,72,.3)" stroke-width="1"/>
+            <text x="705" y="381" font-family="monospace" font-size="9" fill="#D42848" text-anchor="middle">Export Evidence Package →</text>
+            <text x="610" y="408" font-family="monospace" font-size="7" fill="#706C64">IT Act 2000 · CERT-In · DPDP 2023</text>
+          </svg>
+        </div>
+        <div class="modal-screenshot-caption">AEGIS · AI-DRIVEN SIEM · SOC DASHBOARD + FORENSIC CONSOLE · SIMULATED</div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Six AI Models — Threat Detection Stack</div>
+        <div class="modal-feats-grid">
+          <div class="modal-feat">Isolation Forest — DNS anomaly per subscriber, 30-day rolling baseline, sub-minute latency</div>
+          <div class="modal-feat">LSTM + CNN DGA detection — 98.7% accuracy on DGArchive benchmark, &lt;0.3% false positive</div>
+          <div class="modal-feat">Autoencoder UEBA — learns normal per-subscriber DNS behaviour, flags lateral movement and exfil</div>
+          <div class="modal-feat">XGBoost fraud ensemble — SIM swap, subscription fraud, toll fraud at 94% precision / 91% recall</div>
+          <div class="modal-feat">GNN threat graph — propagates threat scores across subscriber-domain-IP entity graph</div>
+          <div class="modal-feat">LLM SOC assistant — plain-English threat explanation + auto-generated CERT-In incident reports</div>
+          <div class="modal-feat">Autonomous mitigation: DNS sinkholing · subscriber quarantine · firewall rule injection in &lt;60s</div>
+          <div class="modal-feat">Forensic console: 7-year DNS retention · court-admissible evidence packages · RBAC + chain of custody</div>
+        </div>
+      </div>
+      <div class="modal-market">
+        <div class="modal-market-label">Market Opportunity &amp; Regulatory Mandate</div>
+        <div class="modal-market-text">$62.3B global SIEM market by 2030 (CAGR 14.5%). $46.4B telecom cybersecurity by 2030. CERT-In's April 2022 directives make a platform like Aegis functionally mandatory for Indian telecom operators — 6-hour incident reporting, 180-day log retention, and government investigation access are all legal requirements. This is not a nice-to-have; it is compliance infrastructure with AI as the differentiator. A mid-size Indian operator generates 2–5 billion DNS queries per day — the Kafka + Elasticsearch architecture handles this with horizontal scaling.</div>
+      </div>
+      <div class="modal-cta">
+        <button class="modal-cta-btn primary" onclick="showPage('contact');closeModal('siem')">Request a Demo</button>
+        <button class="modal-cta-btn secondary" onclick="closeModal('siem')">Back to Products</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
