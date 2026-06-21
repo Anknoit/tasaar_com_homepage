@@ -3,499 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tasaar Holdings</title>
-<meta name="description" content="Infrastructure holding company. We build and back ventures in Networks and Energy — the two pillars everything intelligent runs on.">
+<title>Tasaar</title>
+<meta name="description" content="Tasaar builds the intelligence layer infrastructure runs on.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Tasaar">
 <link rel="canonical" href="https://tasaar.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Tasaar Holdings">
-<meta property="og:description" content="Infrastructure holding company. We build and back ventures in Networks and Energy — the two pillars everything intelligent runs on.">
+<meta property="og:title" content="Tasaar">
+<meta property="og:description" content="Tasaar builds the intelligence layer infrastructure runs on.">
 <meta property="og:url" content="https://tasaar.com/">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tasaar Holdings">
-<meta name="twitter:description" content="Infrastructure holding company. We build and back ventures in Networks and Energy.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Corporation","name":"Tasaar Holdings","url":"https://tasaar.com","description":"Infrastructure holding company. We build and back ventures in Networks and Energy — the two pillars everything intelligent runs on.","foundingDate":"2025"}</script>
-<meta property="og:image" content="https://tasaar.com/og-image.png">
 <meta property="og:site_name" content="Tasaar">
+<meta property="og:image" content="https://tasaar.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tasaar">
+<meta name="twitter:description" content="Tasaar builds the intelligence layer infrastructure runs on.">
 <meta name="twitter:image" content="https://tasaar.com/og-image.png">
 <meta name="twitter:site" content="@tasaar">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Corporation","name":"Tasaar","url":"https://tasaar.com","description":"Tasaar builds the intelligence layer infrastructure runs on.","foundingDate":"2025"}</script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2304040A'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='%23C9A84C'>T</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- ═══════ STAR FIELD ═══════ -->
-<canvas id="starfield"></canvas>
-
 <!-- ═══════ NAV ═══════ -->
 <nav class="nav" aria-label="Main navigation">
-  <div class="nav-logo" onclick="showPage('home')">
-    TASAAR · Holdings
-  </div>
+  <a class="nav-logo" href="#home">TASAAR · Holdings</a>
   <div class="nav-links">
-    <div class="nav-link active" data-page="home"      onclick="showPage('home')">Home</div>
-    <div class="nav-link"        data-page="products"  onclick="showPage('products')">Portfolio</div>
-    <div class="nav-link"        data-page="vision"    onclick="showPage('vision')">Thesis</div>
-    <div class="nav-link"        data-page="about"     onclick="showPage('about')">About</div>
+    <a class="nav-link active" href="#home">Home</a>
+    <a class="nav-link" href="#products">Products</a>
+    <a class="nav-link" href="#about">About</a>
+    <a class="nav-link" href="#contact">Contact</a>
   </div>
-  <div class="nav-cta" onclick="showPage('contact')">Get in touch</div>
+  <a class="nav-cta" href="#contact">Get in touch</a>
 </nav>
 
-<!-- ═══════ COORD DISPLAY ═══════ -->
-<!-- <div class="coord-display">
-  <div class="cd-inner">
-    <div class="cd-line"></div>
-    <span id="cd-text">28.6139°N · 77.2090°E</span>
-    <div class="cd-line"></div>
+<!-- ═══════ HERO ═══════ -->
+<section id="home" class="hero-section" aria-label="Hero">
+  <div class="hero-stars" id="hero-stars" aria-hidden="true"></div>
+  <div class="hero-content" id="hero-content">
+    <img src="white_logo-Photoroom.png" alt="Tasaar" class="hero-logo">
+    <p class="hero-thesis">Tasaar builds the intelligence layer infrastructure runs on.</p>
   </div>
-</div> -->
+  <div class="hero-fade" aria-hidden="true"></div>
+</section>
 
-<main id="main-content">
-<!-- ════════════════════════════════════════════
-     PAGE: HOME
-════════════════════════════════════════════ -->
-<div class="page active" id="page-home">
-  <div class="home-hero">
-    <div class="reticle">
-      <div class="reticle-h"></div>
-      <div class="reticle-v"></div>
-      <div class="reticle-ring"></div>
-      <div class="reticle-ring"></div>
-      <div class="reticle-ring"></div>
-    </div>
-    <div class="hero-coord" id="hero-coord">Infrastructure Holding Company · Est. 2025</div>
-    <h1 class="hero-word">TASAAR</h1>
-    <div class="hero-rule"></div>
-    <div class="hero-poem">
-      The world runs on networks and energy.<br>
-      <em>We build and back the ventures that make both intelligent.</em>
-    </div>
-    <div class="hero-verticals">
-      <div class="hero-vert" onclick="showPage('products')"><div class="dot g"></div>View Portfolio</div>
-      <div class="hero-vert" onclick="showPage('vision')"><div class="dot t"></div>Investment Thesis</div>
-    </div>
+<!-- ═══════ PRODUCTS ═══════ -->
+<section id="products" class="content-section" aria-label="Products">
+  <div class="inner">
+    <div class="section-label">Products</div>
+    <a href="/products/navnet" class="product-row">
+      <div class="product-info">
+        <div class="product-name">Navnet</div>
+        <div class="product-sub">Network intelligence, in plain English.</div>
+      </div>
+      <svg class="product-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
   </div>
+</section>
 
-  <div class="metrics-strip">
-    <div class="metric"><div class="metric-n g">$132B</div><div class="metric-d">Network Software Market 2030</div></div>
-    <div class="metric"><div class="metric-n t">$1.3T</div><div class="metric-d">Global Energy Software 2030</div></div>
-    <div class="metric"><div class="metric-n cr">5</div><div class="metric-d">Ventures in Active Development</div></div>
-    <div class="metric"><div class="metric-n g">2</div><div class="metric-d">Pillars. One Converging Thesis.</div></div>
+<!-- ═══════ ABOUT ═══════ -->
+<section id="about" class="content-section about-section" aria-label="About">
+  <div class="inner">
+    <div class="section-label">About</div>
+    <p class="about-line">Founded on years inside telecom's core.</p>
+    <p class="about-line">Built to do the same for what comes next.</p>
   </div>
+</section>
 
-  <div class="home-thesis">
-    <div>
-      <div class="thesis-label">The Architecture</div>
-      <div class="thesis-title">Two pillars.<br><em>One thesis.</em></div>
-      <div class="thesis-body">
-        <p>Every intelligent system — every AI model, every autonomous machine, every connected city — runs on two things: a network and an energy supply.</p>
-        <p>Tasaar builds ventures where the gap is large enough and our domain expertise sharp enough to build the product ourselves. We invest alongside teams where the right builder already exists.</p>
-      </div>
-    </div>
-    <div class="thesis-aside">
-      <div class="ta-card v1">
-        <div class="ta-label">Now</div>
-        <div class="ta-title">Networks</div>
-        <div class="ta-desc">Intelligence software for the stack operators already own. Five ventures in active development.</div>
-      </div>
-      <div class="ta-card v2">
-        <div class="ta-label">Next</div>
-        <div class="ta-title">Energy</div>
-        <div class="ta-desc">Products and investments in the energy domain. Entering early, before the market catches up.</div>
-      </div>
-      <div class="ta-card v3">
-        <div class="ta-label">Convergence</div>
-        <div class="ta-title">AI Infrastructure</div>
-        <div class="ta-desc">AI runs on networks and energy. Own both substrates. That is the long game.</div>
-      </div>
-    </div>
+<!-- ═══════ CONTACT ═══════ -->
+<section id="contact" class="content-section contact-section" aria-label="Contact">
+  <div class="inner">
+    <div class="section-label">Contact</div>
+    <p class="contact-cta">Building on infrastructure? Let's talk.</p>
+    <a href="mailto:hello@tasaar.com" class="contact-email">hello@tasaar.com</a>
   </div>
-
-  <!-- PILLAR DIAGRAM -->
-  <div class="pillar-diagram-wrap">
-    <div class="pillar-diagram-label">The Architecture</div>
-    <svg class="pillar-svg" viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg">
-
-      <!-- ── AI / FUTURE TECH CROWN ── -->
-      <rect x="250" y="20" width="400" height="90" rx="3" fill="#101420" stroke="#C9A84C" stroke-width="1.2"/>
-      <text x="450" y="52" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif" font-size="11" font-weight="500" letter-spacing="3" fill="#C9A84C" text-anchor="middle" text-transform="uppercase">AI · FUTURE TECHNOLOGY</text>
-      <text x="450" y="76" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif" font-size="14" font-weight="300" fill="rgba(234,230,223,.6)" text-anchor="middle">Autonomous Systems · Intelligence · Connectivity</text>
-      <text x="450" y="97" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.35)" text-anchor="middle">runs on</text>
-
-      <!-- ── CONNECTING LINES down from crown ── -->
-      <!-- left pillar line -->
-      <line x1="340" y1="110" x2="225" y2="158" stroke="rgba(201,168,76,.3)" stroke-width="1" stroke-dasharray="4,4"/>
-      <!-- right pillar line -->
-      <line x1="560" y1="110" x2="675" y2="158" stroke="rgba(30,138,110,.3)" stroke-width="1" stroke-dasharray="4,4"/>
-
-      <!-- ── PILLAR I: NETWORKS ── -->
-      <rect x="40" y="160" width="370" height="160" rx="3" fill="#101420" stroke="#C9A84C" stroke-width="1.2"/>
-      <!-- top accent bar -->
-      <rect x="40" y="160" width="370" height="3" rx="1" fill="#C9A84C" opacity=".8"/>
-      <text x="62" y="195" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif" font-size="10" font-weight="500" letter-spacing="3" fill="#C9A84C">NETWORKS</text>
-      <text x="62" y="220" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif" font-size="19" font-weight="300" fill="rgba(234,230,223,.9)">Telecom · IoT · Cloud</text>
-
-      <!-- sub-items -->
-      <rect x="62" y="236" width="1" height="62" fill="rgba(201,168,76,.2)"/>
-      <text x="74" y="253" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">5G Core &amp; Slicing</text>
-      <text x="74" y="272" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">AAA &amp; Fraud Intelligence</text>
-      <text x="74" y="291" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">RAN &amp; Outage Prediction</text>
-      <text x="74" y="310" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">IoT &amp; Building Intelligence</text>
-
-      <!-- label badge -->
-      <rect x="302" y="270" width="84" height="24" rx="2" fill="rgba(201,168,76,.08)" stroke="rgba(201,168,76,.25)" stroke-width="1"/>
-      <text x="344" y="286" font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" font-size="9" font-weight="500" letter-spacing="1.5" fill="#C9A84C" text-anchor="middle">PRODUCTS</text>
-
-      <!-- ── PILLAR II: ENERGY ── -->
-      <rect x="490" y="160" width="370" height="160" rx="3" fill="#101420" stroke="#1E8A6E" stroke-width="1.2"/>
-      <!-- top accent bar -->
-      <rect x="490" y="160" width="370" height="3" rx="1" fill="#1E8A6E" opacity=".8"/>
-      <text x="512" y="195" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif" font-size="10" font-weight="500" letter-spacing="3" fill="#1E8A6E">ENERGY</text>
-      <text x="512" y="220" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif" font-size="19" font-weight="300" fill="rgba(234,230,223,.9)">Grid · Power · Commodities</text>
-
-      <!-- sub-items -->
-      <rect x="512" y="236" width="1" height="62" fill="rgba(30,138,110,.2)"/>
-      <text x="524" y="253" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">PPA Lifecycle Management</text>
-      <text x="524" y="272" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">Grid Intelligence &amp; DER</text>
-      <text x="524" y="291" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">Renewable ETRM</text>
-      <text x="524" y="310" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="11" font-weight="300" fill="rgba(234,230,223,.5)">Commodity Trading Intelligence</text>
-
-      <!-- label badge -->
-      <rect x="728" y="270" width="108" height="24" rx="2" fill="rgba(30,138,110,.07)" stroke="rgba(30,138,110,.25)" stroke-width="1"/>
-      <text x="782" y="286" font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" font-size="9" font-weight="500" letter-spacing="1.5" fill="#1E8A6E" text-anchor="middle">INVESTMENTS</text>
-
-      <!-- ── TASAAR POSITION dot ── -->
-      <circle cx="450" cy="240" r="6" fill="#C9A84C" opacity=".9"/>
-      <circle cx="450" cy="240" r="12" fill="none" stroke="#C9A84C" stroke-width="1" opacity=".3"/>
-      <text x="450" y="268" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="10" font-weight="400" letter-spacing="2" fill="rgba(201,168,76,.6)" text-anchor="middle">TASAAR</text>
-      <line x1="416" y1="240" x2="262" y2="240" stroke="rgba(201,168,76,.15)" stroke-width="1" stroke-dasharray="3,5"/>
-      <line x1="484" y1="240" x2="638" y2="240" stroke="rgba(30,138,110,.15)" stroke-width="1" stroke-dasharray="3,5"/>
-
-      <!-- ground line -->
-      <line x1="40" y1="340" x2="860" y2="340" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-      <text x="450" y="355" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif" font-size="10" font-weight="300" letter-spacing="2" fill="rgba(234,230,223,.2)" text-anchor="middle">THE SUBSTRATE OF EVERYTHING INTELLIGENT</text>
-    </svg>
-  </div>
-
-</div>
-<!-- ════════════════════════════════════════════
-     PAGE: ABOUT
-════════════════════════════════════════════ -->
-<div class="page" id="page-about">
-<div class="page-inner">
-  <div class="page-hero">
-    <div class="ph-eyebrow">About Tasaar Holdings</div>
-    <h2 class="ph-title">Built on the inside<br><em>of both pillars.</em></h2>
-    <div class="ph-desc">We are not outsiders who studied infrastructure. We are engineers and operators who lived inside it — and finally built the holding company the two domains needed.</div>
-  </div>
-
-  <div class="origin-box">
-    <div class="orig-lbl">The Name</div>
-    <div class="orig-word">TASAAR</div>
-    <div class="orig-meaning">From Tsar — sovereign command over a domain.</div>
-    <div class="orig-body">The Tsar did not govern from a distance. He knew the terrain from within, over years, until the territory and the sovereign were inseparable. That is the founding principle. Domain expertise is the moat. The name is the strategy.</div>
-  </div>
-
-  <div class="two-col">
-    <div class="prose-block">
-      <p class="lead">An infrastructure holding company.</p>
-      <p><strong>What Tasaar Is</strong></p>
-      <p>Tasaar Holdings is the parent entity under which ventures are built and backed across the Networks and Energy domains. Each venture operates independently under its own brand. Each carries the label "A Tasaar Company".</p>
-    </div>
-    <div class="prose-block">
-      <p class="lead">Not a software product. Not a consultancy.</p>
-      <p><strong>What Tasaar Is Not</strong></p>
-      <p>Tasaar Holdings does not sell software. Its portfolio companies do. Tasaar does not provide consulting services. It provides capital, thesis conviction, and domain expertise to the ventures it builds and backs. The holding company is the architecture. The ventures are the execution.</p>
-    </div>
-  </div>
-
-  <div class="iq">
-    <p>The world runs on networks and energy. We build and back the ventures that make both intelligent.</p>
-  </div>
-
-  <div class="sec-divider"></div>
-
-  <div class="two-col">
-    <div class="prose-block">
-      <p class="lead">Years inside the stack.</p>
-      <p><strong>The Domain Edge</strong></p>
-      <p>The founding thesis was built from years inside telecom core networks — AAA/DIAMETER, OSS/BSS, 5G architecture, and network operations. The same analytical rigour is being applied to energy markets. That insider depth is the informational advantage that neither a pure financial investor nor a generalist software builder can replicate.</p>
-    </div>
-    <div class="prose-block">
-      <p class="lead">Networks now. Energy next. Convergence always.</p>
-      <p><strong>The Horizon</strong></p>
-      <p>The two pillars are not a diversified portfolio. They are a single converging thesis about where critical infrastructure is going. AI data centres need network SLAs and power procurement simultaneously. Tasaar is the holding company positioned at that intersection.</p>
-    </div>
-  </div>
-</div>
-</div>
-<!-- ════════════════════════════════════════════
-     PAGE: PRODUCTS
-════════════════════════════════════════════ -->
-<div class="page" id="page-products">
-<div class="page-inner">
-  <div class="page-hero">
-    <div class="ph-eyebrow">Portfolio</div>
-    <h2 class="ph-title">Built under<br><em>the Tasaar banner.</em></h2>
-    <div class="ph-desc">Each venture operates independently — its own website, its own market, its own team. Each carries the Tasaar thesis in its DNA.</div>
-  </div>
-
-  <div class="pillar-diagram-label">Pillar I — Networks</div>
-  <div class="mvp-grid">
-
-    <!-- P1: Nexus -->
-    <div class="mvp-card g" style="cursor:default">
-      <div class="mvp-card-top">
-        <div class="mvp-title-group">
-          <div class="mvp-dtag">A TASAAR COMPANY · In Development</div>
-          <div class="mvp-name">Nexus</div>
-          <div class="mvp-sub">5G Network Slicing Monetization</div>
-        </div>
-      </div>
-      <div class="mvp-body">
-        <div class="mvp-desc">Operators built 5G. Nobody built the commercial layer above it. Nexus is the billing, SLA, and partner settlement engine the network was always missing.</div>
-        <div class="mvp-desc">Telecom · 5G Core · nexus.tasaar.com →</div>
-      </div>
-    </div>
-
-    <!-- P2: Lattice -->
-    <div class="mvp-card t" style="cursor:default">
-      <div class="mvp-card-top">
-        <div class="mvp-title-group">
-          <div class="mvp-dtag">A TASAAR COMPANY · In Development</div>
-          <div class="mvp-name">Lattice</div>
-          <div class="mvp-sub">IoT Operations Intelligence</div>
-        </div>
-      </div>
-      <div class="mvp-body">
-        <div class="mvp-desc">Any device fault. Resolved in plain English. Under 8 minutes. Failures predicted 24–72 hours before they happen.</div>
-        <div class="mvp-desc">IoT · Smart Buildings · lattice.tasaar.com →</div>
-      </div>
-    </div>
-
-    <!-- P3: Foresight -->
-    <div class="mvp-card g" style="cursor:default">
-      <div class="mvp-card-top">
-        <div class="mvp-title-group">
-          <div class="mvp-dtag">A TASAAR COMPANY · In Development</div>
-          <div class="mvp-name">Foresight</div>
-          <div class="mvp-sub">AI Range Detection &amp; Outage Prediction</div>
-        </div>
-      </div>
-      <div class="mvp-body">
-        <div class="mvp-desc">Operators learn about outages when users complain. Foresight predicts them 24–72 hours earlier — per cell, per hour, with a plain-English explanation of why.</div>
-        <div class="mvp-desc">Telecom · RAN Intelligence · foresight.tasaar.com →</div>
-      </div>
-    </div>
-
-    <!-- P4: AURA -->
-    <div class="mvp-card cr" style="cursor:default">
-      <div class="mvp-card-top">
-        <div class="mvp-title-group">
-          <div class="mvp-dtag">A TASAAR COMPANY · In Development</div>
-          <div class="mvp-name">AURA</div>
-          <div class="mvp-sub">AI Analytics for 5G Networks</div>
-        </div>
-      </div>
-      <div class="mvp-body">
-        <div class="mvp-desc">The CFO asks what network quality cost last quarter. AURA answers in 10 seconds from live 5G data, with a chart, in plain English.</div>
-        <div class="mvp-desc">Telecom · Executive Intelligence · aura.tasaar.com →</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- P5: Aegis — full width -->
-  <div class="mvp-full-row">
-    <div class="mvp-card-full" style="cursor:default;transition:background .25s;">
-      <!-- Left label column -->
-      <div style="background:var(--card);border-right:1px solid var(--line);border-bottom:2px solid transparent;padding:44px 36px;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;transition:border-color .25s;" class="aegis-left">
-        <div>
-          <div class="mvp-dtag" style="color:var(--crim-lt)">A TASAAR COMPANY · In Development</div>
-          <div class="mvp-name">Aegis</div>
-          <div class="mvp-sub">AI-Driven SIEM for Telecom</div>
-        </div>
-      </div>
-      <!-- Right content column -->
-      <div style="background:var(--surface);padding:44px 48px;display:flex;flex-direction:column;gap:16px;">
-        <div class="mvp-desc">Every DNS query is a signal. Aegis reads all of them — detecting threats in real time, containing them in under 60 seconds, giving law enforcement court-admissible evidence in minutes.</div>
-        <div class="mvp-desc">Telecom · Cybersecurity · aegis.tasaar.com →</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="pillar-diagram-label" style="margin-top:56px">Pillar II — Energy</div>
-  <div class="mvp-full-row">
-    <div class="mvp-card-full" style="cursor:default;transition:background .25s;">
-      <div style="background:var(--card);border-right:1px solid var(--line);border-bottom:2px solid transparent;padding:44px 36px;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;transition:border-color .25s;" class="aegis-left">
-        <div>
-          <div class="mvp-dtag" style="color:var(--teal-lt)">A TASAAR COMPANY · Evaluating</div>
-          <div class="mvp-name">Energy Portfolio</div>
-          <div class="mvp-sub">PPA · Grid Intelligence · Renewable ETRM · Commodity Trading · DER Operations</div>
-        </div>
-      </div>
-      <div style="background:var(--surface);padding:44px 48px;display:flex;flex-direction:column;gap:16px;">
-        <div class="mvp-desc">Energy software is a decade behind where telecom software was when Tasaar was founded. We are evaluating and incubating ventures across PPA lifecycle management, grid intelligence, and commodity trading infrastructure — the commercial intelligence layer the energy transition urgently needs.</div>
-        <div class="mvp-desc">Energy · Grid · Commodities · energy.tasaar.com →</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-</div>
-
-<!-- ════════════════════════════════════════════
-     PAGE: THESIS
-════════════════════════════════════════════ -->
-<div class="page" id="page-vision">
-<div class="page-inner">
-  <div class="page-hero">
-    <div class="ph-eyebrow">Investment Thesis</div>
-    <h2 class="ph-title">Two pillars.<br><em>One thesis.</em></h2>
-    <div class="ph-desc">Infrastructure always wins. The company that owns the intelligence layer of both pillars owns the substrate of everything intelligent.</div>
-  </div>
-
-  <div class="iq cr">
-    <p>Infrastructure always wins. The company that owns the intelligence layer of both pillars owns the substrate of everything intelligent.</p>
-  </div>
-
-  <div class="two-col">
-    <div class="prose-block">
-      <p>Every intelligent system — every AI model, every autonomous machine, every connected city — runs on two things: a network and an energy supply. These are not separate markets. They are the same thesis expressed in two domains.</p>
-      <p>Tasaar is a holding company. We build ventures where the gap is large enough and our domain expertise sharp enough to build the product ourselves. We invest alongside teams where the right builder already exists.</p>
-      <p>In Networks: years lived inside telecom core networks, AAA/DIAMETER systems, 5G architecture, and OSS/BSS operations gave us a map of every gap. Five ventures are in active development. Each carries a domain moat that no generalist competitor can replicate.</p>
-      <p>In Energy: the same infrastructure thesis applied to the second pillar. Energy software is a decade behind. We are entering early — products and investments — before the market catches up.</p>
-      <p>The convergence is the long game. AI data centres need both guaranteed network SLAs and clean power procurement. The holding company that understands both domains simultaneously is the one positioned to serve that convergence.</p>
-    </div>
-    <div class="thesis-aside">
-      <div class="ta-card v1">
-        <div class="ta-label">Pillar I</div>
-        <div class="ta-title">Networks</div>
-        <div class="ta-desc">Telecom, IoT, Cloud infrastructure software. The intelligence layer operators built the network for but never received. We build here — products, not investments.</div>
-      </div>
-      <div class="ta-card v2">
-        <div class="ta-label">Pillar II</div>
-        <div class="ta-title">Energy</div>
-        <div class="ta-desc">Grid, power, commodities intelligence software. Energy software is a decade behind. We enter here through products and co-investments alongside the right builders.</div>
-      </div>
-      <div class="ta-card v3">
-        <div class="ta-label">Convergence</div>
-        <div class="ta-title">AI Infrastructure</div>
-        <div class="ta-desc">AI runs on networks and energy. Own the intelligence software on both substrates and you own the layer beneath everything the future builds.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="vision-grid">
-    <div class="vision-cell">
-      <div class="vc-n">I</div>
-      <div class="vc-t">How We Build</div>
-      <div class="vc-b">Domain first. Product second. We build software the way engineers build load-bearing structures — from the data model up, never from the interface down.</div>
-    </div>
-    <div class="vision-cell">
-      <div class="vc-n">II</div>
-      <div class="vc-t">How We Hold</div>
-      <div class="vc-b">Sovereign. Independent. Long-term. Each venture operates with its own brand, website, and market. Tasaar provides capital, thesis, and domain expertise. Not operating control.</div>
-    </div>
-    <div class="vision-cell">
-      <div class="vc-n">III</div>
-      <div class="vc-t">The Moat</div>
-      <div class="vc-b">Expertise that compounds. Domain knowledge baked into data models is the only moat in enterprise software that compounds over time rather than eroding as technology levels the field.</div>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- ════════════════════════════════════════════
-     PAGE: CONTACT
-════════════════════════════════════════════ -->
-<div class="page" id="page-contact">
-<div class="page-inner">
-  <div class="page-hero">
-    <div class="ph-eyebrow">Contact</div>
-    <h2 class="ph-title">If the problem is real,<br><em>we want to hear it.</em></h2>
-    <div class="ph-desc">Network operator. Energy company. Infrastructure investor. Domain engineer. If you are building on either pillar — reach out.</div>
-  </div>
-
-  <div class="contact-grid">
-    <div class="contact-info">
-      <div class="ci-item">
-        <div class="ci-icon">✉</div>
-        <div>
-          <div class="ci-label">General</div>
-          <div class="ci-value">hello@tasaar.com</div>
-          <div class="ci-note">Portfolio, partnership, and general questions</div>
-        </div>
-      </div>
-      <div class="ci-item">
-        <div class="ci-icon">📡</div>
-        <div>
-          <div class="ci-label">Networks &amp; Portfolio</div>
-          <div class="ci-value">portfolio@tasaar.com</div>
-          <div class="ci-note">Network venture, operator, and domain-builder enquiries</div>
-        </div>
-      </div>
-      <div class="ci-item">
-        <div class="ci-icon">⚡</div>
-        <div>
-          <div class="ci-label">Energy &amp; Investment</div>
-          <div class="ci-value">invest@tasaar.com</div>
-          <div class="ci-note">Energy domain investment, co-investment, and partnerships</div>
-        </div>
-      </div>
-      <div class="ci-item">
-        <div class="ci-icon">🔧</div>
-        <div>
-          <div class="ci-label">Engineering &amp; Careers</div>
-          <div class="ci-value">build@tasaar.com</div>
-          <div class="ci-note">Engineering roles and founding team enquiries</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="contact-form">
-      <div class="form-row">
-        <div class="form-field">
-          <label class="form-label">Name</label>
-          <input class="form-input" type="text" placeholder="Your name">
-        </div>
-        <div class="form-field">
-          <label class="form-label">Organisation</label>
-          <input class="form-input" type="text" placeholder="Company or institution">
-        </div>
-      </div>
-      <div class="form-field">
-        <label class="form-label">Email</label>
-        <input class="form-input" type="email" placeholder="your@email.com">
-      </div>
-      <div class="form-field">
-        <label class="form-label">Nature of Enquiry</label>
-        <select class="form-select">
-          <option value="" style="background:#101420">Select category</option>
-          <option style="background:#101420">Networks — Portfolio Enquiry</option>
-          <option style="background:#101420">Networks — Enterprise / Operator</option>
-          <option style="background:#101420">Energy — Portfolio Enquiry</option>
-          <option style="background:#101420">Energy — Investment / Partnership</option>
-          <option style="background:#101420">AI Infrastructure — Convergence</option>
-          <option style="background:#101420">Engineering / Careers</option>
-          <option style="background:#101420">Other</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label class="form-label">Message</label>
-        <textarea class="form-textarea" placeholder="Describe the problem you're working on, or what you'd like to explore with Tasaar."></textarea>
-      </div>
-      <button class="form-btn">Send Message →</button>
-    </div>
-  </div>
-</div>
-</div>
-
-</main>
+</section>
 
 <!-- ═══════ STATUS BAR ═══════ -->
 <footer class="statusbar" aria-label="Site information">
@@ -505,81 +92,134 @@
     <div class="bar-item"><div class="bar-dot cr"></div>AI Infrastructure</div>
   </div>
   <div class="bar-right">
-    <span class="bar-coord" id="bar-coord">18.5204°N · 73.8567°E</span>
+    <span class="bar-coord">18.5204°N · 73.8567°E</span>
     <span class="bar-time" id="bar-time">--:--:-- UTC</span>
     <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:2px;color:var(--muted)">TASAAR · EST. 2025</span>
   </div>
 </footer>
 
 <script>
-/* ═══════════════════════════════════════════
-   STAR FIELD
-═══════════════════════════════════════════ */
-(function() {
-  var canvas = document.getElementById('starfield');
-  var ctx = canvas.getContext('2d');
-  var W, H, stars = [], t = 0;
-  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-  function initStars() {
-    stars = [];
-    var count = Math.floor((W * H) / 2800);
+(function () {
+  'use strict';
+
+  /* Always land on the hero — prevent browser scroll restoration */
+  if (history.scrollRestoration) history.scrollRestoration = 'manual';
+  window.scrollTo({ top: 0, behavior: 'instant' });
+
+  /* ─────────────────────────────────────────────
+     STAR FIELD (div-based, no canvas)
+  ───────────────────────────────────────────── */
+  var starsEl      = document.getElementById('hero-stars');
+  var heroEl       = document.querySelector('.hero-section');
+  var heroContent  = document.getElementById('hero-content');
+
+  function buildStars() {
+    starsEl.innerHTML = '';
+    var count = Math.floor(window.innerWidth * window.innerHeight / 2800);
+    count = Math.max(80, Math.min(count, 320));
+
     for (var i = 0; i < count; i++) {
       var r = Math.random();
-      stars.push({
-        x: Math.random() * W, y: Math.random() * H,
-        r: r > 0.96 ? (Math.random() * 0.6 + 1.0) : r > 0.75 ? (Math.random() * 0.4 + 0.55) : (Math.random() * 0.3 + 0.2),
-        alpha: r > 0.96 ? (Math.random() * 0.2 + 0.75) : r > 0.75 ? (Math.random() * 0.2 + 0.40) : (Math.random() * 0.15 + 0.18),
-        speed: Math.random() * 0.0008 + 0.0003,
-        phase: Math.random() * Math.PI * 2
-      });
+      var size, opacity;
+
+      if (r > 0.96) {
+        /* bright large stars */
+        size    = (Math.random() * 0.9 + 0.8).toFixed(2);
+        opacity = (Math.random() * 0.25 + 0.65).toFixed(2);
+      } else if (r > 0.72) {
+        /* medium stars */
+        size    = (Math.random() * 0.5 + 0.4).toFixed(2);
+        opacity = (Math.random() * 0.25 + 0.35).toFixed(2);
+      } else {
+        /* small faint stars */
+        size    = (Math.random() * 0.3 + 0.15).toFixed(2);
+        opacity = (Math.random() * 0.2 + 0.12).toFixed(2);
+      }
+
+      var s = document.createElement('div');
+      s.className = 'star';
+      s.style.left    = (Math.random() * 100).toFixed(2) + '%';
+      s.style.top     = (Math.random() * 100).toFixed(2) + '%';
+      s.style.width   = size + 'px';
+      s.style.height  = size + 'px';
+      s.style.opacity = opacity;
+      starsEl.appendChild(s);
     }
   }
-  function draw() {
-    ctx.fillStyle = 'rgb(4,4,10)';
-    ctx.fillRect(0, 0, W, H);
-    t += 0.003;
-    var wash = ctx.createRadialGradient(W * 0.8, H * 0.15, 0, W * 0.8, H * 0.15, W * 0.6);
-    wash.addColorStop(0, 'rgba(70, 80, 140, 0.045)');
-    wash.addColorStop(1, 'rgba(0,0,0,0)');
-    ctx.fillStyle = wash;
-    ctx.fillRect(0, 0, W, H);
-    for (var i = 0; i < stars.length; i++) {
-      var s = stars[i];
-      var a = s.alpha * (0.7 + 0.3 * Math.sin(t * s.speed * 150 + s.phase));
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(210, 218, 232, ' + a + ')';
-      ctx.fill();
+
+  buildStars();
+
+  /* ─────────────────────────────────────────────
+     SCROLL: parallax + text fade + nav active
+  ───────────────────────────────────────────── */
+  var ticking = false;
+
+  function onFrame() {
+    var scrollY   = window.scrollY;
+    var heroH     = heroEl.offsetHeight;
+    var mobile    = window.innerWidth < 768;
+
+    /* Parallax: stars move at 35% of scroll speed (desktop only) */
+    if (!mobile) {
+      starsEl.style.transform = 'translateY(' + (scrollY * 0.35).toFixed(1) + 'px)';
+    } else {
+      starsEl.style.transform = 'none';
     }
-    requestAnimationFrame(draw);
+
+    /* Text fade + drift: completes at 1/3 of hero scroll distance */
+    var fadeEnd  = heroH * 0.33;
+    var progress = Math.min(1, Math.max(0, scrollY / fadeEnd));
+    heroContent.style.opacity   = (1 - progress).toFixed(3);
+    heroContent.style.transform = 'translateY(' + (-progress * 22).toFixed(1) + 'px)';
+
+
+    /* Nav active state */
+    var threshold = scrollY + window.innerHeight * 0.35;
+    var active    = 'home';
+    ['products', 'about', 'contact'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top + scrollY <= threshold) {
+        active = id;
+      }
+    });
+    document.querySelectorAll('.nav-link').forEach(function (link) {
+      var href = link.getAttribute('href');
+      link.classList.toggle('active', href === '#' + active);
+    });
+
+    ticking = false;
   }
-  window.addEventListener('resize', function() { resize(); initStars(); });
-  resize(); initStars(); draw();
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(onFrame);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  /* Nav active state is pre-set in HTML on load;
+     scroll handler takes over once the user scrolls. */
+
+  /* ─────────────────────────────────────────────
+     REBUILD STARS ON RESIZE (debounced)
+  ───────────────────────────────────────────── */
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(buildStars, 250);
+  });
+
+  /* ─────────────────────────────────────────────
+     UTC CLOCK
+  ───────────────────────────────────────────── */
+  function updateClock() {
+    var el = document.getElementById('bar-time');
+    if (el) el.textContent = new Date().toUTCString().split(' ')[4] + ' UTC';
+    setTimeout(updateClock, 1000);
+  }
+  updateClock();
+
 })();
-
-/* ═══════════════════════════════════════════
-   PAGE NAVIGATION
-═══════════════════════════════════════════ */
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
-  document.querySelectorAll('.nav-link').forEach(function(l) { l.classList.remove('active'); });
-  var page = document.getElementById('page-' + id);
-  if (page) { page.classList.add('active'); window.scrollTo(0, 0); }
-  var link = document.querySelector('.nav-link[data-page="' + id + '"]');
-  if (link) link.classList.add('active');
-}
-
-/* ═══════════════════════════════════════════
-   LIVE CLOCK
-═══════════════════════════════════════════ */
-function updateClock() {
-  var now = new Date();
-  var utc = now.toUTCString().split(' ')[4];
-  var el = document.getElementById('bar-time');
-  if (el) el.textContent = utc + ' UTC';
-  setTimeout(updateClock, 1000);
-}
-updateClock();
 </script>
 
 </body>
