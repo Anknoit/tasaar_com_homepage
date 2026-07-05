@@ -84,7 +84,7 @@ body {
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0 48px;
   z-index: 1000;
 }
@@ -106,6 +106,8 @@ body {
   display: flex;
   align-items: center;
   gap: 4px;
+  margin-left: auto;
+  margin-right: 20px;
 }
 
 .nav-link {
@@ -266,30 +268,20 @@ body {
   letter-spacing: .01em;
 }
 
-/* Gradual fade: transparent at top, solid white at bottom over ~70vh */
 .hero-fade {
   position: absolute;
   bottom: 0;
   left: 0; right: 0;
   height: 42%;
-  background: linear-gradient(to bottom,
-    rgba(255,255,255,0)      0%,
-    rgba(255,255,255,.01)    8%,
-    rgba(255,255,255,.03)   16%,
-    rgba(255,255,255,.07)   24%,
-    rgba(255,255,255,.13)   32%,
-    rgba(255,255,255,.22)   40%,
-    rgba(255,255,255,.33)   48%,
-    rgba(255,255,255,.46)   56%,
-    rgba(255,255,255,.60)   64%,
-    rgba(255,255,255,.74)   72%,
-    rgba(255,255,255,.87)   80%,
-    rgba(255,255,255,.95)   88%,
-    rgba(255,255,255,.99)   94%,
-    #ffffff                100%
-  );
   pointer-events: none;
   z-index: 2;
+}
+.hero-fade svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 /* ─────────────────────────────────────────────────────────

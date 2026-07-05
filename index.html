@@ -47,7 +47,28 @@
     <img src="white_logo-Photoroom.png" alt="Tasaar" class="hero-logo">
     <p class="hero-thesis">Tasaar builds the intelligence layer infrastructure runs on.</p>
   </div>
-  <div class="hero-fade" aria-hidden="true"></div>
+
+  <!-- ARC of Earth -->
+  <div class="hero-fade" aria-hidden="true">
+    <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#fff" stop-opacity="0"/>
+          <stop offset="10%"  stop-color="#fff" stop-opacity="0.01"/>
+          <stop offset="22%"  stop-color="#fff" stop-opacity="0.05"/>
+          <stop offset="36%"  stop-color="#fff" stop-opacity="0.13"/>
+          <stop offset="50%"  stop-color="#fff" stop-opacity="0.28"/>
+          <stop offset="63%"  stop-color="#fff" stop-opacity="0.50"/>
+          <stop offset="75%"  stop-color="#fff" stop-opacity="0.72"/>
+          <stop offset="86%"  stop-color="#fff" stop-opacity="0.90"/>
+          <stop offset="94%"  stop-color="#fff" stop-opacity="0.98"/>
+          <stop offset="100%" stop-color="#fff" stop-opacity="1"/>
+        </linearGradient>
+      </defs>
+      <!-- Arc peak at y=0 (gradient=0 → invisible boundary), sides at y=120 → no hard line -->
+      <path d="M0,120 Q720,0 1440,120 L1440,400 L0,400 Z" fill="url(#hg)"/>
+    </svg>
+  </div>
 </section>
 
 <!-- ═══════ PRODUCTS ═══════ -->
@@ -115,8 +136,8 @@
 
   function buildStars() {
     starsEl.innerHTML = '';
-    var count = Math.floor(window.innerWidth * window.innerHeight / 2800);
-    count = Math.max(80, Math.min(count, 320));
+    var count = Math.floor(window.innerWidth * window.innerHeight / 2200);
+    count = Math.max(120, Math.min(count, 400));
 
     for (var i = 0; i < count; i++) {
       var r = Math.random();
@@ -124,16 +145,16 @@
 
       if (r > 0.96) {
         /* bright large stars */
-        size    = (Math.random() * 0.9 + 0.8).toFixed(2);
-        opacity = (Math.random() * 0.25 + 0.65).toFixed(2);
+        size    = (Math.random() * 1.0 + 0.9).toFixed(2);
+        opacity = (Math.random() * 0.2 + 0.75).toFixed(2);
       } else if (r > 0.72) {
         /* medium stars */
-        size    = (Math.random() * 0.5 + 0.4).toFixed(2);
-        opacity = (Math.random() * 0.25 + 0.35).toFixed(2);
+        size    = (Math.random() * 0.5 + 0.45).toFixed(2);
+        opacity = (Math.random() * 0.25 + 0.48).toFixed(2);
       } else {
         /* small faint stars */
-        size    = (Math.random() * 0.3 + 0.15).toFixed(2);
-        opacity = (Math.random() * 0.2 + 0.12).toFixed(2);
+        size    = (Math.random() * 0.3 + 0.18).toFixed(2);
+        opacity = (Math.random() * 0.22 + 0.22).toFixed(2);
       }
 
       var s = document.createElement('div');
