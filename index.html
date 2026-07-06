@@ -4,33 +4,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tasaar</title>
-<meta name="description" content="Tasaar builds the intelligence layer infrastructure runs on.">
+<meta name="description" content="Engineering the Intelligence layer for Infrastructure Efficiency">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Tasaar">
 <link rel="canonical" href="https://tasaar.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tasaar">
-<meta property="og:description" content="Tasaar builds the intelligence layer infrastructure runs on.">
+<meta property="og:description" content="Engineering the Intelligence layer for Infrastructure Efficiency">
 <meta property="og:url" content="https://tasaar.com/">
 <meta property="og:site_name" content="Tasaar">
 <meta property="og:image" content="https://tasaar.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tasaar">
-<meta name="twitter:description" content="Tasaar builds the intelligence layer infrastructure runs on.">
+<meta name="twitter:description" content="Engineering the Intelligence layer for Infrastructure Efficiency">
 <meta name="twitter:image" content="https://tasaar.com/og-image.png">
 <meta name="twitter:site" content="@tasaar">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Corporation","name":"Tasaar","url":"https://tasaar.com","description":"Tasaar builds the intelligence layer infrastructure runs on.","foundingDate":"2025"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Corporation","name":"Tasaar","url":"https://tasaar.com","description":"Engineering the Intelligence layer for Infrastructure Efficiency","foundingDate":"2025"}</script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2304040A'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='%23C9A84C'>T</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.160.1/build/three.module.js" } }
+</script>
+<script type="module" src="three-hero.js"></script>
+<script type="module" src="three-products.js"></script>
 </head>
 <body>
 
 <!-- ═══════ NAV ═══════ -->
 <nav class="nav" aria-label="Main navigation">
-  <a class="nav-logo" href="#home">TASAAR · Holdings</a>
+  <!-- <a class="nav-logo" href="#home">TASAAR · Holdings</a> -->
+  <a class="nav-logo" href="#home">TASAAR</a>
+
   <div class="nav-links">
     <a class="nav-link active" href="#home">Home</a>
     <a class="nav-link" href="#products">Products</a>
@@ -42,10 +49,10 @@
 
 <!-- ═══════ HERO ═══════ -->
 <section id="home" class="hero-section" aria-label="Hero">
-  <div class="hero-stars" id="hero-stars" aria-hidden="true"></div>
+  <canvas class="hero-universe" id="hero-universe" aria-hidden="true"></canvas>
   <div class="hero-content" id="hero-content">
     <img src="white_logo-Photoroom.png" alt="Tasaar" class="hero-logo">
-    <p class="hero-thesis">Tasaar builds the intelligence layer infrastructure runs on.</p>
+    <p class="hero-thesis">Engineering the Intelligence layer for <span class="hero-highlight">Infrastructure Efficiency<span class="shoot-star" aria-hidden="true"></span></span></p>
   </div>
 
   <!-- ARC of Earth -->
@@ -72,18 +79,40 @@
 </section>
 
 <!-- ═══════ PRODUCTS ═══════ -->
-<section id="products" class="content-section" aria-label="Products">
-  <div class="inner">
+<section id="products" class="products-section" aria-label="Products">
+  <div class="products-inner">
     <div class="section-label">Products</div>
-    <a href="/products/navnet" class="product-row">
-      <div class="product-info">
-        <div class="product-name">Navnet</div>
-        <div class="product-sub">Network intelligence, in plain English.</div>
+    <div class="products-grid">
+
+      <div class="product-slot is-placeholder" aria-label="Reserved slot">
+        <div class="product-canvas-wrap"><canvas class="product-canvas" data-shape="reserved"></canvas></div>
+        <!-- <div class="product-index">01</div> -->
+        <div class="product-name">—</div>
+        <div class="product-tagline">Reserved.
+        </div>
       </div>
-      <svg class="product-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
+
+      <a class="product-slot" href="/products/platform3">
+        <div class="product-canvas-wrap"><canvas class="product-canvas" data-shape="platform"></canvas></div>
+        <!-- <div class="product-index">02</div> -->
+        <div class="product-name">Platform3</div>
+        <div class="product-tagline">In development.</div>
+        <svg class="product-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      <a class="product-slot" href="/products/navnet">
+        <div class="product-canvas-wrap"><canvas class="product-canvas" data-shape="network"></canvas></div>
+        <!-- <div class="product-index">03</div> -->
+        <div class="product-name">NavNet</div>
+        <div class="product-tagline">Network intelligence, in plain English.</div>
+        <svg class="product-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+    </div>
   </div>
 </section>
 
@@ -128,64 +157,21 @@
   window.scrollTo({ top: 0, behavior: 'instant' });
 
   /* ─────────────────────────────────────────────
-     STAR FIELD (div-based, no canvas)
+     Star field lives in three-hero.js (Three.js
+     canvas). This script handles the logo/text
+     fade+drift, nav state and clock.
   ───────────────────────────────────────────── */
-  var starsEl      = document.getElementById('hero-stars');
   var heroEl       = document.querySelector('.hero-section');
   var heroContent  = document.getElementById('hero-content');
 
-  function buildStars() {
-    starsEl.innerHTML = '';
-    var count = Math.floor(window.innerWidth * window.innerHeight / 2200);
-    count = Math.max(120, Math.min(count, 400));
-
-    for (var i = 0; i < count; i++) {
-      var r = Math.random();
-      var size, opacity;
-
-      if (r > 0.96) {
-        /* bright large stars */
-        size    = (Math.random() * 1.0 + 0.9).toFixed(2);
-        opacity = (Math.random() * 0.2 + 0.75).toFixed(2);
-      } else if (r > 0.72) {
-        /* medium stars */
-        size    = (Math.random() * 0.5 + 0.45).toFixed(2);
-        opacity = (Math.random() * 0.25 + 0.48).toFixed(2);
-      } else {
-        /* small faint stars */
-        size    = (Math.random() * 0.3 + 0.18).toFixed(2);
-        opacity = (Math.random() * 0.22 + 0.22).toFixed(2);
-      }
-
-      var s = document.createElement('div');
-      s.className = 'star';
-      s.style.left    = (Math.random() * 100).toFixed(2) + '%';
-      s.style.top     = (Math.random() * 100).toFixed(2) + '%';
-      s.style.width   = size + 'px';
-      s.style.height  = size + 'px';
-      s.style.opacity = opacity;
-      starsEl.appendChild(s);
-    }
-  }
-
-  buildStars();
-
   /* ─────────────────────────────────────────────
-     SCROLL: parallax + text fade + nav active
+     SCROLL: text fade + nav active
   ───────────────────────────────────────────── */
   var ticking = false;
 
   function onFrame() {
     var scrollY   = window.scrollY;
     var heroH     = heroEl.offsetHeight;
-    var mobile    = window.innerWidth < 768;
-
-    /* Parallax: stars move at 35% of scroll speed (desktop only) */
-    if (!mobile) {
-      starsEl.style.transform = 'translateY(' + (scrollY * 0.35).toFixed(1) + 'px)';
-    } else {
-      starsEl.style.transform = 'none';
-    }
 
     /* Text fade + drift: completes at 1/3 of hero scroll distance */
     var fadeEnd  = heroH * 0.33;
@@ -218,16 +204,14 @@
     }
   }, { passive: true });
 
-  /* Nav active state is pre-set in HTML on load;
-     scroll handler takes over once the user scrolls. */
-
-  /* ─────────────────────────────────────────────
-     REBUILD STARS ON RESIZE (debounced)
-  ───────────────────────────────────────────── */
-  var resizeTimer;
-  window.addEventListener('resize', function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(buildStars, 250);
+  /* The one-shot entrance animation uses fill-mode:forwards, which pins
+     opacity/transform in the cascade above any inline style — silently
+     blocking the scroll-driven fade/drift above once it finishes. Drop
+     the animation once it has played, and immediately hand control to
+     onFrame so there's no flash back to the stylesheet's base opacity:0. */
+  heroContent.addEventListener('animationend', function () {
+    heroContent.style.animation = 'none';
+    onFrame();
   });
 
   /* ─────────────────────────────────────────────
