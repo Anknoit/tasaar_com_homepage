@@ -376,6 +376,12 @@ body {
   position: relative;
   background: #ffffff;
   overflow: hidden;
+  /* Overlaps the hero section's bottom edge by a couple px. That boundary
+     is where the hero-fade arc's SVG rasterization and the hero-universe
+     canvas's clip-path both terminate, and either can leave a faint 1px
+     seam there — this opaque white section painting slightly past the
+     edge hides it regardless of which one is the actual cause. */
+  margin-top: -2px;
 }
 .products-section::before {
   content: '';
