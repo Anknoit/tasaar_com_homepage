@@ -1,0 +1,6 @@
+# Static export — Netlify publishes ./out as plain files.
+# The Next.js runtime plugin detects `output: 'export'` and creates
+# no serverless functions; nothing here counts against function limits.
+[build]
+  command = "npm run build"
+  publish = "out"
