@@ -42,9 +42,9 @@
     <a class="nav-link active" href="#home">Home</a>
     <a class="nav-link" href="#products">Products</a>
     <a class="nav-link" href="#about">About</a>
-    <a class="nav-link" href="#contact">Contact</a>
+    <a class="nav-link" href="/blog">Blog</a>
   </div>
-  <a class="nav-cta" href="#contact">Get in touch</a>
+  <a class="nav-cta" href="mailto:hello@tasaar.com">Get in touch</a>
 </nav>
 
 <!-- ═══════ HERO ═══════ -->
@@ -125,15 +125,6 @@
   </div>
 </section>
 
-<!-- ═══════ CONTACT ═══════ -->
-<section id="contact" class="content-section contact-section" aria-label="Contact">
-  <div class="inner">
-    <div class="section-label">Contact</div>
-    <p class="contact-cta">Building on infrastructure? Let's talk.</p>
-    <a href="mailto:hello@tasaar.com" class="contact-email">hello@tasaar.com</a>
-  </div>
-</section>
-
 <!-- ═══════ STATUS BAR ═══════ -->
 <footer class="statusbar" aria-label="Site information">
   <div class="bar-left">
@@ -183,7 +174,7 @@
     /* Nav active state */
     var threshold = scrollY + window.innerHeight * 0.35;
     var active    = 'home';
-    ['products', 'about', 'contact'].forEach(function (id) {
+    ['products', 'about'].forEach(function (id) {
       var el = document.getElementById(id);
       if (el && el.getBoundingClientRect().top + scrollY <= threshold) {
         active = id;
