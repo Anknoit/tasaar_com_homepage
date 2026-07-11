@@ -26,6 +26,9 @@ function ProductArrow() {
 export default function Home() {
   return (
     <>
+      {/* React hoists this into <head>: the logo starts downloading with
+          the document instead of waiting for layout/hydration */}
+      <link rel="preload" href="/white_logo-Photoroom.png" as="image" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <Nav active="home" onHome />
@@ -34,8 +37,11 @@ export default function Home() {
       <section id="home" className="hero-section" aria-label="Hero">
         <canvas className="hero-universe" id="hero-universe" aria-hidden="true"></canvas>
         <div className="hero-content" id="hero-content">
-          <img src="/white_logo-Photoroom.png" alt="Tasaar" className="hero-logo" />
-          <p className="hero-thesis">Engineering the Intelligence layer for <span className="hero-highlight">Infrastructure Efficiency<span className="shoot-star" aria-hidden="true"></span></span></p>
+          <img src="/white_logo-Photoroom.png" alt="Tasaar" className="hero-logo" width="560" height="560" fetchPriority="high" decoding="async" />
+          <p className="hero-thesis">
+            <span className="hero-thesis-line">Engineering the Intelligence layer for</span>
+            <span className="hero-highlight">Infrastructure Efficiency<span className="shoot-star" aria-hidden="true"></span></span>
+          </p>
         </div>
 
         {/* ARC of Earth */}
@@ -80,12 +86,11 @@ export default function Home() {
               <ProductArrow />
             </a>
 
-            <a className="product-slot" href="/products/navnet/">
-              <div className="product-canvas-wrap"><canvas className="product-canvas" data-shape="network"></canvas></div>
-              <div className="product-name">NavNet</div>
-              <div className="product-tagline">Network intelligence, in plain English.</div>
-              <ProductArrow />
-            </a>
+            <div className="product-slot is-placeholder" aria-label="Reserved slot">
+              <div className="product-canvas-wrap"><canvas className="product-canvas" data-shape="reserved"></canvas></div>
+              <div className="product-name">—</div>
+              <div className="product-tagline">Reserved.</div>
+            </div>
 
           </div>
         </div>

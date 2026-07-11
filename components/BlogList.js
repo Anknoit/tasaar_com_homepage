@@ -80,25 +80,9 @@ const catLabels = {
   company: 'Company',
 };
 
-const featured = {
-  cat: 'company',
-  date: 'Coming soon',
-  title: 'Why infrastructure needs an intelligence layer',
-  excerpt: 'Networks, grids and datacenters generate more telemetry than any team can read. Where the efficiency gains actually come from — and why we think the answer is a layer, not a dashboard.',
-  cover: 'orbitLarge',
-  href: '#',
-};
-
-const posts = [
-  { cat: 'networks', date: 'Coming soon', title: 'Network intelligence, in plain English', excerpt: 'Notes from building NavNet — asking a network questions instead of reading its logs.', cover: 'constellation', href: '#' },
-  { cat: 'energy', date: 'Coming soon', title: 'Reading a power grid like a network', excerpt: 'Load curves and traffic curves rhyme. What telecom operations can teach energy operations.', cover: 'waveform', href: '#' },
-  { cat: 'ai', date: 'Coming soon', title: 'The datacenter is a network problem', excerpt: 'Power, cooling and interconnect are one system. Treating them separately is where the waste hides.', cover: 'stack', href: '#' },
-  { cat: 'networks', date: 'Coming soon', title: 'What an alarm storm actually says', excerpt: 'Ten thousand alerts usually mean one fault. Tracing correlation through a real outage.', cover: 'route', href: '#' },
-  { cat: 'energy', date: 'Coming soon', title: 'Peak demand is a data problem', excerpt: 'The most expensive hour of the year is predictable. Why so few operators act on it.', cover: 'spike', href: '#' },
-  { cat: 'company', date: 'Coming soon', title: "Founded on years inside telecom's core", excerpt: 'Why we started Tasaar, and what "infrastructure efficiency" means to us in practice.', cover: 'orbit', href: '#' },
-];
-
 const filterDots = { networks: 'g', energy: 't', ai: 'cr' };
+
+const postHref = (post) => `/blog/${post.slug}/`;
 
 function Meta({ cat, date }) {
   return (
@@ -110,11 +94,11 @@ function Meta({ cat, date }) {
   );
 }
 
-export default function BlogList() {
+export default function BlogList({ featured, posts }) {
   const [filter, setFilter] = useState('all');
 
-  const showFeatured = filter === 'all' || featured.cat === filter;
-  const visible = posts.filter((p) => filter === 'all' || p.cat === filter);
+  const showFeatured = featured && (filter === 'all' || featured.category === filter);
+  const visible = posts.filter((p) => filter === 'all' || p.category === filter);
   const anyShown = showFeatured || visible.length > 0;
 
   const filterBtn = (key, label) => (
@@ -141,10 +125,10 @@ export default function BlogList() {
 
       {/* ═══════ FEATURED ═══════ */}
       {showFeatured && (
-        <a className="blog-featured" href={featured.href}>
+        <a className="blog-featured" href={postHref(featured)}>
           <div className="blog-cover">{covers[featured.cover]}</div>
           <div className="blog-featured-text">
-            <Meta cat={featured.cat} date={featured.date} />
+            <Meta cat={featured.category} date={featured.dateLabel} />
             <h2 className="blog-post-title">{featured.title}</h2>
             <p className="blog-excerpt">{featured.excerpt}</p>
             <span className="blog-read">
@@ -158,10 +142,10 @@ export default function BlogList() {
       {/* ═══════ POST GRID ═══════ */}
       <div className="blog-grid">
         {visible.map((post) => (
-          <a className="blog-card" href={post.href} key={post.title}>
+          <a className="blog-card" href={postHref(post)} key={post.slug}>
             <div className="blog-cover">{covers[post.cover]}</div>
             <div className="blog-card-text">
-              <Meta cat={post.cat} date={post.date} />
+              <Meta cat={post.category} date={post.dateLabel} />
               <h2 className="blog-post-title">{post.title}</h2>
               <p className="blog-excerpt">{post.excerpt}</p>
             </div>

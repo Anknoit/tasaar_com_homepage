@@ -1,6 +1,7 @@
 import Nav from '../../components/Nav';
 import StatusBar from '../../components/StatusBar';
 import BlogList from '../../components/BlogList';
+import { getPosts, splitFeatured } from '../../lib/posts';
 
 export const metadata = {
   title: 'Blog — Tasaar',
@@ -16,6 +17,10 @@ export const metadata = {
 };
 
 export default function BlogPage() {
+  /* strip the markdown body — the client list only needs card fields */
+  const { featured, rest } = splitFeatured(
+    getPosts().map(({ content, ...card }) => card)
+  );
   return (
     <>
       <Nav active="blog" />
@@ -30,7 +35,7 @@ export default function BlogPage() {
             <p className="blog-sub">Writing on networks, energy and AI infrastructure — from the team building Tasaar.</p>
           </header>
 
-          <BlogList />
+          <BlogList featured={featured} posts={rest} />
 
           {/* ═══════ SUBSCRIBE STRIP ═══════ */}
           <div className="blog-subscribe">

@@ -1,8 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import { initHeroScene } from '../lib/heroScene';
-import { initProductScenes } from '../lib/productScenes';
 
 /* Runs the homepage's scroll/animation behavior against the
    server-rendered markup: star canvas, product objects, hero text
@@ -17,14 +15,38 @@ export default function HomeEffects() {
     const heroContent = document.getElementById('hero-content');
     const canvas = document.getElementById('hero-universe');
 
-    /* WebGL context creation can throw (blocked GPU, disabled WebGL).
-       The old site loaded these as standalone modules where a throw only
-       killed the effect — never the page. Keep that contract: no stars
-       is acceptable, a crashed page is not. */
+    /* three.js is ~170KB gzipped — dynamic import keeps it out of the
+       page's initial bundle, so the logo and text render immediately and
+       the starfield fades in the moment its chunk arrives.
+
+       WebGL context creation can throw (blocked GPU drivers, WebGL
+       disabled). A throw must never crash the page — instead flip each
+       area to its pure-CSS fallback (static starfield / line-art), which
+       renders on any browser. */
     let cleanupHero = () => {};
     let cleanupProducts = () => {};
-    try { cleanupHero = initHeroScene(canvas, heroEl); } catch (e) { console.warn('Hero scene disabled:', e); }
-    try { cleanupProducts = initProductScenes(); } catch (e) { console.warn('Product scenes disabled:', e); }
+    let unmounted = false;
+
+    (async () => {
+      try {
+        const { initHeroScene } = await import('../lib/heroScene');
+        if (unmounted) return;
+        cleanupHero = initHeroScene(canvas, heroEl);
+        canvas.classList.add('is-live');
+      } catch (e) {
+        console.warn('Hero WebGL unavailable, using CSS starfield:', e);
+        heroEl.classList.add('webgl-fallback');
+      }
+      try {
+        const { initProductScenes } = await import('../lib/productScenes');
+        if (unmounted) return;
+        cleanupProducts = initProductScenes();
+      } catch (e) {
+        console.warn('Product WebGL unavailable, using static art:', e);
+        const grid = document.querySelector('.products-grid');
+        if (grid) grid.classList.add('webgl-fallback');
+      }
+    })();
 
     /* ─────────────────────────────────────────────
        SCROLL: text fade + nav active
@@ -78,6 +100,7 @@ export default function HomeEffects() {
     heroContent.addEventListener('animationend', onEntranceEnd);
 
     return () => {
+      unmounted = true;
       window.removeEventListener('scroll', onScroll);
       heroContent.removeEventListener('animationend', onEntranceEnd);
       cleanupHero();

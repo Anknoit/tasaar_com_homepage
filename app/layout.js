@@ -1,4 +1,4 @@
-import { Cormorant_Garamond } from 'next/font/google';
+import { Cormorant_Garamond, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
 const cormorant = Cormorant_Garamond({
@@ -6,6 +6,15 @@ const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-cormorant',
+});
+
+/* Self-hosted so the hero thesis renders identically on every device
+   instead of falling back to whatever system mono is installed. */
+const jetbrains = JetBrains_Mono({
+  weight: ['500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains',
 });
 
 export const metadata = {
@@ -33,7 +42,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={cormorant.variable}>
+    <html lang="en" className={`${cormorant.variable} ${jetbrains.variable}`}>
       <body>{children}</body>
     </html>
   );
