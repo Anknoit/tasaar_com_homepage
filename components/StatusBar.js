@@ -16,7 +16,6 @@ export default function StatusBar() {
     <footer className="statusbar" aria-label="Site information">
       <div className="bar-left">
         <div className="bar-item"><div className="bar-dot g"></div>Networks</div>
-        <div className="bar-item"><div className="bar-dot t"></div>Energy</div>
         <div className="bar-item"><div className="bar-dot cr"></div>AI Infrastructure</div>
       </div>
       <div className="bar-right">

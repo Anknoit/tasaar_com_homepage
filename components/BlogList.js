@@ -80,16 +80,22 @@ const catLabels = {
   company: 'Company',
 };
 
-const filterDots = { networks: 'g', energy: 't', ai: 'cr' };
+const filterDots = { networks: 'g', ai: 'cr' };
 
 const postHref = (post) => `/blog/${post.slug}/`;
 
-function Meta({ cat, date }) {
+function Meta({ cat, date, author }) {
   return (
     <div className="blog-meta">
       <span className={`blog-cat ${cat}`}>{catLabels[cat]}</span>
       <span className="blog-meta-sep">·</span>
       <span>{date}</span>
+      {author ? (
+        <>
+          <span className="blog-meta-sep">·</span>
+          <span>By {author}</span>
+        </>
+      ) : null}
     </div>
   );
 }
@@ -118,7 +124,6 @@ export default function BlogList({ featured, posts }) {
       <div className="blog-filters" role="group" aria-label="Filter posts by category">
         {filterBtn('all', 'All')}
         {filterBtn('networks', 'Networks')}
-        {filterBtn('energy', 'Energy')}
         {filterBtn('ai', 'AI Infrastructure')}
         {filterBtn('company', 'Company')}
       </div>
@@ -128,7 +133,7 @@ export default function BlogList({ featured, posts }) {
         <a className="blog-featured" href={postHref(featured)}>
           <div className="blog-cover">{covers[featured.cover]}</div>
           <div className="blog-featured-text">
-            <Meta cat={featured.category} date={featured.dateLabel} />
+            <Meta cat={featured.category} date={featured.dateLabel} author={featured.author} />
             <h2 className="blog-post-title">{featured.title}</h2>
             <p className="blog-excerpt">{featured.excerpt}</p>
             <span className="blog-read">
@@ -145,7 +150,7 @@ export default function BlogList({ featured, posts }) {
           <a className="blog-card" href={postHref(post)} key={post.slug}>
             <div className="blog-cover">{covers[post.cover]}</div>
             <div className="blog-card-text">
-              <Meta cat={post.category} date={post.dateLabel} />
+              <Meta cat={post.category} date={post.dateLabel} author={post.author} />
               <h2 className="blog-post-title">{post.title}</h2>
               <p className="blog-excerpt">{post.excerpt}</p>
             </div>

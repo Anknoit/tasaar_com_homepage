@@ -55,6 +55,12 @@ function BackLink() {
   );
 }
 
+function renderMarkdown(content) {
+  if (!content) return '';
+  const parsed = marked.parse(content, { async: false });
+  return typeof parsed === 'string' ? parsed : '';
+}
+
 export default async function PostPage({ params }) {
   const { slug } = await params;
   const post = getPost(slug);
@@ -89,6 +95,12 @@ export default async function PostPage({ params }) {
             <span className={`blog-cat ${post.category}`}>{catLabels[post.category]}</span>
             <span className="blog-meta-sep">·</span>
             <span>{post.dateLabel}</span>
+            {post.author ? (
+              <>
+                <span className="blog-meta-sep">·</span>
+                <span>By {post.author}</span>
+              </>
+            ) : null}
           </div>
           <h1 className="post-title">{post.title}</h1>
           {post.draft ? (
@@ -99,7 +111,7 @@ export default async function PostPage({ params }) {
           ) : (
             <div
               className="post-body"
-              dangerouslySetInnerHTML={{ __html: marked.parse(post.content) }}
+              dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content) }}
             />
           )}
           <BackLink />

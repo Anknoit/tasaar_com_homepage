@@ -1,12 +1,21 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 /* Runs the homepage's scroll/animation behavior against the
    server-rendered markup: star canvas, product objects, hero text
    fade+drift, and nav scroll-spy. Renders nothing itself. */
 export default function HomeEffects() {
+  const [ready, setReady] = useState(false);
+
   useEffect(() => {
+    setReady(true);
+  }, []);
+
+  useEffect(() => {
+    if (!ready || typeof window === 'undefined' || typeof document === 'undefined') return;
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
     /* Always land on the hero — prevent browser scroll restoration */
     if (history.scrollRestoration) history.scrollRestoration = 'manual';
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -14,6 +23,8 @@ export default function HomeEffects() {
     const heroEl = document.querySelector('.hero-section');
     const heroContent = document.getElementById('hero-content');
     const canvas = document.getElementById('hero-universe');
+
+    if (!heroEl || !heroContent || !canvas) return;
 
     /* three.js is ~170KB gzipped — dynamic import keeps it out of the
        page's initial bundle, so the logo and text render immediately and

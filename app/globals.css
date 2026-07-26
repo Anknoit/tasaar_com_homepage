@@ -983,10 +983,32 @@ a.product-slot:hover .product-arrow { transform: translateX(5px); color: var(--g
   display: block;
   margin: 28px 0;
 }
-.post-body hr {
-  border: 0;
-  border-top: 1px solid #e8e8e8;
-  margin: 44px 0;
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+  font-size: 16px;
+}
+.post-body th,
+.post-body td {
+  border: 1px solid #e8e8e8;
+  padding: 14px 16px;
+  vertical-align: top;
+}
+.post-body th {
+  background: #f8f7f4;
+  color: #171717;
+  font-weight: 600;
+  text-align: left;
+}
+.post-body tr:nth-child(even) {
+  background: #faf9f7;
+}
+.post-body caption {
+  caption-side: bottom;
+  color: #777777;
+  font-size: 14px;
+  padding-top: 10px;
 }
 
 .post-back {
