@@ -117,7 +117,7 @@ export default function HomeEffects() {
       cleanupHero();
       cleanupProducts();
     };
-  }, []);
+  }, [ready]);
 
   return null;
 }
