@@ -1,5 +1,5 @@
 ---
-title: Understanding the brain and business behind a Network Monitoring System Techniques, Protocols, Use Cases, and the Road to Autonomous Networks
+title: Understanding the brain and business behind a Network Monitoring System - Techniques, Protocols, Use Cases, and the Road to Autonomous Networks
 author: Ankit Jha
 category: networks
 excerpt: Networks, grids and datacenters generate more telemetry than any team can read. Where the efficiency gains actually come from — and why we think the answer is a layer, not a dashboard.
