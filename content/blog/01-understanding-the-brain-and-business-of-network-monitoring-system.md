@@ -197,4 +197,6 @@ If you're working on network reliability, observability, or infrastructure intel
 
 ---
 
-*Published by Tasaar — Networks & Energy. Market figures in this article are drawn from 2025–2026 research by Precedence Research, Fortune Business Insights, SkyQuest, Mordor Intelligence, The Business Research Company, and Business Research Insights; trend analysis references Motadata, Broadcom, ManageEngine, and APMdigest. Figures represent independent analyst estimates and vary by methodology and market definition.*
+
+
+*Market figures in this article are drawn from 2025–2026 research by Precedence Research, Fortune Business Insights, SkyQuest, Mordor Intelligence, The Business Research Company, and Business Research Insights; trend analysis references Motadata, Broadcom, ManageEngine, and APMdigest. Figures represent independent analyst estimates and vary by methodology and market definition.*
