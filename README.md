@@ -45,7 +45,8 @@ The post body, in plain markdown.
 
 Optional fields: `cover:` picks the card artwork (constellation, waveform,
 stack, route, spike, orbit, orbitLarge — defaults by category),
-`featured: true` pins a post to the big featured slot, and `draft: true`
+`coverImage:` may point to an external image URL and will be used instead of the
+SVG artwork, `featured: true` pins a post to the big featured slot, and `draft: true`
 keeps a post as an unlinked "Coming soon" card with no page.
 
 To publish: write the file, remove `draft: true`, add `date:`, commit and

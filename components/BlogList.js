@@ -131,7 +131,13 @@ export default function BlogList({ featured, posts }) {
       {/* ═══════ FEATURED ═══════ */}
       {showFeatured && (
         <a className="blog-featured" href={postHref(featured)}>
-          <div className="blog-cover">{covers[featured.cover]}</div>
+          <div className="blog-cover">
+            {featured.coverImage ? (
+              <img src={featured.coverImage} alt={featured.title} className="blog-cover-img" />
+            ) : (
+              covers[featured.cover]
+            )}
+          </div>
           <div className="blog-featured-text">
             <Meta cat={featured.category} date={featured.dateLabel} author={featured.author} />
             <h2 className="blog-post-title">{featured.title}</h2>
@@ -148,7 +154,13 @@ export default function BlogList({ featured, posts }) {
       <div className="blog-grid">
         {visible.map((post) => (
           <a className="blog-card" href={postHref(post)} key={post.slug}>
-            <div className="blog-cover">{covers[post.cover]}</div>
+            <div className="blog-cover">
+              {post.coverImage ? (
+                <img src={post.coverImage} alt={post.title} className="blog-cover-img" />
+              ) : (
+                covers[post.cover]
+              )}
+            </div>
             <div className="blog-card-text">
               <Meta cat={post.category} date={post.dateLabel} author={post.author} />
               <h2 className="blog-post-title">{post.title}</h2>

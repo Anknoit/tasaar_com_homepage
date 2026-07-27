@@ -754,15 +754,21 @@ a.product-slot:hover .product-arrow { transform: translateX(5px); color: var(--g
   background-size: 28px 28px;
   overflow: hidden;
 }
-.blog-cover svg {
+.blog-cover svg,
+.blog-cover img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+}
+.blog-cover svg {
   transition: transform .45s ease;
 }
 .blog-featured:hover .blog-cover svg,
 .blog-card:hover .blog-cover svg { transform: scale(1.045); }
+.blog-cover img {
+  object-fit: cover;
+}
 
 /* Meta line */
 .blog-meta {
