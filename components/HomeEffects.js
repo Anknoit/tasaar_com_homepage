@@ -18,7 +18,11 @@ export default function HomeEffects() {
 
     /* Always land on the hero — prevent browser scroll restoration */
     if (history.scrollRestoration) history.scrollRestoration = 'manual';
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    try {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    } catch (e) {
+      window.scrollTo(0, 0);
+    }
 
     const heroEl = document.querySelector('.hero-section');
     const heroContent = document.getElementById('hero-content');
