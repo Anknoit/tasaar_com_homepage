@@ -6,14 +6,7 @@ import { useEffect, useState } from 'react';
    server-rendered markup: star canvas, product objects, hero text
    fade+drift, and nav scroll-spy. Renders nothing itself. */
 export default function HomeEffects() {
-  const [ready, setReady] = useState(false);
-
   useEffect(() => {
-    setReady(true);
-  }, []);
-
-  useEffect(() => {
-    if (!ready || typeof window === 'undefined' || typeof document === 'undefined') return;
     if (typeof window === 'undefined' || typeof document === 'undefined') return;
 
     /* Always land on the hero — prevent browser scroll restoration */
@@ -38,8 +31,8 @@ export default function HomeEffects() {
        disabled). A throw must never crash the page — instead flip each
        area to its pure-CSS fallback (static starfield / line-art), which
        renders on any browser. */
-    let cleanupHero = () => {};
-    let cleanupProducts = () => {};
+    let cleanupHero = () => { };
+    let cleanupProducts = () => { };
     let unmounted = false;
 
     (async () => {
@@ -121,7 +114,7 @@ export default function HomeEffects() {
       cleanupHero();
       cleanupProducts();
     };
-  }, [ready]);
+  }, []);
 
   return null;
 }

@@ -40,7 +40,14 @@ export async function generateMetadata({ params }) {
       description: post.excerpt,
       url: `https://tasaar.com/blog/${post.slug}`,
       siteName: 'Tasaar',
+      images: post.coverImage ? [`https://tasaar.com${post.coverImage}`] : undefined,
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: post.coverImage ? [`https://tasaar.com${post.coverImage}`] : undefined,
+    }
   };
 }
 
@@ -103,6 +110,9 @@ export default async function PostPage({ params }) {
             ) : null}
           </div>
           <h1 className="post-title">{post.title}</h1>
+          {!post.draft && post.coverImage && (
+            <img className="post-cover" src={post.coverImage} alt={post.title} style={{ width: '100%', height: 'auto', borderRadius: '8px', marginBottom: '2rem' }} />
+          )}
           {post.draft ? (
             <div className="post-body">
               <p>{post.excerpt}</p>
