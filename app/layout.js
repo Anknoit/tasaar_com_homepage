@@ -20,14 +20,14 @@ const jetbrains = JetBrains_Mono({
 export const metadata = {
   metadataBase: new URL('https://tasaar.com'),
   title: 'Tasaar',
-  description: 'Engineering the Intelligence layer for Infrastructure Efficiency',
+  description: 'Engineering the Intelligence layer for network efficiency',
   authors: [{ name: 'Tasaar' }],
   robots: 'index, follow',
   openGraph: {
     type: 'website',
     siteName: 'Tasaar',
     title: 'Tasaar',
-    description: 'Engineering the Intelligence layer for Infrastructure Efficiency',
+    description: 'Engineering the Intelligence layer for network efficiency',
     url: 'https://tasaar.com/',
     images: ['https://tasaar.com/og-image.png'],
   },
@@ -35,7 +35,7 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@tasaar',
     title: 'Tasaar',
-    description: 'Engineering the Intelligence layer for Infrastructure Efficiency',
+    description: 'Engineering the Intelligence layer for network efficiency',
     images: ['https://tasaar.com/og-image.png'],
   },
 };

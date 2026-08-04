@@ -45,15 +45,7 @@ export default function HomeEffects() {
         console.warn('Hero WebGL unavailable, using CSS starfield:', e);
         heroEl.classList.add('webgl-fallback');
       }
-      try {
-        const { initProductScenes } = await import('../lib/productScenes');
-        if (unmounted) return;
-        cleanupProducts = initProductScenes();
-      } catch (e) {
-        console.warn('Product WebGL unavailable, using static art:', e);
-        const grid = document.querySelector('.products-grid');
-        if (grid) grid.classList.add('webgl-fallback');
-      }
+      /* Product 3D wireframe canvases have been replaced by solution umbrella cards */
     })();
 
     /* ─────────────────────────────────────────────
