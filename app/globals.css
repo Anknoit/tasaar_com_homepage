@@ -2636,6 +2636,83 @@ a.product-slot:hover .product-arrow {
   pointer-events: none;
 }
 
+.featured-section::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(ellipse at center, rgba(45, 212, 191, 0.1) 0%, rgba(201, 168, 76, 0.06) 40%, transparent 70%);
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+
+.featured-section.featured-in-view::after,
+.featured-section.featured-pulse-glow::after {
+  opacity: 1;
+  animation: featuredAuraPulse 4s ease-in-out infinite alternate;
+}
+
+.featured-section.featured-pulse-glow .featured-card {
+  animation: featuredCardHighlight 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.featured-section.featured-pulse-glow .featured-card:nth-child(1) { animation-delay: 0.08s; }
+.featured-section.featured-pulse-glow .featured-card:nth-child(2) { animation-delay: 0.22s; }
+.featured-section.featured-pulse-glow .featured-card:nth-child(3) { animation-delay: 0.36s; }
+
+.featured-section.featured-pulse-glow .featured-logo-badge {
+  animation: logoBadgeGlow 1.6s ease-in-out forwards;
+}
+
+@keyframes featuredAuraPulse {
+  0% {
+    transform: translateX(-50%) scale(0.95);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(-50%) scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes featuredCardHighlight {
+  0% {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 rgba(45, 212, 191, 0);
+  }
+  40% {
+    border-color: rgba(45, 212, 191, 0.7);
+    box-shadow: 0 0 35px rgba(45, 212, 191, 0.35), 0 0 15px rgba(201, 168, 76, 0.2);
+    transform: translateY(-4px);
+  }
+  100% {
+    border-color: rgba(45, 212, 191, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(0);
+  }
+}
+
+@keyframes logoBadgeGlow {
+  0% {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+  50% {
+    border-color: rgba(201, 168, 76, 0.8);
+    box-shadow: 0 0 30px rgba(201, 168, 76, 0.4), 0 0 12px rgba(45, 212, 191, 0.3);
+    transform: scale(1.03);
+  }
+  100% {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transform: scale(1);
+  }
+}
+
 .featured-inner {
   position: relative;
   max-width: 1040px;

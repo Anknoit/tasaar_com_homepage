@@ -66,7 +66,7 @@ export default function HomeEffects() {
       /* Nav active state */
       const threshold = scrollY + window.innerHeight * 0.35;
       let active = 'home';
-      ['products', 'about'].forEach(function (id) {
+      ['products', 'featured', 'about'].forEach(function (id) {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top + scrollY <= threshold) {
           active = id;
@@ -88,6 +88,34 @@ export default function HomeEffects() {
     }
     window.addEventListener('scroll', onScroll, { passive: true });
 
+    /* Intersection Observer for Featured Section entrance animation */
+    const featuredEl = document.getElementById('featured');
+    let featuredObserver;
+    if (featuredEl && 'IntersectionObserver' in window) {
+      featuredObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            featuredEl.classList.add('featured-in-view');
+          }
+        });
+      }, { threshold: 0.25 });
+      featuredObserver.observe(featuredEl);
+    }
+
+    /* Click handler for Nav links pointing to #featured to trigger pulse animation */
+    function handleNavClick(e) {
+      const href = e.currentTarget.getAttribute('href');
+      if (href && (href === '#featured' || href.endsWith('#featured'))) {
+        if (featuredEl) {
+          featuredEl.classList.remove('featured-pulse-glow');
+          void featuredEl.offsetWidth; // trigger reflow
+          featuredEl.classList.add('featured-pulse-glow');
+        }
+      }
+    }
+    const featuredNavLinks = document.querySelectorAll('a[href*="#featured"]');
+    featuredNavLinks.forEach(link => link.addEventListener('click', handleNavClick));
+
     /* The one-shot entrance animation uses fill-mode:forwards, which pins
        opacity/transform in the cascade above any inline style — silently
        blocking the scroll-driven fade/drift above once it finishes. Drop
@@ -103,6 +131,8 @@ export default function HomeEffects() {
       unmounted = true;
       window.removeEventListener('scroll', onScroll);
       heroContent.removeEventListener('animationend', onEntranceEnd);
+      if (featuredObserver && featuredEl) featuredObserver.unobserve(featuredEl);
+      featuredNavLinks.forEach(link => link.removeEventListener('click', handleNavClick));
       cleanupHero();
       cleanupProducts();
     };

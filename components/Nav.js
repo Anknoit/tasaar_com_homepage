@@ -9,6 +9,7 @@ export default function Nav({ active = null, onHome = false }) {
       <div className="nav-links">
         <a className={cls('home')} href={`${p}#home`}>Home</a>
         <a className={cls('products')} href={`${p}#products`}>Products</a>
+        <a className={cls('featured')} href={`${p}#featured`}>Featured</a>
         <a className={cls('about')} href={`${p}#about`}>About</a>
         <a className={cls('blog')} href="/blog/">Blog</a>
       </div>
