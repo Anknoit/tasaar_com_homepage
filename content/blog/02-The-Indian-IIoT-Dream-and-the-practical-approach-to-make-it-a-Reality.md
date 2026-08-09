@@ -7,12 +7,12 @@ coverImage: "/blog-covers/constella.png"
 featured: True
 draft: false
 tags: ["industrial iot", "iiot", "telemetry", "edge computing", "predictive maintenance"]
-date: "2026-08-09"
+date: "2026-08-09"x
 ---
 
 A turbine bearing starts to vibrate half a millimeter more than it did last week. On a traditional shop floor, nobody notices until it seizes, takes a production line down, and turns a ₹40,000 part into a ₹40-lakh outage. On a connected floor, that same vibration is a data point that raised a work order three weeks ago.
 
-That gap, between machines that *run* and machines that *tell you how they're running*, is the entire premise of Industrial IoT.
+That gap between machines that *run* and machines that *tell you how they're running*, is the entire premise of Industrial IoT.
 
 And if we add an Autonomy layer to it, not as a replacement but as a digital colleague of the 
 Engineers similar to what is happening in Software Development and IT, this is where the dream completes, the only difference? here the stakes are real, its machines and human lives so the ultimate **Autonomy sweet spot is Human in the loop! No questions asked.**
@@ -104,6 +104,6 @@ The case for **home-grown IIoT platforms** is therefore economic before it is pa
 - **Data sovereignty** — critical infrastructure data that never leaves the country's control.
 - **Fit** — platforms tuned to Indian brownfield realities, mixed-vendor floors, and local support timelines.
 
-India has the engineering depth to own this layer end to end — from edge gateway to analytics. The question isn't capability. It's whether the market builds its telemetry backbone at home, or keeps leasing it abroad while the meter runs.
+India has the engineering depth to own this layer end to end from edge gateway to analytics. The question isn't capability. It's whether the market builds its telemetry backbone at home, or keeps leasing it abroad while the meter runs.
 
 The machines are already talking. The advantage goes to whoever owns the platform they talk to.
