@@ -7,7 +7,7 @@ coverImage: "/blog-covers/constella.png"
 featured: True
 draft: false
 tags: ["industrial iot", "iiot", "telemetry", "edge computing", "predictive maintenance"]
-date: "2026-08-09"x
+date: "2026-08-09"
 ---
 
 A turbine bearing starts to vibrate half a millimeter more than it did last week. On a traditional shop floor, nobody notices until it seizes, takes a production line down, and turns a ₹40,000 part into a ₹40-lakh outage. On a connected floor, that same vibration is a data point that raised a work order three weeks ago.

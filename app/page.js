@@ -18,7 +18,7 @@ function DownloadIcon() {
   );
 }
 
-{/* Vector Illustration 1: Network Intelligence / Platform3 Telemetry & Self-Healing Nodes */}
+{/* Vector Illustration 1: Network Intelligence Self-Healing Nodes */ }
 function NetworkVectorIllustration() {
   return (
     <div className="product-vector-wrap" aria-hidden="true">
@@ -71,7 +71,7 @@ function NetworkVectorIllustration() {
 
         {/* Dynamic Telemetry Waveform */}
         <path d="M70 160 Q 115 120, 160 160 T 250 160 T 340 160 T 410 160" fill="none" stroke="#C9A84C" strokeWidth="1.5" strokeOpacity="0.6" />
-        
+
         {/* Status Tag */}
         <rect x="180" y="265" width="120" height="24" rx="4" fill="rgba(201,168,76,0.18)" stroke="rgba(201,168,76,0.4)" />
         <text x="240" y="281" fill="#F59E0B" fontSize="10" fontFamily="monospace" textAnchor="middle" letterSpacing="1.5" fontWeight="bold">● SELF-HEALING ACTIVE</text>
@@ -80,7 +80,7 @@ function NetworkVectorIllustration() {
   );
 }
 
-{/* Vector Illustration 2: Communication Intelligence / Cadence WhatsApp Chat & Sentinel Security */}
+{/* Vector Illustration 2: Communication Intelligence / Cadence WhatsApp Chat & Sentinel Security */ }
 function CommunicationVectorIllustration() {
   return (
     <div className="product-vector-wrap" aria-hidden="true">
@@ -301,12 +301,12 @@ export default function Home() {
             <a className="featured-btn-primary font-mono" href="/products/navnet/">
               Know More <ProductArrow />
             </a>
-            <a 
-              className="featured-btn-secondary font-mono" 
-              href="/Platform_3_B2B_overview_Brochure-1.pdf" 
-              download="Platform 3 B2B_overview Brochure-1.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              className="featured-btn-secondary font-mono"
+              href="/Platform_3_B2B_overview_Brochure-1.pdf"
+              download="Platform 3 B2B_overview Brochure-1.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               title="Download Platform3 B2B Overview Brochure"
             >
               <DownloadIcon /> Download Brochure
