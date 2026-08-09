@@ -11,8 +11,8 @@ const catLabels = {
   company: 'Company',
 };
 
-/* Enable dynamic resolution for any post slug */
-export const dynamicParams = true;
+/* Static export mode compatibility */
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   const posts = getPosts();
