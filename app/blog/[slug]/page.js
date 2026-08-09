@@ -11,10 +11,8 @@ const catLabels = {
   company: 'Company',
 };
 
-/* Every post gets a page — drafts render a "still being written" note
-   instead of a dead link. `output: 'export'` rejects an empty params
-   list, so an empty content/blog emits one placeholder page instead. */
-export const dynamicParams = false;
+/* Enable dynamic resolution for any post slug */
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   const posts = getPosts();
@@ -23,32 +21,35 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const { slug } = await params;
-  const post = getPost(slug);
-  if (!post) return {};
-  if (post.draft) {
-    /* draft pages are reachable but shouldn't be indexed */
-    return { title: `${post.title} — Tasaar`, robots: 'noindex' };
-  }
-  return {
-    title: `${post.title} — Tasaar`,
-    description: post.excerpt,
-    alternates: { canonical: `https://tasaar.com/blog/${post.slug}` },
-    openGraph: {
-      type: 'article',
-      title: post.title,
-      description: post.excerpt,
-      url: `https://tasaar.com/blog/${post.slug}`,
-      siteName: 'Tasaar',
-      images: post.coverImage ? [`https://tasaar.com${post.coverImage}`] : undefined,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
-      images: post.coverImage ? [`https://tasaar.com${post.coverImage}`] : undefined,
+  try {
+    const { slug } = await params;
+    const post = getPost(slug);
+    if (!post) return {};
+    if (post.draft) {
+      return { title: `${post.title} — Tasaar`, robots: 'noindex' };
     }
-  };
+    return {
+      title: `${post.title} — Tasaar`,
+      description: post.excerpt,
+      alternates: { canonical: `https://tasaar.com/blog/${post.slug}` },
+      openGraph: {
+        type: 'article',
+        title: post.title,
+        description: post.excerpt,
+        url: `https://tasaar.com/blog/${post.slug}`,
+        siteName: 'Tasaar',
+        images: post.coverImage ? [`https://tasaar.com${post.coverImage}`] : undefined,
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: post.title,
+        description: post.excerpt,
+        images: post.coverImage ? [`https://tasaar.com${post.coverImage}`] : undefined,
+      }
+    };
+  } catch (err) {
+    return { title: 'Blog — Tasaar' };
+  }
 }
 
 function BackLink() {
@@ -64,12 +65,24 @@ function BackLink() {
 
 function renderMarkdown(content) {
   if (!content) return '';
-  const parsed = marked.parse(content, { async: false });
-  return typeof parsed === 'string' ? parsed : '';
+  try {
+    const parsed = marked.parse(content, { async: false });
+    return typeof parsed === 'string' ? parsed : '';
+  } catch (err) {
+    console.error('Markdown parse error:', err);
+    return content;
+  }
 }
 
 export default async function PostPage({ params }) {
-  const { slug } = await params;
+  let slug = '';
+  try {
+    const resolvedParams = await params;
+    slug = resolvedParams?.slug || '';
+  } catch (e) {
+    slug = '';
+  }
+
   const post = getPost(slug);
 
   if (!post) {
@@ -99,7 +112,7 @@ export default async function PostPage({ params }) {
       <main className="post-main" aria-label={post.title}>
         <article className="post-inner">
           <div className="blog-meta">
-            <span className={`blog-cat ${post.category}`}>{catLabels[post.category]}</span>
+            <span className={`blog-cat ${post.category}`}>{catLabels[post.category] || 'Company'}</span>
             <span className="blog-meta-sep">·</span>
             <span>{post.dateLabel}</span>
             {post.author ? (
