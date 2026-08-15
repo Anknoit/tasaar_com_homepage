@@ -151,7 +151,7 @@ export default function Home() {
           <img src="/white_logo-Photoroom.png" alt="Tasaar - Intelligence Layer for Industrial IoT, AI Integration & Networks" className="hero-logo" width="560" height="560" fetchPriority="high" decoding="async" />
           <h1 className="hero-thesis">
             <span className="hero-thesis-line">Engineering the Intelligence layer for</span>
-            <span className="hero-highlight">network efficiency<span className="shoot-star" aria-hidden="true"></span></span>
+            <span className="hero-highlight">Infrastructure Efficiency<span className="shoot-star" aria-hidden="true"></span></span>
           </h1>
         </div>
 
