@@ -3,6 +3,7 @@ import { marked } from 'marked';
 import Nav from '../../../components/Nav';
 import StatusBar from '../../../components/StatusBar';
 import { getPosts, getPost } from '../../../lib/posts';
+import { ArticleSchema } from '../../../components/JsonLd';
 
 const catLabels = {
   networks: 'Networks',
@@ -107,6 +108,7 @@ export default async function PostPage({ params }) {
 
   return (
     <>
+      <ArticleSchema post={post} />
       <Nav active="blog" />
 
       <main className="post-main" aria-label={post.title}>

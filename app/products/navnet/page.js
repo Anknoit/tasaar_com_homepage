@@ -1,15 +1,63 @@
 import Nav from '../../../components/Nav';
 import StatusBar from '../../../components/StatusBar';
+import { SoftwareAppSchema, FAQSchema } from '../../../components/JsonLd';
 
 export const metadata = {
-  title: 'NavNet.ai — AI-Native Network Monitoring | Tasaar Networks',
-  description: 'Network Intelligence — navigating networks, built for what\'s next. One AI-native platform combining table-stakes NMS reliability with gRPC telemetry and NavAssist RAG.',
+  title: 'AI-Native Network Operations & Industrial IoT Monitoring | NavNet',
+  description: 'Next-gen Network Operations System (NMS) and Industrial IoT telemetry platform powered by high-frequency gRPC streaming and NavAssist RAG AI for rapid MTTR reduction.',
+  keywords: [
+    'Network Operations',
+    'Network Monitoring System',
+    'NMS',
+    'Industrial IoT',
+    'IIoT telemetry',
+    'gRPC streaming telemetry',
+    'NavAssist RAG',
+    'AIOps',
+    'fault triage',
+    'MTTR reduction'
+  ],
   alternates: { canonical: 'https://tasaar.com/products/navnet' },
+  openGraph: {
+    title: 'AI-Native Network Operations & Industrial IoT Monitoring | NavNet',
+    description: 'Next-gen Network Operations System (NMS) and Industrial IoT telemetry platform.',
+    url: 'https://tasaar.com/products/navnet',
+    siteName: 'Tasaar',
+    type: 'website',
+  },
 };
+
+const navnetFaqs = [
+  {
+    question: 'How does NavNet improve Network Operations (NOC) triage?',
+    answer: 'NavNet replaces static polling with sub-second gRPC streaming telemetry and uses NavAssist RAG to correlate live configs, device topology, and incident history for automated root-cause diagnosis.'
+  },
+  {
+    question: 'Can NavNet monitor Industrial IoT and AI infrastructure?',
+    answer: 'Yes. NavNet provides single-pane monitoring across physical network devices (routers, switches, firewalls), Industrial IoT sensors, GPU clusters, and model-serving endpoints.'
+  },
+  {
+    question: 'How fast is NavNet deployment?',
+    answer: 'NavNet poller packs deploy in under 10 minutes with pre-mapped SNMP OIDs, gRPC protos, and automated topology discovery.'
+  }
+];
 
 export default function NavNetPage() {
   return (
     <>
+      <SoftwareAppSchema
+        name="NavNet.ai"
+        description="AI-Native Network Operations & Industrial IoT Telemetry Platform"
+        category="DeveloperApplication"
+        url="https://tasaar.com/products/navnet"
+        features={[
+          'gRPC High-Frequency Telemetry',
+          'NavAssist RAG Fault Diagnosis',
+          'Industrial IoT Sensor Integration',
+          'Zero-Blast Automated Remediation'
+        ]}
+      />
+      <FAQSchema faqs={navnetFaqs} />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet" />

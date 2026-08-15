@@ -4,13 +4,21 @@ import BlogList from '../../components/BlogList';
 import { getPosts, splitFeatured } from '../../lib/posts';
 
 export const metadata = {
-  title: 'Blog — Tasaar',
-  description: 'Writing on networks, energy and AI infrastructure from the team at Tasaar.',
+  title: 'Blog — Insights on Industrial IoT, AI Integration, Network Operations & AI Chatbots',
+  description: 'Technical field notes, market analysis, and engineering insights on Industrial IoT, AI Integration, Network Operations, and WhatsApp/RCS AI Communication Chatbots.',
+  keywords: [
+    'Industrial IoT blog',
+    'AI Integration research',
+    'Network Operations articles',
+    'AI Communication Chatbots',
+    'WhatsApp RCS business integration',
+    'NMS observability'
+  ],
   alternates: { canonical: 'https://tasaar.com/blog' },
   openGraph: {
     type: 'website',
-    title: 'Blog — Tasaar',
-    description: 'Writing on networks, energy and AI infrastructure from the team at Tasaar.',
+    title: 'Blog — Insights on Industrial IoT, AI Integration, Network Operations & AI Chatbots',
+    description: 'Technical field notes, market analysis, and engineering insights from Tasaar.',
     url: 'https://tasaar.com/blog',
     siteName: 'Tasaar',
   },

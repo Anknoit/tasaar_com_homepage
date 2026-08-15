@@ -1,15 +1,62 @@
 import Nav from '../../../components/Nav';
 import StatusBar from '../../../components/StatusBar';
+import { SoftwareAppSchema, FAQSchema } from '../../../components/JsonLd';
 
 export const metadata = {
-  title: 'Cadence.ai — The Numbers & Business Impact | Tasaar Networks',
-  description: 'Communications Intelligence — the rhythm of every customer conversation. One AI-native platform that turns high-friction journeys into verified two-way conversations.',
+  title: 'AI Communication Chatbots for WhatsApp & RCS Business Integration | Cadence.ai',
+  description: 'Deploy AI communication chatbots for WhatsApp & RCS business integration with in-thread UPI/card payment settlement, 2-way conversation workflows, and DPDP compliance.',
+  keywords: [
+    'AI Communication Chatbots',
+    'WhatsApp chatbots for business',
+    'RCS business integration',
+    'Conversational Commerce',
+    'DPDP compliant chatbot',
+    'WhatsApp business API',
+    'In-thread payments',
+    'Smart Chatbots',
+    'Sentinel trust layer'
+  ],
   alternates: { canonical: 'https://tasaar.com/products/cadence' },
+  openGraph: {
+    title: 'AI Communication Chatbots for WhatsApp & RCS Business Integration | Cadence.ai',
+    description: 'Deploy AI communication chatbots for WhatsApp & RCS business integration with in-thread payment settlement.',
+    url: 'https://tasaar.com/products/cadence',
+    siteName: 'Tasaar',
+    type: 'website',
+  },
 };
+
+const cadenceFaqs = [
+  {
+    question: 'How do AI Communication Chatbots on WhatsApp & RCS improve conversion rates?',
+    answer: 'Traditional customer funnels suffer from 70%+ drop-off when users are redirected to external web pages. Cadence.ai keeps slot booking, form completion, and payment settlement entirely inside WhatsApp & RCS messaging, boosting conversion up to 12x.'
+  },
+  {
+    question: 'Is Cadence.ai compliant with India\'s DPDP Act?',
+    answer: 'Yes. Cadence.ai includes Sentinel™ security, providing real-time message verification, opt-in consent tracking, and end-to-end DPDP regulatory compliance by default.'
+  },
+  {
+    question: 'What channels does Cadence.ai support?',
+    answer: 'Cadence.ai supports WhatsApp Business API, RCS messaging, SMS, and custom embedded Web Chat widgets.'
+  }
+];
 
 export default function CadencePage() {
   return (
     <>
+      <SoftwareAppSchema
+        name="Cadence.ai"
+        description="AI-Native Communication & Commerce Platform for WhatsApp, RCS & SMS with Sentinel Security"
+        category="BusinessApplication"
+        url="https://tasaar.com/products/cadence"
+        features={[
+          'WhatsApp AI Chatbots',
+          'RCS Business Integration',
+          'In-Thread Payment Settlement',
+          'Sentinel DPDP Fraud Screening'
+        ]}
+      />
+      <FAQSchema faqs={cadenceFaqs} />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet" />

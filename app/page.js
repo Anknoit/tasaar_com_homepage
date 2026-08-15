@@ -1,6 +1,7 @@
 import Nav from '../components/Nav';
 import StatusBar from '../components/StatusBar';
 import HomeEffects from '../components/HomeEffects';
+import { OrganizationSchema, WebSiteSchema } from '../components/JsonLd';
 
 function ProductArrow() {
   return (
@@ -138,18 +139,20 @@ function CommunicationVectorIllustration() {
 export default function Home() {
   return (
     <>
+      <OrganizationSchema />
+      <WebSiteSchema />
       <Nav active="home" onHome />
 
-      {/* ═══════ HERO SECTION (UNTOUCHED ORIGINAL) ═══════ */}
+      {/* ═══════ HERO SECTION ═══════ */}
       <section className="hero-section" aria-label="Overview">
         <canvas className="hero-universe" id="hero-universe" aria-hidden="true"></canvas>
 
         <div className="hero-content" id="hero-content">
-          <img src="/white_logo-Photoroom.png" alt="Tasaar" className="hero-logo" width="560" height="560" fetchPriority="high" decoding="async" />
-          <p className="hero-thesis">
+          <img src="/white_logo-Photoroom.png" alt="Tasaar - Intelligence Layer for Industrial IoT, AI Integration & Networks" className="hero-logo" width="560" height="560" fetchPriority="high" decoding="async" />
+          <h1 className="hero-thesis">
             <span className="hero-thesis-line">Engineering the Intelligence layer for</span>
             <span className="hero-highlight">network efficiency<span className="shoot-star" aria-hidden="true"></span></span>
-          </p>
+          </h1>
         </div>
 
         <div className="hero-fade" aria-hidden="true">
