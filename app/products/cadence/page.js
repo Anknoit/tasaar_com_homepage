@@ -1,9 +1,10 @@
 import Nav from '../../../components/Nav';
+import ProductMotion from '../../../components/ProductMotion';
 import StatusBar from '../../../components/StatusBar';
 import { SoftwareAppSchema, FAQSchema } from '../../../components/JsonLd';
 
 export const metadata = {
-  title: 'AI Communication Chatbots for WhatsApp & RCS Business Integration | Cadence.ai',
+  title: 'AI Communication Chatbots for WhatsApp & RCS Business Integration | Skylark',
   description: 'Deploy AI communication chatbots for WhatsApp & RCS business integration with in-thread UPI/card payment settlement, 2-way conversation workflows, and DPDP compliance.',
   keywords: [
     'AI Communication Chatbots',
@@ -18,7 +19,7 @@ export const metadata = {
   ],
   alternates: { canonical: 'https://tasaar.com/products/cadence' },
   openGraph: {
-    title: 'AI Communication Chatbots for WhatsApp & RCS Business Integration | Cadence.ai',
+    title: 'AI Communication Chatbots for WhatsApp & RCS Business Integration | Skylark',
     description: 'Deploy AI communication chatbots for WhatsApp & RCS business integration with in-thread payment settlement.',
     url: 'https://tasaar.com/products/cadence',
     siteName: 'Tasaar',
@@ -29,15 +30,15 @@ export const metadata = {
 const cadenceFaqs = [
   {
     question: 'How do AI Communication Chatbots on WhatsApp & RCS improve conversion rates?',
-    answer: 'Traditional customer funnels suffer from 70%+ drop-off when users are redirected to external web pages. Cadence.ai keeps slot booking, form completion, and payment settlement entirely inside WhatsApp & RCS messaging, boosting conversion up to 12x.'
+    answer: 'Traditional customer funnels suffer from 70%+ drop-off when users are redirected to external web pages. Skylark keeps slot booking, form completion, and payment settlement entirely inside WhatsApp & RCS messaging, boosting conversion up to 12x.'
   },
   {
-    question: 'Is Cadence.ai compliant with India\'s DPDP Act?',
-    answer: 'Yes. Cadence.ai includes Sentinel™ security, providing real-time message verification, opt-in consent tracking, and end-to-end DPDP regulatory compliance by default.'
+    question: 'Is Skylark compliant with India\'s DPDP Act?',
+    answer: 'Yes. Skylark includes Sentinel™ security, providing real-time message verification, opt-in consent tracking, and end-to-end DPDP regulatory compliance by default.'
   },
   {
-    question: 'What channels does Cadence.ai support?',
-    answer: 'Cadence.ai supports WhatsApp Business API, RCS messaging, SMS, and custom embedded Web Chat widgets.'
+    question: 'What channels does Skylark support?',
+    answer: 'Skylark supports WhatsApp Business API, RCS messaging, SMS, and custom embedded Web Chat widgets.'
   }
 ];
 
@@ -45,7 +46,7 @@ export default function CadencePage() {
   return (
     <>
       <SoftwareAppSchema
-        name="Cadence.ai"
+        name="Skylark"
         description="AI-Native Communication & Commerce Platform for WhatsApp, RCS & SMS with Sentinel Security"
         category="BusinessApplication"
         url="https://tasaar.com/products/cadence"
@@ -74,7 +75,7 @@ export default function CadencePage() {
             </div> */}
 
             <h1 className="editorial-title font-plex-sans">
-              Cadence.ai <em>— the rhythm of every customer conversation.</em>
+              Skylark <em>— the rhythm of every customer conversation.</em>
             </h1>
 
             <p className="editorial-lede">
@@ -89,10 +90,10 @@ export default function CadencePage() {
             </div>
 
             <div className="hero-cta-group">
-              <a href="mailto:hello@tasaar.com?subject=Cadence.ai%20Start" className="cadence-btn btn-crimson btn-lg font-plex-mono">
+              <a href="mailto:hello@tasaar.com?subject=Skylark%20Start" className="cadence-btn btn-crimson btn-lg font-plex-mono">
                 Start free
               </a>
-              <a href="mailto:hello@tasaar.com?subject=Cadence.ai%20Demo" className="cadence-btn btn-teal-outline btn-lg font-plex-mono">
+              <a href="mailto:hello@tasaar.com?subject=Skylark%20Demo" className="cadence-btn btn-teal-outline btn-lg font-plex-mono">
                 Book a demo
               </a>
             </div>
@@ -187,7 +188,7 @@ export default function CadencePage() {
             {/* <div className="citation-footnote-box">
               <div className="citation-badge font-plex-mono">ER CS</div>
               <div className="citation-text font-plex-sans">
-                Figures are 2026 industry benchmarks for WhatsApp and RCS conversational commerce and results from published Karix / Tanla deployments — shown as category evidence, not Cadence.ai&apos;s own results. Sources: Meta, McKinsey, IBM, Zendesk, Salesforce, and client case studies.
+                Figures are 2026 industry benchmarks for WhatsApp and RCS conversational commerce and results from published Karix / Tanla deployments — shown as category evidence, not Skylark&apos;s own results. Sources: Meta, McKinsey, IBM, Zendesk, Salesforce, and client case studies.
               </div>
             </div> */}
 
@@ -326,7 +327,7 @@ export default function CadencePage() {
           <div className="cadence-wrap">
             <div className="section-meta">
               {/* <span className="meta-kicker font-plex-mono">THE EIGHT JOURNEYS</span> */}
-              <h2>Where Cadence.ai helps your business</h2>
+              <h2>Where Skylark helps your business</h2>
               <p className="meta-sub">
                 Every client engagement is one of these patterns, re-skinned and connected to their data — not a new build. Distilled from proven conversational-commerce deployments across healthcare, banking, insurance and travel.
               </p>
@@ -473,12 +474,12 @@ export default function CadencePage() {
         <section className="cadence-final-cta">
           <div className="cadence-wrap center">
             <h2>Ready to transform customer conversations?</h2>
-            <p>Deploy Cadence.ai to convert inquiries into verified transactions.</p>
+            <p>Deploy Skylark to convert inquiries into verified transactions.</p>
             <div className="hero-cta-group">
-              <a href="mailto:hello@tasaar.com?subject=Cadence.ai%20Start" className="cadence-btn btn-crimson btn-lg font-plex-mono">
+              <a href="mailto:hello@tasaar.com?subject=Skylark%20Start" className="cadence-btn btn-crimson btn-lg font-plex-mono">
                 Start free
               </a>
-              <a href="mailto:hello@tasaar.com?subject=Cadence.ai%20Demo" className="cadence-btn btn-teal-outline btn-lg font-plex-mono">
+              <a href="mailto:hello@tasaar.com?subject=Skylark%20Demo" className="cadence-btn btn-teal-outline btn-lg font-plex-mono">
                 Book a demo
               </a>
             </div>
@@ -488,6 +489,7 @@ export default function CadencePage() {
 
       {/* ═══════ SHARED SITE FOOTER ═══════ */}
       <StatusBar />
+      <ProductMotion />
     </>
   );
 }

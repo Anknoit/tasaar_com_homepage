@@ -19,122 +19,18 @@ function DownloadIcon() {
   );
 }
 
-{/* Vector Illustration 1: Network Intelligence Self-Healing Nodes */ }
-function NetworkVectorIllustration() {
-  return (
-    <div className="product-vector-wrap" aria-hidden="true">
-      <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg" className="product-vector-svg">
-        <defs>
-          <radialGradient id="netGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#C9A84C" stopOpacity="0.2" />
-            <stop offset="100%" stopColor="#C9A84C" stopOpacity="0" />
-          </radialGradient>
-          <linearGradient id="netLineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#C9A84C" stopOpacity="0.8" />
-            <stop offset="50%" stopColor="#0E7C86" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#C9A84C" stopOpacity="0.2" />
-          </linearGradient>
-        </defs>
-
-        {/* Ambient Glow */}
-        <circle cx="240" cy="160" r="140" fill="url(#netGlow)" />
-
-        {/* Grid Gridlines */}
-        <path d="M40 80 H440 M40 160 H440 M40 240 H440" stroke="rgba(255,255,255,0.08)" strokeWidth="1" strokeDasharray="4 4" />
-        <path d="M120 40 V280 M240 40 V280 M360 40 V280" stroke="rgba(255,255,255,0.08)" strokeWidth="1" strokeDasharray="4 4" />
-
-        {/* Central Core & Outer Concentric Loops */}
-        <circle cx="240" cy="160" r="85" stroke="rgba(201, 168, 76, 0.3)" strokeWidth="1.5" strokeDasharray="6 6" />
-        <circle cx="240" cy="160" r="50" stroke="rgba(14, 124, 134, 0.5)" strokeWidth="1.5" />
-        <circle cx="240" cy="160" r="14" fill="#0C1F34" stroke="#C9A84C" strokeWidth="2.5" />
-        <circle cx="240" cy="160" r="4" fill="#C9A84C" />
-
-        {/* Network Nodes */}
-        <g className="node-group">
-          {/* Top Node */}
-          <line x1="240" y1="160" x2="240" y2="75" stroke="url(#netLineGrad)" strokeWidth="1.5" />
-          <circle cx="240" cy="75" r="8" fill="#07080F" stroke="#C9A84C" strokeWidth="2" />
-          <circle cx="240" cy="75" r="3" fill="#C9A84C" />
-          <text x="240" y="56" fill="#E2E8F0" fontSize="10" fontFamily="monospace" textAnchor="middle">CELL_01 [500ms]</text>
-
-          {/* Bottom Left Node */}
-          <line x1="240" y1="160" x2="140" y2="220" stroke="url(#netLineGrad)" strokeWidth="1.5" />
-          <circle cx="140" cy="220" r="8" fill="#07080F" stroke="#0E7C86" strokeWidth="2" />
-          <circle cx="140" cy="220" r="3" fill="#0E7C86" />
-          <text x="140" y="242" fill="#E2E8F0" fontSize="10" fontFamily="monospace" textAnchor="middle">RAN_CORE</text>
-
-          {/* Bottom Right Node */}
-          <line x1="240" y1="160" x2="340" y2="220" stroke="url(#netLineGrad)" strokeWidth="1.5" />
-          <circle cx="340" cy="220" r="8" fill="#07080F" stroke="#C9A84C" strokeWidth="2" />
-          <circle cx="340" cy="220" r="3" fill="#C9A84C" />
-          <text x="340" y="242" fill="#E2E8F0" fontSize="10" fontFamily="monospace" textAnchor="middle">REPAIR_LOOP</text>
-        </g>
-
-        {/* Dynamic Telemetry Waveform */}
-        <path d="M70 160 Q 115 120, 160 160 T 250 160 T 340 160 T 410 160" fill="none" stroke="#C9A84C" strokeWidth="1.5" strokeOpacity="0.6" />
-
-        {/* Status Tag */}
-        <rect x="180" y="265" width="120" height="24" rx="4" fill="rgba(201,168,76,0.18)" stroke="rgba(201,168,76,0.4)" />
-        <text x="240" y="281" fill="#F59E0B" fontSize="10" fontFamily="monospace" textAnchor="middle" letterSpacing="1.5" fontWeight="bold">● SELF-HEALING ACTIVE</text>
-      </svg>
-    </div>
-  );
-}
-
-{/* Vector Illustration 2: Communication Intelligence / Cadence WhatsApp Chat & Sentinel Security */ }
-function CommunicationVectorIllustration() {
-  return (
-    <div className="product-vector-wrap" aria-hidden="true">
-      <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg" className="product-vector-svg">
-        <defs>
-          <radialGradient id="commGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#0E7C86" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#0E7C86" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-
-        {/* Ambient Glow */}
-        <circle cx="240" cy="160" r="140" fill="url(#commGlow)" />
-
-        {/* Phone / Interface Wireframe Container */}
-        <rect x="110" y="30" width="260" height="260" rx="16" fill="#0C0E18" stroke="rgba(14, 124, 134, 0.4)" strokeWidth="1.5" />
-
-        {/* Header Bar */}
-        <path d="M110 46 C110 37, 117 30, 126 30 H354 C363 30, 370 37, 370 46 V72 H110 V46 Z" fill="#0C1F34" />
-        <circle cx="134" cy="51" r="5" fill="#25D366" />
-        <text x="146" y="55" fill="#FFFFFF" fontSize="11" fontFamily="sans-serif" fontWeight="500">Cadence Verified Agent</text>
-        <rect x="290" y="43" width="70" height="16" rx="8" fill="rgba(14,124,134,0.3)" />
-        <text x="325" y="54" fill="#2DD4BF" fontSize="8" fontFamily="monospace" textAnchor="middle" fontWeight="bold">SENTINEL™</text>
-
-        {/* Message 1 (Incoming User Query) */}
-        <g transform="translate(130, 90)">
-          <rect x="0" y="0" width="180" height="34" rx="8" fill="#1A2232" stroke="rgba(255,255,255,0.12)" />
-          <text x="12" y="21" fill="#FFFFFF" fontSize="10" fontFamily="sans-serif">Book appointment for Friday at 2pm?</text>
-        </g>
-
-        {/* Message 2 (Outgoing AI Agent Response) */}
-        <g transform="translate(160, 136)">
-          <rect x="0" y="0" width="190" height="42" rx="8" fill="#0E7C86" />
-          <text x="12" y="18" fill="#FFFFFF" fontSize="10" fontFamily="sans-serif" fontWeight="500">Slot confirmed! Settle fee below:</text>
-          <text x="12" y="32" fill="#E7F2F1" fontSize="9" fontFamily="sans-serif">In-Thread Payment · ₹500</text>
-        </g>
-
-        {/* In-Thread Action Payment Card */}
-        <g transform="translate(160, 190)">
-          <rect x="0" y="0" width="190" height="36" rx="6" fill="#B01030" />
-          <text x="95" y="22" fill="#FFFFFF" fontSize="10" fontFamily="monospace" fontWeight="bold" textAnchor="middle">PAY VIA UPI / CARD →</text>
-        </g>
-
-        {/* Sentinel Shield Badge Overlay */}
-        <g transform="translate(125, 240)">
-          <rect x="0" y="0" width="230" height="32" rx="6" fill="rgba(14,124,134,0.18)" stroke="rgba(14,124,134,0.5)" />
-          <path d="M14 10 L18 20 L28 8" stroke="#2DD4BF" strokeWidth="2" fill="none" />
-          <text x="36" y="20" fill="#2DD4BF" fontSize="9.5" fontFamily="monospace" letterSpacing="0.5" fontWeight="bold">DPDP Compliant · 0 Redirect Loss</text>
-        </g>
-      </svg>
-    </div>
-  );
-}
+const PRODUCT_INDEX = [
+  {
+    name: 'Skylark',
+    desc: 'CPaaS platform solutions for all kinds of businesses',
+    href: 'https://skylark.tasaar.com',
+  },
+  {
+    name: 'Constella',
+    desc: 'IIoT platform for asset management, tracking, and anti-theft loop back',
+    href: 'https://constella.tasaar.com',
+  },
+];
 
 export default function Home() {
   return (
@@ -176,70 +72,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════ PRODUCTS & SOLUTIONS (ZIG-ZAG ALTERNATING LAYOUT WITH FEATURE BADGES) ═══════ */}
+      {/* ═══════ PRODUCTS — EDITORIAL INDEX (TABLE-OF-CONTENTS LAYOUT) ═══════ */}
       <section id="products" className="products-section" aria-label="Products and Solutions">
         <div className="products-inner">
-          <div className="section-label">Products &amp; Solutions</div>
-
-          <div className="product-showcase-container">
-            {/* ROW 1: CADENCE.AI — VISUAL LEFT, DESC RIGHT */}
-            <div className="product-showcase-row">
-              <div className="showcase-visual">
-                <CommunicationVectorIllustration />
-              </div>
-
-              <div className="showcase-content">
-                <span className="showcase-kicker font-mono teal">COMMUNICATION INTELLIGENCE</span>
-                <h3 className="showcase-title">Cadence.ai</h3>
-                <div className="showcase-subtitle font-mono teal">AI-Native Communication &amp; Commerce Platform</div>
-                <p className="showcase-desc">
-                  Replaces high-friction web redirects with verified 2-way AI conversations on WhatsApp, enabling in-thread booking, enquiry, and instant payment settlement.
-                </p>
-
-                <div className="product-feature-badges font-mono">
-                  <span className="feature-badge teal">WHATSAPP</span>
-                  <span className="feature-badge teal">SMS</span>
-                  <span className="feature-badge teal">RCS</span>
-                  <span className="feature-badge teal">SMART CHATBOTS</span>
-                </div>
-
-                <div className="showcase-action">
-                  <a className="showcase-link teal font-mono" href="/products/cadence/" target="_blank" rel="noopener noreferrer">
-                    Explore Cadence.ai <ProductArrow />
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* ROW 2: NAVNET — DESC LEFT, VISUAL RIGHT */}
-            <div className="product-showcase-row">
-              <div className="showcase-content">
-                <span className="showcase-kicker font-mono gold">NETWORK INTELLIGENCE</span>
-                <h3 className="showcase-title">NavNet</h3>
-                <div className="showcase-subtitle font-mono gold">AI-Native Network Monitoring &amp; Telemetry</div>
-                <p className="showcase-desc">
-                  Every network monitor watches your infrastructure. NavNet navigates it — combining table-stakes NMS reliability with gRPC high-frequency telemetry for AI workloads and NavAssist RAG for real-time fault resolution.
-                </p>
-
-                <div className="product-feature-badges font-mono">
-                  <span className="feature-badge gold">AI-NATIVE NMS</span>
-                  <span className="feature-badge gold">NAVASSIST (RAG AI)</span>
-                  <span className="feature-badge gold">gRPC TELEMETRY</span>
-                  <span className="feature-badge gold">REAL-TIME TELEMETRY</span>
-                </div>
-
-                <div className="showcase-action">
-                  <a className="showcase-link font-mono" href="/products/navnet/">
-                    Explore NavNet <ProductArrow />
-                  </a>
-                </div>
-              </div>
-
-              <div className="showcase-visual">
-                <NetworkVectorIllustration />
-              </div>
-            </div>
+          <div className="index-header">
+            <div className="index-kicker font-mono">PLATFORMS + APPS</div>
+            <h2 className="index-headline">Hello, we are Tasaar.</h2>
+            <p className="index-sub">
+              We build the intelligence layer for communication and industrial infrastructure.
+            </p>
+            <div className="index-rule" aria-hidden="true"></div>
           </div>
+
+          <h3 className="index-group-title">I. Products</h3>
+
+          <ol className="product-index">
+            {PRODUCT_INDEX.map((product, i) => (
+              <li key={product.name}>
+                <a
+                  className="index-row"
+                  href={product.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="index-name">{product.name}</span>
+                  <span className="index-sep" aria-hidden="true">|</span>
+                  <span className="index-desc">{product.desc}</span>
+                  <span className="index-leader" aria-hidden="true"></span>
+                  <span className="index-num">{i + 1}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 

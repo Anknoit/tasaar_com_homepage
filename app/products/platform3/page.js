@@ -1,4 +1,5 @@
 import Nav from '../../../components/Nav';
+import ProductMotion from '../../../components/ProductMotion';
 import StatusBar from '../../../components/StatusBar';
 import { SoftwareAppSchema, FAQSchema } from '../../../components/JsonLd';
 
@@ -155,6 +156,7 @@ export default function Platform3Page() {
       </main>
 
       <StatusBar />
+      <ProductMotion />
     </>
   );
 }

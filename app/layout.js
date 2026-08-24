@@ -1,6 +1,19 @@
-import { Cormorant_Garamond, JetBrains_Mono } from 'next/font/google';
+import { Archivo, Cormorant_Garamond, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
+/* Display + body. Archivo is a variable grotesque with a real width axis —
+   headings are set wide (wdth ~112) so they carry the same broad, monoline,
+   engineered feel as the Tasaar mark, while body copy runs at normal width.
+   One family doing two jobs via an axis, rather than two unrelated faces. */
+const archivo = Archivo({
+  subsets: ['latin'],
+  axes: ['wdth'],
+  display: 'swap',
+  variable: '--font-archivo',
+});
+
+/* Kept for the wordmark only — the TASAAR lockup is the one place the
+   serif belongs. */
 const cormorant = Cormorant_Garamond({
   weight: ['300', '400', '600'],
   subsets: ['latin'],
@@ -70,7 +83,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${cormorant.variable} ${jetbrains.variable}`}>
       <body>{children}</body>
     </html>
   );

@@ -67,6 +67,6 @@ When an issue requires human judgment or special authorization, the AI agent sea
 
 ## Business Impact: Speed, Cost Collapse, and Payback
 
-Enterprises implementing Cadence.ai by Tasaar achieve full platform payback within **3 to 6 months**. Tier-1 support ticket deflection increases from ~40% to nearly 60%, drastically reducing contact center operating budgets while elevating customer satisfaction metrics.
+Enterprises implementing Skylark by Tasaar achieve full platform payback within **3 to 6 months**. Tier-1 support ticket deflection increases from ~40% to nearly 60%, drastically reducing contact center operating budgets while elevating customer satisfaction metrics.
 
 Conversational messaging is no longer just a notification channel—it is the modern storefront and service desk combined into one seamless conversation.
