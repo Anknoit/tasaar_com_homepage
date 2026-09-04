@@ -14,14 +14,11 @@ export default function StatusBar() {
 
   return (
     <footer className="statusbar" aria-label="Site information">
-      <div className="bar-left">
-        <div className="bar-item"><div className="bar-dot g"></div>Networks</div>
-        <div className="bar-item"><div className="bar-dot cr"></div>AI Infrastructure</div>
-      </div>
+      <div className="bar-left"></div>
       <div className="bar-right">
         <span className="bar-coord">18.5204°N · 73.8567°E</span>
         <span className="bar-time">{time} UTC</span>
-        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 9, letterSpacing: 2, color: 'var(--muted)' }}>TASAAR · EST. 2025</span>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 9, letterSpacing: 2, color: 'var(--muted)' }}>TASAAR NETWORKS</span>
       </div>
     </footer>
   );

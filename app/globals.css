@@ -3864,7 +3864,7 @@ a.product-slot:hover .product-arrow {
 .cadence-editorial-page.has-motion .cadence-editorial-hero {
   position: sticky;
   top: var(--nav-h);
-  min-height: calc(100vh - var(--nav-h) - var(--bar-h));
+  min-height: calc(100vh - var(--bar-h));
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -3963,5 +3963,95 @@ a.product-slot:hover .product-arrow {
   .cadence-editorial-page.has-motion .hero-parallax {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   COMING SOON PAGE — same dark navy field as the Featured
+   section, so the "Know More" jump keeps visual continuity.
+───────────────────────────────────────────────────────── */
+.coming-soon {
+  position: relative;
+  min-height: calc(100vh - var(--bar-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0A1322;
+  color: #FFFFFF;
+  padding: calc(var(--nav-h) + 80px) 24px 100px;
+  overflow: hidden;
+}
+
+.coming-soon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+}
+
+.coming-soon::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(ellipse at center, rgba(45, 212, 191, 0.1) 0%, rgba(201, 168, 76, 0.06) 40%, transparent 70%);
+  pointer-events: none;
+}
+
+.coming-soon-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 660px;
+  text-align: center;
+}
+
+.coming-soon-kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 24px;
+}
+
+.coming-soon-title {
+  font-family: var(--font-display);
+  font-variation-settings: var(--wdth-display);
+  font-size: clamp(34px, 6vw, 58px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: #FFFFFF;
+  margin-bottom: 22px;
+}
+
+.coming-soon-sub {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #A8B3C4;
+  margin: 0 auto 40px;
+  max-width: 560px;
+}
+
+.coming-soon-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .coming-soon {
+    padding: calc(var(--nav-h) + 56px) 20px 72px;
+  }
+  .coming-soon-sub {
+    font-size: 15px;
   }
 }

@@ -165,7 +165,7 @@ export default function Home() {
 
           {/* Action Row: Know More & Download Brochure */}
           <div className="featured-actions-row">
-            <a className="featured-btn-primary font-mono" href="/products/navnet/">
+            <a className="featured-btn-primary font-mono" href="/coming-soon/">
               Know More <ProductArrow />
             </a>
             <a
