@@ -4055,3 +4055,208 @@ a.product-slot:hover .product-arrow {
     font-size: 15px;
   }
 }
+
+/* ─────────────────────────────────────────────────────────
+   SKYLARK WAITLIST MODAL
+───────────────────────────────────────────────────────── */
+.waitlist-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(6, 14, 23, 0.72);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  animation: waitlist-fade .18s ease;
+}
+
+@keyframes waitlist-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.waitlist-modal {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  background: var(--cadence-white);
+  color: var(--cadence-navy);
+  border-radius: 8px;
+  border-top: 3px solid var(--cadence-crimson);
+  padding: 36px 36px 28px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+  margin: auto;
+}
+
+.waitlist-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--cadence-slate);
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.waitlist-close:hover { color: var(--cadence-navy); }
+
+.waitlist-kicker {
+  font-size: 10px;
+  letter-spacing: .18em;
+  color: var(--cadence-teal);
+  margin-bottom: 10px;
+}
+
+.waitlist-title {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--cadence-navy);
+  margin-bottom: 8px;
+}
+
+.waitlist-sub {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--cadence-slate-dim);
+  margin-bottom: 22px;
+}
+
+.waitlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.waitlist-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.waitlist-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.waitlist-field > span {
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cadence-slate-dim);
+}
+
+.waitlist-field input,
+.waitlist-field select,
+.waitlist-field textarea {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--cadence-navy);
+  background: #FBFCFD;
+  border: 1px solid var(--cadence-line-soft);
+  border-radius: 4px;
+  padding: 10px 12px;
+  width: 100%;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.waitlist-field textarea { resize: vertical; }
+
+.waitlist-field input:focus,
+.waitlist-field select:focus,
+.waitlist-field textarea:focus {
+  outline: none;
+  border-color: var(--cadence-teal);
+  box-shadow: 0 0 0 3px rgba(14, 124, 134, .12);
+}
+
+.waitlist-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.waitlist-actions button[disabled] {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.waitlist-error {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--cadence-crimson);
+}
+
+.waitlist-error a { color: var(--cadence-crimson); }
+
+.waitlist-fineprint {
+  font-size: 11px;
+  color: var(--cadence-slate);
+  line-height: 1.5;
+}
+
+.waitlist-done { text-align: center; }
+.waitlist-done .waitlist-sub { margin-bottom: 24px; }
+
+@media (max-width: 560px) {
+  .waitlist-modal { padding: 30px 22px 24px; }
+  .waitlist-row { grid-template-columns: 1fr; }
+  .waitlist-title { font-size: 22px; }
+}
+
+/* Founding-member offer band inside the waitlist modal */
+.waitlist-offer {
+  position: relative;
+  background: var(--cadence-teal-tint);
+  border-left: 3px solid var(--cadence-teal);
+  border-radius: 4px;
+  padding: 14px 16px;
+  margin-bottom: 22px;
+}
+
+.waitlist-offer-tag {
+  font-size: 9px;
+  letter-spacing: .2em;
+  color: var(--cadence-teal);
+  margin-bottom: 6px;
+}
+
+.waitlist-offer-line {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--cadence-navy);
+}
+
+.waitlist-offer-line strong { font-weight: 600; }
+
+/* Numbered seal on the confirmation state — the "you're in" moment */
+.waitlist-seal {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 18px;
+  border: 1px solid var(--cadence-teal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  letter-spacing: .1em;
+  color: var(--cadence-teal);
+  background: var(--cadence-teal-tint);
+}
+
+/* Offer line under the Skylark hero CTAs */
+.hero-cta-note {
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: .06em;
+  color: var(--cadence-slate-dim);
+}

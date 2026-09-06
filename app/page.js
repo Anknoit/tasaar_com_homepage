@@ -28,7 +28,7 @@ const PRODUCT_INDEX = [
   {
     name: 'Constella',
     desc: 'IIoT platform for asset management, tracking, and anti-theft loop back',
-    href: 'https://constella.tasaar.com',
+    href: '/coming-soon/constella/',
   },
 ];
 
@@ -87,13 +87,17 @@ export default function Home() {
           <h3 className="index-group-title">I. Products</h3>
 
           <ol className="product-index">
-            {PRODUCT_INDEX.map((product, i) => (
+            {PRODUCT_INDEX.map((product, i) => {
+              /* Internal coming-soon pages stay in this tab; live product
+                 subdomains keep opening in a new one. */
+              const external = product.href.startsWith('http');
+              return (
               <li key={product.name}>
                 <a
                   className="index-row"
                   href={product.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={external ? '_blank' : undefined}
+                  rel={external ? 'noopener noreferrer' : undefined}
                 >
                   <span className="index-name">{product.name}</span>
                   <span className="index-sep" aria-hidden="true">|</span>
@@ -102,7 +106,8 @@ export default function Home() {
                   <span className="index-num">{i + 1}</span>
                 </a>
               </li>
-            ))}
+              );
+            })}
           </ol>
         </div>
       </section>

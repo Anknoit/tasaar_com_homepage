@@ -2,6 +2,8 @@ import Nav from '../../../components/Nav';
 import ProductMotion from '../../../components/ProductMotion';
 import StatusBar from '../../../components/StatusBar';
 import { SoftwareAppSchema, FAQSchema } from '../../../components/JsonLd';
+import WaitlistModal from '../../../components/WaitlistModal';
+import WaitlistNetlifyForm from '../../../components/WaitlistNetlifyForm';
 
 export const metadata = {
   title: 'AI Communication Chatbots for WhatsApp & RCS Business Integration | Skylark',
@@ -65,6 +67,8 @@ export default function CadencePage() {
       {/* ═══════ SHARED SITE NAV ═══════ */}
       <Nav active="products" />
 
+      <WaitlistNetlifyForm />
+
       <main className="cadence-editorial-page font-plex-sans">
         {/* ═══════ HERO SECTION (60% DRAFTING WHITE #FFFFFF) ═══════ */}
         <section className="cadence-editorial-hero bg-white">
@@ -90,13 +94,17 @@ export default function CadencePage() {
             </div>
 
             <div className="hero-cta-group">
-              <a href="mailto:hello@tasaar.com?subject=Skylark%20Start" className="cadence-btn btn-crimson btn-lg font-plex-mono">
-                Start free
-              </a>
-              <a href="mailto:hello@tasaar.com?subject=Skylark%20Demo" className="cadence-btn btn-teal-outline btn-lg font-plex-mono">
-                Book a demo
+              <WaitlistModal className="cadence-btn btn-crimson btn-lg font-plex-mono">
+                Join Waitlist
+              </WaitlistModal>
+              <a href="#numbers" className="cadence-btn btn-teal-outline btn-lg font-plex-mono">
+                Know more
               </a>
             </div>
+
+            <p className="hero-cta-note font-plex-mono">
+              Founding members get their first month free — limited places, onboarded by hand.
+            </p>
 
             {/* SENTINEL TRUST BANNER (TEAL TINT #E7F2F1) */}
             <div className="sentinel-trust-banner">
@@ -476,13 +484,17 @@ export default function CadencePage() {
             <h2>Ready to transform customer conversations?</h2>
             <p>Deploy Skylark to convert inquiries into verified transactions.</p>
             <div className="hero-cta-group">
-              <a href="mailto:hello@tasaar.com?subject=Skylark%20Start" className="cadence-btn btn-crimson btn-lg font-plex-mono">
-                Start free
-              </a>
-              <a href="mailto:hello@tasaar.com?subject=Skylark%20Demo" className="cadence-btn btn-teal-outline btn-lg font-plex-mono">
-                Book a demo
+              <WaitlistModal className="cadence-btn btn-crimson btn-lg font-plex-mono">
+                Join Waitlist
+              </WaitlistModal>
+              <a href="#numbers" className="cadence-btn btn-teal-outline btn-lg font-plex-mono">
+                Know more
               </a>
             </div>
+
+            <p className="hero-cta-note font-plex-mono">
+              Founding members get their first month free — limited places, onboarded by hand.
+            </p>
           </div>
         </section>
       </main>
