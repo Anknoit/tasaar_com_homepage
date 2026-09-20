@@ -1,4 +1,4 @@
-import { Archivo, Cormorant_Garamond, JetBrains_Mono } from 'next/font/google';
+import { Archivo, Cormorant_Garamond, Inter, JetBrains_Mono, Poppins } from 'next/font/google';
 import './globals.css';
 
 /* Display + body. Archivo is a variable grotesque with a real width axis —
@@ -28,6 +28,26 @@ const jetbrains = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-jetbrains',
+});
+
+/* The product catalog runs on its own type voice: a rounded geometric sans.
+   Poppins is the honest stand-in for the proprietary face — same circular
+   bowls and single-storey 'a' — so the catalog can be re-skinned later by
+   swapping this one import. */
+const poppins = Poppins({
+  weight: ['600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+});
+
+/* Reading face for the catalog. Poppins carries the personality in the
+   headlines; body copy stays neutral so it doesn't compete. Inter is also
+   the first fallback under Poppins — never a rounded novelty face. */
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
 });
 
 export const metadata = {
@@ -83,7 +103,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${cormorant.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${cormorant.variable} ${jetbrains.variable} ${poppins.variable} ${inter.variable}`}>
       <body>{children}</body>
     </html>
   );

@@ -19,19 +19,6 @@ function DownloadIcon() {
   );
 }
 
-const PRODUCT_INDEX = [
-  {
-    name: 'Skylark',
-    desc: 'CPaaS platform solutions for all kinds of businesses',
-    href: 'https://skylark.tasaar.com',
-  },
-  {
-    name: 'Constella',
-    desc: 'IIoT platform for asset management, tracking, and anti-theft loop back',
-    href: '/coming-soon/constella/',
-  },
-];
-
 export default function Home() {
   return (
     <>
@@ -51,64 +38,27 @@ export default function Home() {
           </h1>
         </div>
 
+        {/* The arc resolves the starfield into whatever section follows it.
+            With the product index moved to /products that is now the dark
+            Featured band, so the gradient lands on its navy, not white. */}
         <div className="hero-fade" aria-hidden="true">
           <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#fff" stopOpacity="0" />
-                <stop offset="10%" stopColor="#fff" stopOpacity="0.01" />
-                <stop offset="22%" stopColor="#fff" stopOpacity="0.05" />
-                <stop offset="36%" stopColor="#fff" stopOpacity="0.13" />
-                <stop offset="50%" stopColor="#fff" stopOpacity="0.28" />
-                <stop offset="63%" stopColor="#fff" stopOpacity="0.50" />
-                <stop offset="75%" stopColor="#fff" stopOpacity="0.72" />
-                <stop offset="86%" stopColor="#fff" stopOpacity="0.90" />
-                <stop offset="94%" stopColor="#fff" stopOpacity="0.98" />
-                <stop offset="100%" stopColor="#fff" stopOpacity="1" />
+                <stop offset="0%" stopColor="#0A1322" stopOpacity="0" />
+                <stop offset="10%" stopColor="#0A1322" stopOpacity="0.01" />
+                <stop offset="22%" stopColor="#0A1322" stopOpacity="0.05" />
+                <stop offset="36%" stopColor="#0A1322" stopOpacity="0.13" />
+                <stop offset="50%" stopColor="#0A1322" stopOpacity="0.28" />
+                <stop offset="63%" stopColor="#0A1322" stopOpacity="0.50" />
+                <stop offset="75%" stopColor="#0A1322" stopOpacity="0.72" />
+                <stop offset="86%" stopColor="#0A1322" stopOpacity="0.90" />
+                <stop offset="94%" stopColor="#0A1322" stopOpacity="0.98" />
+                <stop offset="100%" stopColor="#0A1322" stopOpacity="1" />
               </linearGradient>
             </defs>
             <path d="M0,120 Q720,0 1440,120 L1440,400 L0,400 Z" fill="url(#hg)" />
           </svg>
-        </div>
-      </section>
-
-      {/* ═══════ PRODUCTS — EDITORIAL INDEX (TABLE-OF-CONTENTS LAYOUT) ═══════ */}
-      <section id="products" className="products-section" aria-label="Products and Solutions">
-        <div className="products-inner">
-          <div className="index-header">
-            <div className="index-kicker font-mono">PLATFORMS + APPS</div>
-            <h2 className="index-headline">Hello, we are Tasaar.</h2>
-            <p className="index-sub">
-              We build the intelligence layer for communication and industrial infrastructure.
-            </p>
-            <div className="index-rule" aria-hidden="true"></div>
-          </div>
-
-          <h3 className="index-group-title">I. Products</h3>
-
-          <ol className="product-index">
-            {PRODUCT_INDEX.map((product, i) => {
-              /* Internal coming-soon pages stay in this tab; live product
-                 subdomains keep opening in a new one. */
-              const external = product.href.startsWith('http');
-              return (
-              <li key={product.name}>
-                <a
-                  className="index-row"
-                  href={product.href}
-                  target={external ? '_blank' : undefined}
-                  rel={external ? 'noopener noreferrer' : undefined}
-                >
-                  <span className="index-name">{product.name}</span>
-                  <span className="index-sep" aria-hidden="true">|</span>
-                  <span className="index-desc">{product.desc}</span>
-                  <span className="index-leader" aria-hidden="true"></span>
-                  <span className="index-num">{i + 1}</span>
-                </a>
-              </li>
-              );
-            })}
-          </ol>
         </div>
       </section>
 

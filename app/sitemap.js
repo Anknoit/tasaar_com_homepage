@@ -21,6 +21,12 @@ export default async function sitemap() {
       priority: 1.0,
     },
     {
+      url: `${baseUrl}/products/`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/products/cadence/`,
       lastModified: new Date().toISOString(),
       changeFrequency: 'weekly',

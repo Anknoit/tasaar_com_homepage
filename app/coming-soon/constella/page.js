@@ -32,7 +32,7 @@ export default function ConstellaComingSoonPage() {
             its way.
           </p>
           <div className="coming-soon-actions">
-            <a className="featured-btn-secondary font-mono" href="/#products">
+            <a className="featured-btn-secondary font-mono" href="/products/">
               View Products
             </a>
             <a className="featured-btn-secondary font-mono" href="/">

@@ -28,7 +28,7 @@ export default function Nav({ active = null, onHome = false }) {
 
       <div className={`nav-links${isOpen ? ' open' : ''}`}>
         <a className={cls('home')} href={`${p}#home`} onClick={closeMenu}>Home</a>
-        <a className={cls('products')} href={`${p}#products`} onClick={closeMenu}>Products</a>
+        <a className={cls('products')} href="/products/" onClick={closeMenu}>Products</a>
         <a className={cls('featured')} href={`${p}#featured`} onClick={closeMenu}>Featured</a>
         <a className={cls('about')} href={`${p}#about`} onClick={closeMenu}>About</a>
         <a className={cls('blog')} href="/blog/" onClick={closeMenu}>Blog</a>

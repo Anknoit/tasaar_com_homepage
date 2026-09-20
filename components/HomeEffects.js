@@ -66,7 +66,7 @@ export default function HomeEffects() {
       /* Nav active state */
       const threshold = scrollY + window.innerHeight * 0.35;
       let active = 'home';
-      ['products', 'featured', 'about'].forEach(function (id) {
+      ['featured', 'about'].forEach(function (id) {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top + scrollY <= threshold) {
           active = id;
