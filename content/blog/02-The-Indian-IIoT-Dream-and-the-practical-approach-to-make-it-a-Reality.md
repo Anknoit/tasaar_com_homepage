@@ -5,6 +5,7 @@ category: "ai"
 excerpt: "The Indian Indiustrial IoT autonomy sweet spot is Human in the loop."
 coverImage: "/blog-covers/constella.png"
 featured: True
+main_page_feature: true
 draft: false
 tags: ["industrial iot", "iiot", "telemetry", "edge computing", "predictive maintenance"]
 date: "2026-08-09"

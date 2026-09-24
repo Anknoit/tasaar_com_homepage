@@ -5,6 +5,7 @@ category: networks
 excerpt: Networks, grids and datacenters generate more telemetry than any team can read. Where the efficiency gains actually come from — and why we think the answer is a layer, not a dashboard.
 coverImage: /blog-covers/nms_cover.png
 featured: false
+main_page_feature: false
 # draft: true
 tags: ["network monitoring", "observability", "AIOps", "SNMP", "telemetry", "network engineering", "infrastructure"]
 date: "2026-07-26"

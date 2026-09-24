@@ -4,6 +4,7 @@ category: energy
 excerpt: Load curves and traffic curves rhyme. What telecom operations can teach energy operations.
 cover: waveform
 draft: true
+main_page_feature: false
 ---
 
 Draft.

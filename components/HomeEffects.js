@@ -33,6 +33,7 @@ export default function HomeEffects() {
        renders on any browser. */
     let cleanupHero = () => { };
     let cleanupProducts = () => { };
+    let cleanupVision = () => { };
     let unmounted = false;
 
     (async () => {
@@ -46,6 +47,23 @@ export default function HomeEffects() {
         heroEl.classList.add('webgl-fallback');
       }
       /* Product 3D wireframe canvases have been replaced by solution umbrella cards */
+
+      /* Vision mesh — same lazy-import + graceful-degrade contract as the
+         hero. Its section is optional on the page, so a missing canvas is
+         not an error, just nothing to start. */
+      const visionEl = document.querySelector('.vision-section');
+      const visionCanvas = document.getElementById('vision-sphere');
+      if (visionEl && visionCanvas) {
+        try {
+          const { initVisionSphere } = await import('../lib/visionSphere');
+          if (unmounted) return;
+          cleanupVision = initVisionSphere(visionCanvas, visionEl);
+          visionCanvas.classList.add('is-live');
+        } catch (e) {
+          console.warn('Vision WebGL unavailable, using CSS fallback:', e);
+          visionEl.classList.add('webgl-fallback');
+        }
+      }
     })();
 
     /* ─────────────────────────────────────────────
@@ -66,7 +84,7 @@ export default function HomeEffects() {
       /* Nav active state */
       const threshold = scrollY + window.innerHeight * 0.35;
       let active = 'home';
-      ['featured', 'about'].forEach(function (id) {
+      ['featured'].forEach(function (id) {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top + scrollY <= threshold) {
           active = id;
@@ -135,6 +153,7 @@ export default function HomeEffects() {
       featuredNavLinks.forEach(link => link.removeEventListener('click', handleNavClick));
       cleanupHero();
       cleanupProducts();
+      cleanupVision();
     };
   }, []);
 

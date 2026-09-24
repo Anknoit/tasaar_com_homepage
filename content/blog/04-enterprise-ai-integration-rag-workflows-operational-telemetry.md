@@ -5,6 +5,7 @@ category: "ai"
 excerpt: "Bridging enterprise LLMs with operational telemetry: How grounded RAG AI integration reduces MTTR and automates complex network troubleshooting."
 coverImage: "/blog-covers/stack_cover.png"
 featured: false
+main_page_feature: true
 draft: false
 tags: ["AI Integration", "RAG AI", "Network Operations", "AIOps", "gRPC Telemetry", "Industrial IoT"]
 date: "2026-08-14"

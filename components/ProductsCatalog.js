@@ -11,7 +11,7 @@ import { useState } from 'react';
 export const CATEGORIES = [
   { id: 'cpaas', label: 'CPaaS', blurb: 'Communication platform as a service' },
   { id: 'iot', label: 'IoT / IIoT', blurb: 'Connected assets and industrial telemetry' },
-  { id: 'business', label: 'Business', blurb: 'Agentic systems for running the company' },
+  { id: 'enterprise', label: 'Enterprise', blurb: 'Agentic systems for running the company' },
 ];
 
 export const PRODUCTS = [
@@ -35,7 +35,7 @@ export const PRODUCTS = [
   },
   {
     name: 'Agentic CRM',
-    category: 'business',
+    category: 'enterprise',
     desc: 'A CRM where agents do the follow-up — pipeline, conversations and next actions handled end to end.',
     href: '/coming-soon/',
     status: 'soon',
@@ -44,7 +44,7 @@ export const PRODUCTS = [
   },
   {
     name: 'ERP',
-    category: 'business',
+    category: 'enterprise',
     desc: 'Operations, inventory and finance in one ledger, with agents reconciling what usually needs a spreadsheet.',
     href: '/coming-soon/',
     status: 'soon',

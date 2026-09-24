@@ -22,14 +22,13 @@ export default function ProductsPage() {
     <>
       <Nav active="products" />
 
-      <main className="product-type catalog-page" aria-label="Products">
+      <main className="brand-type catalog-page" aria-label="Products">
         <div className="catalog-inner">
           <header className="catalog-head">
-            <div className="index-kicker font-mono">PLATFORMS + APPS</div>
-            <h1 className="catalog-headline">Everything we build.</h1>
+            <h1 className="catalog-headline">AI Ready Products, that gets the work done!</h1>
             <p className="catalog-sub">
-              Three lines of work — programmable communication, industrial telemetry, and the
-              agentic systems that run a business. Pick a category to narrow the list.
+              Spanning across the domains of Networks and Communication,
+              Our portfolio comprises end to end Products that helps you scale your business.
             </p>
           </header>
 

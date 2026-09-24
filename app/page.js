@@ -2,6 +2,7 @@ import Nav from '../components/Nav';
 import StatusBar from '../components/StatusBar';
 import HomeEffects from '../components/HomeEffects';
 import { OrganizationSchema, WebSiteSchema } from '../components/JsonLd';
+import { getHomeFeaturedPosts } from '../lib/posts';
 
 function ProductArrow() {
   return (
@@ -19,7 +20,40 @@ function DownloadIcon() {
   );
 }
 
+
+/* The vision section's three rows: the product catalog's categories, each
+   named by what actually ships under it, and each linking to it. Kept in
+   step with components/ProductsCatalog.js — if a category is added there,
+   it belongs here too. */
+const VISION_PILLARS = [
+  {
+    tag: 'CPAAS',
+    title: 'Skylark — WhatsApp, RCS and SMS',
+    href: 'https://skylark.tasaar.com',
+  },
+  {
+    tag: 'IOT / IIOT',
+    title: 'SPV-Protect — tracking and tamper alerts',
+    href: '/coming-soon/',
+  },
+  {
+    tag: 'BUSINESS',
+    title: 'Agentic CRM and ERP — agents follow up',
+    href: '/products/',
+  },
+];
+
+const CATEGORY_LABELS = {
+  networks: 'Networks',
+  energy: 'Energy',
+  ai: 'AI',
+  company: 'Company',
+};
+
 export default function Home() {
+  /* posts flagged main_page_feature: true in their frontmatter, newest first */
+  const latest = getHomeFeaturedPosts(3).map(({ content, ...card }) => card);
+
   return (
     <>
       <OrganizationSchema />
@@ -63,7 +97,7 @@ export default function Home() {
       </section>
 
       {/* ═══════ FEATURED SECTION (DARK NAVY THEME - DO T LOGO TOP RIGHT & ACTION BUTTONS) ═══════ */}
-      <section id="featured" className="featured-section" aria-label="Featured Recognition">
+      <section id="featured" className="brand-type featured-section" aria-label="Featured Recognition">
         <div className="featured-inner">
           <div className="featured-header-split">
             <div className="featured-header-main">
@@ -137,14 +171,81 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════ ABOUT ═══════ */}
-      <section id="about" className="content-section about-section" aria-label="About">
-        <div className="inner">
-          <div className="section-label">About</div>
-          <p className="about-line">Founded on years inside telecom&apos;s core.</p>
-          <p className="about-line">Built to do the same for what comes next.</p>
+
+      {/* ═══════ VISION — copy left, hover-reactive particle shell right ═══════ */}
+      <section id="vision" className="brand-type vision-section" aria-label="Connecting Businesses and People">
+        <div className="vision-inner">
+          <div className="vision-copy">
+            <div className="vision-kicker font-mono">Connecting Businesses and People through</div>
+            <h2 className="vision-headline">
+              Intelligent communication and network systems, engineered in India.
+            </h2>
+            <p className="vision-sub">
+              Building hardware and softwares on top of 5G Infrastructure,
+              Running Communication Platforms, IIoT devices and Enterprise softwares
+              on a promise of reliability and safety.
+            </p>
+
+            <ul className="vision-pillars">
+              {VISION_PILLARS.map((v) => {
+                /* Skylark lives on its own subdomain; the rest stay on this
+                   site, so only the off-site link opens in a new tab. */
+                const external = v.href.startsWith('http');
+                return (
+                  <li className="vision-pillar" key={v.title}>
+                    <a
+                      className="vision-pillar-link"
+                      href={v.href}
+                      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    >
+                      <span className="vision-pillar-tag font-mono">{v.tag}</span>
+                      <span className="vision-pillar-title">{v.title}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <div className="vision-visual">
+            <canvas className="vision-sphere" id="vision-sphere" aria-hidden="true"></canvas>
+          </div>
         </div>
       </section>
+
+      {/* ═══════ WHAT'S NEW — latest published writing ═══════ */}
+      {latest.length > 0 && (
+        <section id="whats-new" className="brand-type news-section" aria-label="What's new">
+          <div className="news-inner">
+            <header className="news-head">
+              <div className="section-label news-label">What&apos;s new</div>
+              <h2 className="news-headline">Latest from the workbench.</h2>
+            </header>
+
+            <div className="news-list">
+              {latest.map((post) => (
+                <a className="news-row" key={post.slug} href={`/blog/${post.slug}/`}>
+                  <div className="news-row-meta font-mono">
+                    <span className="news-date">{post.dateLabel}</span>
+                    <span className={`news-cat news-cat-${post.category}`}>{CATEGORY_LABELS[post.category] || 'Company'}</span>
+                  </div>
+                  <div className="news-row-body">
+                    <h3 className="news-row-title">{post.title}</h3>
+                    {post.excerpt && <p className="news-row-excerpt">{post.excerpt}</p>}
+                  </div>
+                  <div className="news-row-arrow" aria-hidden="true"><ProductArrow /></div>
+                </a>
+              ))}
+            </div>
+
+            <div className="news-foot">
+              <a className="news-all font-mono" href="/blog/">
+                All writing <ProductArrow />
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
 
       <StatusBar />
       <HomeEffects />

@@ -848,26 +848,6 @@ a.product-slot:hover .product-arrow {
 }
 
 /* ─────────────────────────────────────────────────────────
-   ABOUT SECTION
-───────────────────────────────────────────────────────── */
-.about-section .inner {
-  padding-top: 130px;
-  padding-bottom: 170px;
-}
-
-.about-line {
-  font-family: var(--font-body);
-  font-size: 18px;
-  font-weight: 400;
-  color: #222222;
-  line-height: 1.72;
-}
-
-.about-line+.about-line {
-  margin-top: 2px;
-}
-
-/* ─────────────────────────────────────────────────────────
    BLOG PAGE (/blog) — white paper page; each post cover is
    a dark "window back into the void": a #04040A tile with
    the blueprint grid and a thin-stroke motif per category.
@@ -1537,15 +1517,6 @@ a.product-slot:hover .product-arrow {
 
   .products-section .products-inner {
     padding: 80px 24px;
-  }
-
-  .about-section .inner {
-    padding-top: 80px;
-    padding-bottom: 120px;
-  }
-
-  .about-line {
-    font-size: 17px;
   }
 
   .blog-main,
@@ -4608,57 +4579,458 @@ a.product-slot:hover .product-arrow {
   }
 }
 
-/* ── TYPE SYSTEM (product pages) ──
+/* ── TYPE SYSTEM (.brand-type) ──
    Poppins carries the brand voice in the headline tier; Inter reads
    everywhere else so the rounded face stays the thing you notice. The
-   scope sits on the page body, not a wrapper: the nav and status bar are
-   shared site chrome and keep the site's type on every page. */
-.product-type {
+   class is opted into section by section rather than set on <body>: the
+   nav, the status bar and the homepage hero are deliberately outside it,
+   so the shared chrome and the landing frame keep the site's own type on
+   every page while the content sections speak in the brand voice. */
+.brand-type {
   font-family: var(--font-reading);
 }
 
-.product-type h1,
-.product-type h2,
-.product-type h3,
-.product-type .catalog-tile-name {
+.brand-type h1,
+.brand-type h2,
+.brand-type h3,
+.brand-type .catalog-tile-name {
   font-family: var(--font-display-rounded);
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.08;
 }
 
-.product-type p,
-.product-type a,
-.product-type button,
-.product-type span,
-.product-type div {
+.brand-type p,
+.brand-type a,
+.brand-type button,
+.brand-type span,
+.brand-type div {
   font-family: var(--font-reading);
 }
 
 /* Re-assert the display face over the blanket reading-face rule above —
    these titles are spans in the markup, not headings. */
-.product-type .catalog-tile-name {
+.brand-type .catalog-tile-name {
   font-family: var(--font-display-rounded);
 }
 
 /* The page's one h1 sits at the top of the 600–700 range; the smaller
    headings stay at 600 so the hierarchy reads by weight as well as size. */
-.product-type .catalog-headline {
+.brand-type .catalog-headline {
   font-weight: 700;
   line-height: 1.05;
 }
 
 /* The counts sit in a column and change as the filter changes; tabular
    figures stop them shifting width digit to digit. */
-.product-type .catalog-filter-count,
-.product-type .catalog-main-count,
-.product-type .catalog-tag {
+.brand-type .catalog-filter-count,
+.brand-type .catalog-main-count,
+.brand-type .catalog-tag {
   font-variant-numeric: tabular-nums;
 }
 
 /* The small-caps labels arrive with .font-mono from shared markup; on these
    pages they run in Inter at a wide track instead. */
-.product-type .font-mono {
+.brand-type .font-mono {
   font-family: var(--font-reading);
   font-weight: 500;
+}
+
+/* ─────────────────────────────────────────────────────────
+   WHAT'S NEW (#whats-new) — the three newest published posts
+   as ruled rows. Tinted so it separates the two white bands
+   (What we do above, About below) without another border.
+───────────────────────────────────────────────────────── */
+.news-section {
+  position: relative;
+  background: #F7F7F5;
+  border-top: 1px solid #ececec;
+  padding: 96px 0;
+}
+
+.news-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.news-head {
+  margin-bottom: 40px;
+}
+
+.news-label {
+  margin-bottom: 20px;
+}
+
+.news-headline {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.2vw, 34px);
+  font-weight: 300;
+  color: #111111;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+}
+
+.news-list {
+  border-top: 1px solid #e2e2de;
+}
+
+.news-row {
+  display: grid;
+  grid-template-columns: 180px 1fr 32px;
+  gap: 28px;
+  align-items: start;
+  padding: 26px 0;
+  border-bottom: 1px solid #e2e2de;
+  text-decoration: none;
+  transition: background .25s ease, padding-left .25s ease;
+}
+
+.news-row:hover {
+  background: rgba(52, 80, 126, 0.035);
+  padding-left: 12px;
+}
+
+.news-row-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding-top: 4px;
+}
+
+.news-date {
+  color: #9a9a9a;
+  font-variant-numeric: tabular-nums;
+}
+
+.news-cat {
+  color: #34507E;
+}
+
+.news-cat-networks {
+  color: #156050;
+}
+
+.news-cat-energy {
+  color: #8A6A10;
+}
+
+.news-cat-ai {
+  color: #B01030;
+}
+
+.news-row-title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 400;
+  color: #111111;
+  line-height: 1.38;
+  letter-spacing: -0.2px;
+  margin-bottom: 8px;
+  transition: color .25s ease;
+}
+
+.news-row:hover .news-row-title {
+  color: #34507E;
+}
+
+.news-row-excerpt {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.65;
+  color: #6a6a6a;
+  max-width: 620px;
+}
+
+.news-row-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 4px;
+  color: #c4c4c4;
+  transition: color .25s ease, transform .25s ease;
+}
+
+.news-row-arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+.news-row:hover .news-row-arrow {
+  color: #34507E;
+  transform: translateX(4px);
+}
+
+.news-foot {
+  margin-top: 36px;
+}
+
+/* The section's one link out. Its arrow is an inline SVG with no intrinsic
+   size, so it must be given one here or it fills the page. */
+.news-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #111111;
+  text-decoration: none;
+  border-bottom: 1px solid #d8d8d8;
+  padding-bottom: 6px;
+  transition: border-color .25s ease, color .25s ease;
+}
+
+.news-all svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  transition: transform .25s ease;
+}
+
+.news-all:hover {
+  color: #34507E;
+  border-bottom-color: #34507E;
+}
+
+.news-all:hover svg {
+  transform: translateX(3px);
+}
+
+@media (max-width: 900px) {
+  .news-inner {
+    padding: 0 24px;
+  }
+
+  .news-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* On one column the meta reads better as a single line above
+     the title than as a stacked left rail. */
+  .news-row-meta {
+    flex-direction: row;
+    gap: 14px;
+    padding-top: 0;
+  }
+
+  .news-row-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .news-section {
+    padding: 72px 0;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   VISION (#vision) — the white band under Featured. The copy
+   holds the left column; the right column is a canvas with a
+   particle shell that answers the cursor. The page background
+   stays white — the canvas is transparent and occupies only
+   its own column, never the section behind the text.
+───────────────────────────────────────────────────────── */
+.vision-section {
+  position: relative;
+  background: #ffffff;
+  /* no top rule: this band now meets the dark Featured section, which
+     carries its own edge */
+  padding: 96px 0 100px;
+  overflow: hidden;
+}
+
+.vision-inner {
+  position: relative;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.88fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.vision-copy {
+  max-width: 480px;
+}
+
+.vision-kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: #3a3a3a;
+  margin-bottom: 20px;
+}
+
+/* The weight has to be re-stated at this specificity: `.brand-type
+   .font-mono` sets 500 on every mono label in the section, and a bare
+   `.vision-kicker { font-weight }` would lose to it. Size and tracking are
+   deliberately left alone — only weight and colour carry the emphasis. */
+.brand-type .vision-kicker {
+  font-weight: 700;
+  color: #3a3a3a;
+}
+
+.vision-headline {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.6vw, 40px);
+  font-weight: 300;
+  color: #111111;
+  line-height: 1.16;
+  letter-spacing: -0.5px;
+  margin-bottom: 18px;
+}
+
+.vision-sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: #5c5c5c;
+}
+
+/* Pillars are now a compact ruled list, not cards — the sphere carries the
+   weight on this section, so the copy stays a column of statements. */
+.vision-pillars {
+  list-style: none;
+  margin-top: 34px;
+  padding: 0;
+  border-top: 1px solid #ececec;
+}
+
+/* The row is the rule; the link inside it is what lays the row out, so the
+   whole row is the hit area rather than just the words. */
+.vision-pillar {
+  border-bottom: 1px solid #ececec;
+}
+
+.vision-pillar-link {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: 14px 0;
+  text-decoration: none;
+  transition: background .22s ease, padding-left .22s ease;
+}
+
+.vision-pillar-link:hover {
+  background: rgba(52, 80, 126, 0.045);
+  padding-left: 10px;
+}
+
+.vision-pillar-link:hover .vision-pillar-title {
+  color: #34507E;
+}
+
+.vision-pillar-link:hover .vision-pillar-tag {
+  color: #6b6b6b;
+}
+
+.vision-pillar-tag {
+  flex: 0 0 108px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #9a9a9a;
+  transition: color .22s ease;
+}
+
+.vision-pillar-title {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: #222222;
+  line-height: 1.5;
+  transition: color .22s ease;
+}
+
+/* ---- the visual column ---- */
+.vision-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 460px;
+  justify-self: end;
+}
+
+.vision-sphere {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* the shell responds to the pointer, but the section owns the listener,
+     so the canvas itself never needs to take the cursor */
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+
+.vision-sphere.is-live {
+  opacity: 1;
+}
+
+/* No WebGL: the canvas is dropped and a soft dotted disc stands in, so the
+   column holds its shape instead of collapsing to empty white. */
+.vision-section.webgl-fallback .vision-sphere {
+  display: none;
+}
+
+.vision-section.webgl-fallback .vision-visual::before {
+  content: '';
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  background-image: radial-gradient(#6b46b0 1px, transparent 1px);
+  background-size: 7px 7px;
+  opacity: 0.35;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 42%, transparent 70%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 42%, transparent 70%);
+}
+
+@media (max-width: 900px) {
+  .vision-inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+    padding: 0 24px;
+  }
+
+  .vision-copy {
+    max-width: none;
+  }
+
+  /* Sphere moves below the copy and centres, rather than being squeezed
+     into a column that no longer exists. */
+  .vision-visual {
+    justify-self: center;
+    max-width: 340px;
+  }
+}
+
+@media (max-width: 640px) {
+  .vision-section {
+    padding: 72px 0 76px;
+  }
+
+  .vision-visual {
+    max-width: 280px;
+  }
+
+  /* "MADE IN INDIA" wraps inside a fixed tag column at this width, so the
+     row stacks instead: tag above title, no ragged two-line labels. */
+  .vision-pillar-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .vision-pillar-tag {
+    flex-basis: auto;
+  }
 }
