@@ -10,8 +10,8 @@ import { useState } from 'react';
 ───────────────────────────────────────────────────────── */
 export const CATEGORIES = [
   { id: 'cpaas', label: 'CPaaS', blurb: 'Communication platform as a service' },
-  { id: 'iot', label: 'IoT / IIoT', blurb: 'Connected assets and industrial telemetry' },
-  { id: 'enterprise', label: 'Enterprise', blurb: 'Agentic systems for running the company' },
+  { id: 'embedded', label: 'Embedded Systems', blurb: 'IoT and IIoT hardware for industrial monitoring, on a 5G backbone' },
+  { id: 'workforce', label: 'AI Workforce', blurb: 'The control plane that deploys, governs and settles your agents' },
 ];
 
 export const PRODUCTS = [
@@ -26,7 +26,7 @@ export const PRODUCTS = [
   },
   {
     name: 'SPV-Protect',
-    category: 'iot',
+    category: 'embedded',
     desc: 'IIoT asset protection for solar plants — live tracking, tamper detection and anti-theft loop back.',
     href: '/coming-soon/',
     status: 'soon',
@@ -34,22 +34,13 @@ export const PRODUCTS = [
     icon: 'shield',
   },
   {
-    name: 'Agentic CRM',
-    category: 'enterprise',
-    desc: 'A CRM where agents do the follow-up — pipeline, conversations and next actions handled end to end.',
+    name: 'AgentOS',
+    category: 'workforce',
+    desc: 'The control plane for your AI workforce — deploy agents, connect them to your tools, and govern what each one can touch, do and cost.',
     href: '/coming-soon/',
     status: 'soon',
-    accent: 'crimson',
-    icon: 'pipeline',
-  },
-  {
-    name: 'ERP',
-    category: 'enterprise',
-    desc: 'Operations, inventory and finance in one ledger, with agents reconciling what usually needs a spreadsheet.',
-    href: '/coming-soon/',
-    status: 'soon',
-    accent: 'ink',
-    icon: 'ledger',
+    accent: 'violet',
+    icon: 'controlplane',
   },
 ];
 
@@ -83,11 +74,17 @@ function ProductIcon({ name }) {
       </svg>
     );
   }
-  if (name === 'pipeline') {
+  if (name === 'controlplane') {
+    /* a central hub governing satellite agents — the control plane over a
+       fleet, not a single agent */
     return (
       <svg {...common}>
-        <path d="M4 5h16l-6 6.8V20l-4-2.2v-6z" />
-        <circle cx="18.5" cy="17.5" r="2.5" />
+        <rect x="9" y="9" width="6" height="6" rx="1.4" />
+        <circle cx="5" cy="5" r="1.6" />
+        <circle cx="19" cy="5" r="1.6" />
+        <circle cx="5" cy="19" r="1.6" />
+        <circle cx="19" cy="19" r="1.6" />
+        <path d="M6.2 6.2 9 9M17.8 6.2 15 9M6.2 17.8 9 15M17.8 17.8 15 15" />
       </svg>
     );
   }

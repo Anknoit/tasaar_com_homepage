@@ -4455,6 +4455,13 @@ a.product-slot:hover .product-arrow {
   color: #3c4553;
 }
 
+/* The AI Workforce agents share one accent, so the category reads as a
+   family in the unfiltered grid rather than as three unrelated tiles. */
+.catalog-tile.accent-violet .catalog-tile-icon {
+  background: #f3f0fb;
+  color: #5b43a6;
+}
+
 .catalog-tile-body {
   display: block;
   min-width: 0;
@@ -4671,42 +4678,178 @@ a.product-slot:hover .product-arrow {
   letter-spacing: -0.4px;
 }
 
-.news-list {
-  border-top: 1px solid #e2e2de;
-}
-
-.news-row {
+/* ── WHAT'S NEW GRID ──
+   The three pinned posts as preview cards: a cover image (or a themed
+   void tile when none loads) over date, title and excerpt. Three up on
+   desktop, matching the three-post cap, collapsing to one column on
+   phones. */
+.news-grid {
   display: grid;
-  grid-template-columns: 180px 1fr 32px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px;
-  align-items: start;
-  padding: 26px 0;
-  border-bottom: 1px solid #e2e2de;
-  text-decoration: none;
-  transition: background .25s ease, padding-left .25s ease;
 }
 
-.news-row:hover {
-  background: rgba(52, 80, 126, 0.035);
-  padding-left: 12px;
-}
-
-.news-row-meta {
+.news-card {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-family: var(--font-mono);
+  text-decoration: none;
+  background: #ffffff;
+  border: 1px solid #e6e6e2;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  border-color: #d7dbe4;
+  box-shadow: 0 18px 40px -24px rgba(20, 30, 55, 0.35);
+}
+
+/* The cover frame — a dark "window into the void" like the blog page, so a
+   card with no image still reads as deliberate, not empty. */
+.news-card-cover {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #0A1322;
+  overflow: hidden;
+}
+
+.news-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+
+.news-card:hover .news-card-img {
+  transform: scale(1.04);
+}
+
+/* The fallback glyph sits under the image; it only shows through once the
+   image is removed on error (.is-fallback). */
+.news-card-glyph {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 92px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.14);
+  user-select: none;
+}
+
+.news-card-cover.is-fallback .news-card-glyph {
+  display: flex;
+}
+
+/* Category-tinted radial wash on the void tile, one per domain, mirroring
+   the statusbar/blog colour language. */
+.news-card-cover.is-fallback {
+  background-image: radial-gradient(ellipse 120% 90% at 30% 15%, rgba(52, 80, 126, 0.55) 0%, transparent 60%);
+}
+
+.news-card-cover.is-fallback.news-cat-bg-networks {
+  background-image: radial-gradient(ellipse 120% 90% at 30% 15%, rgba(21, 96, 80, 0.55) 0%, transparent 60%);
+}
+
+.news-card-cover.is-fallback.news-cat-bg-energy {
+  background-image: radial-gradient(ellipse 120% 90% at 30% 15%, rgba(138, 106, 16, 0.5) 0%, transparent 60%);
+}
+
+.news-card-cover.is-fallback.news-cat-bg-ai {
+  background-image: radial-gradient(ellipse 120% 90% at 30% 15%, rgba(176, 16, 48, 0.5) 0%, transparent 60%);
+}
+
+/* The category chip rides on the cover, top-left, over a scrim so it holds
+   over both a photo and the void tile. */
+.news-card-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
+}
+
+.news-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 20px 22px;
+}
+
+.news-card-date {
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  padding-top: 4px;
-}
-
-.news-date {
   color: #9a9a9a;
   font-variant-numeric: tabular-nums;
+  margin-bottom: 12px;
 }
 
+.news-card-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 400;
+  color: #111111;
+  line-height: 1.32;
+  letter-spacing: -0.2px;
+  margin-bottom: 10px;
+  transition: color .25s ease;
+}
+
+.news-card:hover .news-card-title {
+  color: #34507E;
+}
+
+.news-card-excerpt {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #6a6a6a;
+  /* keep cards even when excerpts differ in length */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.news-card-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #34507E;
+}
+
+.news-card-arrow {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  transition: transform .25s ease;
+}
+
+.news-card:hover .news-card-arrow {
+  transform: translateX(3px);
+}
+
+/* The category chip reuses the .news-cat* colours below for its text. */
 .news-cat {
   color: #34507E;
 }
@@ -4721,48 +4864,6 @@ a.product-slot:hover .product-arrow {
 
 .news-cat-ai {
   color: #B01030;
-}
-
-.news-row-title {
-  font-family: var(--font-display);
-  font-size: 19px;
-  font-weight: 400;
-  color: #111111;
-  line-height: 1.38;
-  letter-spacing: -0.2px;
-  margin-bottom: 8px;
-  transition: color .25s ease;
-}
-
-.news-row:hover .news-row-title {
-  color: #34507E;
-}
-
-.news-row-excerpt {
-  font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.65;
-  color: #6a6a6a;
-  max-width: 620px;
-}
-
-.news-row-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-top: 4px;
-  color: #c4c4c4;
-  transition: color .25s ease, transform .25s ease;
-}
-
-.news-row-arrow svg {
-  width: 16px;
-  height: 16px;
-}
-
-.news-row:hover .news-row-arrow {
-  color: #34507E;
-  transform: translateX(4px);
 }
 
 .news-foot {
@@ -4807,27 +4908,21 @@ a.product-slot:hover .product-arrow {
     padding: 0 24px;
   }
 
-  .news-row {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  /* On one column the meta reads better as a single line above
-     the title than as a stacked left rail. */
-  .news-row-meta {
-    flex-direction: row;
-    gap: 14px;
-    padding-top: 0;
-  }
-
-  .news-row-arrow {
-    display: none;
+  /* Two up in the tablet band, so the cards don't stretch too wide. */
+  .news-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 620px) {
   .news-section {
     padding: 72px 0;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
@@ -5032,5 +5127,81 @@ a.product-slot:hover .product-arrow {
 
   .vision-pillar-tag {
     flex-basis: auto;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   DOMAIN WORDMARK (closing band) — the word "tasaar" in white
+   over imagery that crossfades through the domains we work in.
+   Sits between What's new and the status bar.
+───────────────────────────────────────────────────────── */
+.domain-section {
+  position: relative;
+  background: #0A1322;
+  padding: 120px 0 124px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* The single stars/galaxy backdrop, full-bleed behind the band. */
+.domain-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Scrim: keeps the white wordmark legible over any domain, and darkens the
+   edges so the band resolves cleanly into the status bar below. */
+.domain-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  /* Light touch: the starfields are already dark, so the scrim only lifts
+     a little contrast behind the word and darkens the edges to resolve the
+     band into the status bar — not enough to drown the stars. */
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 50%, rgba(5, 7, 14, 0.42) 0%, transparent 70%),
+    linear-gradient(to bottom, rgba(5, 7, 14, 0.25) 0%, transparent 30%, transparent 70%, rgba(5, 7, 14, 0.45) 100%);
+}
+
+.domain-inner {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 48px;
+  text-align: center;
+}
+
+.domain-kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 24px;
+}
+
+.domain-word {
+  font-family: var(--font-display-rounded);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-size: clamp(72px, 20vw, 300px);
+  line-height: 0.9;
+  text-transform: lowercase;
+  color: #ffffff;
+  user-select: none;
+  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 640px) {
+  .domain-inner {
+    padding: 0 24px;
+  }
+
+  .domain-section {
+    padding: 84px 0 88px;
   }
 }

@@ -3,7 +3,7 @@ title: "AI Communication Chatbots: Transforming WhatsApp & RCS Business Integrat
 author: "Ankit Jha"
 category: "ai"
 excerpt: "How 2-way AI communication chatbots on WhatsApp & RCS eliminate browser redirect friction, ensure DPDP compliance, and enable instant in-thread transactions."
-coverImage: "/blog-covers/constella.png"
+coverImage: "blog-covers/skylark_logo.png"
 featured: true
 main_page_feature: true
 draft: false

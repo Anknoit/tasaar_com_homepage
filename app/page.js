@@ -3,6 +3,8 @@ import StatusBar from '../components/StatusBar';
 import HomeEffects from '../components/HomeEffects';
 import { OrganizationSchema, WebSiteSchema } from '../components/JsonLd';
 import { getHomeFeaturedPosts } from '../lib/posts';
+import NewsGrid from '../components/NewsGrid';
+import DomainWordmark from '../components/DomainWordmark';
 
 function ProductArrow() {
   return (
@@ -32,23 +34,16 @@ const VISION_PILLARS = [
     href: 'https://skylark.tasaar.com',
   },
   {
-    tag: 'IOT / IIOT',
+    tag: 'EMBEDDED',
     title: 'SPV-Protect — tracking and tamper alerts',
     href: '/coming-soon/',
   },
   {
-    tag: 'BUSINESS',
-    title: 'Agentic CRM and ERP — agents follow up',
+    tag: 'AI WORKFORCE',
+    title: 'AgentOS — the control plane for your agents',
     href: '/products/',
   },
 ];
-
-const CATEGORY_LABELS = {
-  networks: 'Networks',
-  energy: 'Energy',
-  ai: 'AI',
-  company: 'Company',
-};
 
 export default function Home() {
   /* posts flagged main_page_feature: true in their frontmatter, newest first */
@@ -222,21 +217,7 @@ export default function Home() {
               <h2 className="news-headline">Latest from the workbench.</h2>
             </header>
 
-            <div className="news-list">
-              {latest.map((post) => (
-                <a className="news-row" key={post.slug} href={`/blog/${post.slug}/`}>
-                  <div className="news-row-meta font-mono">
-                    <span className="news-date">{post.dateLabel}</span>
-                    <span className={`news-cat news-cat-${post.category}`}>{CATEGORY_LABELS[post.category] || 'Company'}</span>
-                  </div>
-                  <div className="news-row-body">
-                    <h3 className="news-row-title">{post.title}</h3>
-                    {post.excerpt && <p className="news-row-excerpt">{post.excerpt}</p>}
-                  </div>
-                  <div className="news-row-arrow" aria-hidden="true"><ProductArrow /></div>
-                </a>
-              ))}
-            </div>
+            <NewsGrid posts={latest} />
 
             <div className="news-foot">
               <a className="news-all font-mono" href="/blog/">
@@ -246,6 +227,8 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      <DomainWordmark />
 
       <StatusBar />
       <HomeEffects />
