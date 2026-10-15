@@ -41,7 +41,7 @@ const VISION_PILLARS = [
   {
     tag: 'AI WORKFORCE',
     title: 'AgentOS — the control plane for your agents',
-    href: '/products/',
+    href: 'https://agentos.tasaar.com',
   },
 ];
 

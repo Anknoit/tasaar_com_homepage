@@ -37,7 +37,7 @@ export const PRODUCTS = [
     name: 'AgentOS',
     category: 'workforce',
     desc: 'The control plane for your AI workforce — deploy agents, connect them to your tools, and govern what each one can touch, do and cost.',
-    href: '/coming-soon/',
+    href: 'https://agentos.tasaar.com',
     status: 'soon',
     accent: 'violet',
     icon: 'controlplane',
