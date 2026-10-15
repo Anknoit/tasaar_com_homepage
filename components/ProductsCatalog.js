@@ -38,7 +38,7 @@ export const PRODUCTS = [
     category: 'workforce',
     desc: 'The control plane for your AI workforce — deploy agents, connect them to your tools, and govern what each one can touch, do and cost.',
     href: 'https://agentos.tasaar.com',
-    status: 'soon',
+    status: 'live',
     accent: 'violet',
     icon: 'controlplane',
   },
