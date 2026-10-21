@@ -3142,11 +3142,11 @@ a.product-slot:hover .product-arrow {
 
 /* Slow push-in on the active photo for a gentle sense of motion. */
 .hackathon-slide.is-active .hackathon-slide-img {
-  animation: hackathonKenBurns 7s ease-out forwards;
+  animation: hackathonKenBurns 5s ease-out forwards;
 }
 
 .hackathon-slide.is-active .hackathon-slide-bg {
-  animation: hackathonKenBurnsBg 7s ease-out forwards;
+  animation: hackathonKenBurnsBg 5s ease-out forwards;
 }
 
 @keyframes hackathonKenBurns {

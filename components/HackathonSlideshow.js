@@ -16,7 +16,7 @@ const SLIDES = [
   { src: '/hackathon_images/hackathon-7.jpeg', alt: '5G Hackathon presentation — slide 7' },
 ];
 
-const INTERVAL_MS = 4500;
+const INTERVAL_MS = 5000;
 
 export default function HackathonSlideshow() {
   const [index, setIndex] = useState(0);
