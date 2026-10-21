@@ -23,6 +23,7 @@ export const PRODUCTS = [
     status: 'live',
     accent: 'teal',
     icon: 'signal',
+    logo: '/product_logo/skylark_logo.png',
   },
   {
     name: 'SPV-Protect',
@@ -41,6 +42,7 @@ export const PRODUCTS = [
     status: 'live',
     accent: 'violet',
     icon: 'controlplane',
+    logo: '/product_logo/AgentOS_logo.png',
   },
 ];
 
@@ -167,8 +169,18 @@ export default function ProductsCatalog() {
                   target={external ? '_blank' : undefined}
                   rel={external ? 'noopener noreferrer' : undefined}
                 >
-                  <span className="catalog-tile-icon">
-                    <ProductIcon name={product.icon} />
+                  <span className={'catalog-tile-icon' + (product.logo ? ' has-logo' : '')}>
+                    {product.logo ? (
+                      /* eslint-disable-next-line @next/next/no-img-element */
+                      <img
+                        className="catalog-tile-logo"
+                        src={product.logo}
+                        alt={`${product.name} logo`}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <ProductIcon name={product.icon} />
+                    )}
                   </span>
                   <span className="catalog-tile-body">
                     <span className="catalog-tile-top">

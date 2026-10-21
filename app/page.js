@@ -5,6 +5,7 @@ import { OrganizationSchema, WebSiteSchema } from '../components/JsonLd';
 import { getHomeFeaturedPosts } from '../lib/posts';
 import NewsGrid from '../components/NewsGrid';
 import DomainWordmark from '../components/DomainWordmark';
+import HackathonSlideshow from '../components/HackathonSlideshow';
 
 function ProductArrow() {
   return (
@@ -146,6 +147,9 @@ export default function Home() {
               </p>
             </div>
           </div>
+
+          {/* 5G Hackathon presentation photos — auto-advancing slideshow */}
+          <HackathonSlideshow />
 
           {/* Action Row: Know More & Download Brochure */}
           <div className="featured-actions-row">

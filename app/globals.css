@@ -3078,6 +3078,172 @@ a.product-slot:hover .product-arrow {
 }
 
 /* Action Buttons Row */
+/* ═══════ 5G HACKATHON SLIDESHOW (inside Featured section) ═══════ */
+.hackathon-kicker-wrap {
+  margin-top: 56px;
+}
+
+.hackathon-eyebrow {
+  margin-bottom: 16px;
+}
+
+.hackathon-slideshow {
+  position: relative;
+}
+
+.hackathon-stage {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  aspect-ratio: 4 / 5;
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(8, 14, 26, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.hackathon-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+  pointer-events: none;
+}
+
+.hackathon-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Blurred, cover-cropped copy fills the frame edge-to-edge so there are
+   no flat bars behind portrait photos. */
+.hackathon-slide-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.15);
+  filter: blur(26px) brightness(0.55) saturate(1.1);
+}
+
+/* The full, uncropped photo sits on top, as large as fits. */
+.hackathon-slide-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+  transform: scale(1);
+}
+
+/* Slow push-in on the active photo for a gentle sense of motion. */
+.hackathon-slide.is-active .hackathon-slide-img {
+  animation: hackathonKenBurns 7s ease-out forwards;
+}
+
+.hackathon-slide.is-active .hackathon-slide-bg {
+  animation: hackathonKenBurnsBg 7s ease-out forwards;
+}
+
+@keyframes hackathonKenBurns {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
+
+@keyframes hackathonKenBurnsBg {
+  from { transform: scale(1.15); }
+  to { transform: scale(1.24); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hackathon-slide.is-active .hackathon-slide-img,
+  .hackathon-slide.is-active .hackathon-slide-bg {
+    animation: none;
+  }
+}
+
+.hackathon-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(10, 19, 34, 0.55);
+  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.25s ease, background 0.2s ease, border-color 0.2s ease;
+  z-index: 2;
+}
+
+.hackathon-slideshow:hover .hackathon-nav {
+  opacity: 1;
+}
+
+.hackathon-nav:hover {
+  background: rgba(14, 124, 134, 0.8);
+  border-color: rgba(45, 212, 191, 0.6);
+}
+
+.hackathon-nav svg {
+  width: 16px;
+  height: 16px;
+}
+
+.hackathon-nav.prev {
+  left: 16px;
+}
+
+.hackathon-nav.next {
+  right: 16px;
+}
+
+.hackathon-dots {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+.hackathon-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease, width 0.25s ease;
+}
+
+.hackathon-dot:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.hackathon-dot.is-active {
+  width: 22px;
+  border-radius: 4px;
+  background: #2DD4BF;
+}
+
+@media (max-width: 640px) {
+  .hackathon-nav {
+    opacity: 1;
+    width: 36px;
+    height: 36px;
+  }
+}
+
 .featured-actions-row {
   display: flex;
   align-items: center;
@@ -4438,6 +4604,21 @@ a.product-slot:hover .product-arrow {
 .catalog-tile-icon svg {
   width: 24px;
   height: 24px;
+}
+
+/* Tiles carrying an original product logo drop the accent tint so the
+   brand mark sits on a neutral surface and reads as itself. */
+.catalog-tile-icon.has-logo {
+  background: #fff;
+  border: 1px solid var(--catalog-border, rgba(20, 24, 31, 0.08));
+}
+
+.catalog-tile-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 7px;
+  border-radius: inherit;
 }
 
 .catalog-tile.accent-gold .catalog-tile-icon {
