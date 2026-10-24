@@ -177,12 +177,9 @@ export default function Home() {
           <div className="vision-copy">
             <div className="vision-kicker font-mono">Connecting Businesses and People through</div>
             <h2 className="vision-headline">
-              Intelligent communication and network systems, engineered in India.
-            </h2>
+              Intelligent enterprise and supply chain systems, built in India.            </h2>
             <p className="vision-sub">
-              Building hardware and softwares on top of 5G Infrastructure,
-              Running Communication Platforms, IIoT devices and Enterprise softwares
-              on a promise of reliability and safety.
+              Building and investing in enterprise products that connect ERP and global supply chains with 5G, IoT, AI, and digital infrastructure. Leveraging telecom expertise to improve connectivity, extend operational visibility, and enable smarter, real-time supply chain planning.
             </p>
 
             <ul className="vision-pillars">

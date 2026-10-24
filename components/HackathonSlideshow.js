@@ -11,9 +11,7 @@ const SLIDES = [
   { src: '/hackathon_images/hackathon-2.jpeg', alt: '5G Hackathon presentation — slide 2' },
   { src: '/hackathon_images/hackathon-3.jpeg', alt: '5G Hackathon presentation — slide 3' },
   { src: '/hackathon_images/hackathon-4.jpeg', alt: '5G Hackathon presentation — slide 4' },
-  { src: '/hackathon_images/hackathon-5.jpeg', alt: '5G Hackathon presentation — slide 5' },
   { src: '/hackathon_images/hackathon-6.jpeg', alt: '5G Hackathon presentation — slide 6' },
-  { src: '/hackathon_images/hackathon-7.jpeg', alt: '5G Hackathon presentation — slide 7' },
 ];
 
 const INTERVAL_MS = 5000;
