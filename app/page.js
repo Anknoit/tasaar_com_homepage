@@ -143,7 +143,7 @@ export default function Home() {
               <div className="featured-card-kicker font-mono gold">STARTUP GRANT</div>
               <h3 className="featured-card-title">Seed Funding from DoT</h3>
               <p className="featured-card-desc">
-                Received seed funding support from the Department of Telecommunications (DoT), Govt. of India, to accelerate startup R&amp;D and enterprise 5G deployment.
+                Received seed funding support from the Department of Telecommunications (DoT), Govt. of India &mdash; in association with TCIL (Telecommunications Consultants India Limited) &mdash; to accelerate startup R&amp;D and enterprise 5G deployment.
               </p>
             </div>
           </div>
@@ -177,9 +177,9 @@ export default function Home() {
           <div className="vision-copy">
             <div className="vision-kicker font-mono">Connecting Businesses and People through</div>
             <h2 className="vision-headline">
-              Intelligent enterprise and supply chain systems, built in India.            </h2>
+              Intelligent Infrastructure and supply chain systems, built in India.            </h2>
             <p className="vision-sub">
-              Building and investing in enterprise products that connect ERP and global supply chains with 5G, IoT, AI, and digital infrastructure. Leveraging telecom expertise to improve connectivity, extend operational visibility, and enable smarter, real-time supply chain planning.
+              Building and investing in an ecosystem of infrastructure products, energy and global supply chains with 5G, IoT, AI, and digital infrastructure. Leveraging telecom expertise to improve connectivity, extend operational visibility, and enable smarter, real-time supply chain planning.
             </p>
 
             <ul className="vision-pillars">
