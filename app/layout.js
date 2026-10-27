@@ -53,26 +53,16 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL('https://tasaar.com'),
   title: {
-    default: 'Industrial IoT, AI Integration, Network Operations & AI Chatbots | Tasaar',
+    default: 'Connected Enterprise Systems: ERP, IIoT & Networks | Tasaar',
     template: '%s | Tasaar',
   },
-  description: 'Tasaar engineers intelligence platforms for Industrial IoT, AI integration, Network Operations, and DPDP-compliant AI Communication Chatbots (WhatsApp & RCS business integration).',
+  description: 'Tasaar connects ERP, supply chain, energy and network management into one real-time operations layer — built on carrier-grade telecom engineering.',
   keywords: [
-    'Industrial IoT',
-    'IIoT telemetry',
-    'AI Integration',
-    'Enterprise AI Workflows',
-    'Network Operations',
-    'Network Monitoring System',
-    'NMS',
-    'AI Communication Chatbots',
-    'WhatsApp chatbots for business',
-    'RCS business messaging',
-    'Conversational Commerce',
-    'gRPC Telemetry',
-    '5G Self-Healing Networks',
-    'NavAssist RAG',
-    'Sentinel Security'
+    'connected enterprise systems',
+    'integrated ERP and IoT',
+    'enterprise operations platform',
+    'real-time operations visibility',
+    'Tasaar'
   ],
   authors: [{ name: 'Tasaar' }],
   robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
@@ -82,8 +72,8 @@ export const metadata = {
   openGraph: {
     type: 'website',
     siteName: 'Tasaar',
-    title: 'Industrial IoT, AI Integration, Network Operations & AI Chatbots | Tasaar',
-    description: 'Tasaar engineers intelligence platforms for Industrial IoT, AI integration, Network Operations, and DPDP-compliant AI Communication Chatbots.',
+    title: 'Connected Enterprise Systems: ERP, IIoT & Networks | Tasaar',
+    description: 'Tasaar connects ERP, supply chain, energy and network management into one real-time operations layer — built on carrier-grade telecom engineering.',
     url: 'https://tasaar.com/',
     images: [{
       url: 'https://tasaar.com/og-image.png',
@@ -95,8 +85,8 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@tasaar',
-    title: 'Industrial IoT, AI Integration, Network Operations & AI Chatbots | Tasaar',
-    description: 'Tasaar engineers intelligence platforms for Industrial IoT, AI integration, Network Operations, and DPDP-compliant AI Communication Chatbots.',
+    title: 'Connected Enterprise Systems: ERP, IIoT & Networks | Tasaar',
+    description: 'Tasaar connects ERP, supply chain, energy and network management into one real-time operations layer — built on carrier-grade telecom engineering.',
     images: ['https://tasaar.com/og-image.png'],
   },
 };

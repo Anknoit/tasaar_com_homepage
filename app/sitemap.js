@@ -50,6 +50,24 @@ export default async function sitemap() {
       changeFrequency: 'daily',
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/erp/`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/supply-chain-planning/`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/energy-management/`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
   ];
 
   return [...routes, ...blogUrls];
