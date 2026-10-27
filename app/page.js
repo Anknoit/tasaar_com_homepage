@@ -179,7 +179,7 @@ export default function Home() {
             <h2 className="vision-headline">
               Intelligent Infrastructure and supply chain systems, built in India.            </h2>
             <p className="vision-sub">
-              Building and investing in an ecosystem of infrastructure products, energy and global supply chains with 5G, IoT, AI, and digital infrastructure. Leveraging telecom expertise to improve connectivity, extend operational visibility, and enable smarter, real-time supply chain planning.
+              Building and investing in an ecosystem of products for Enterprise, Energy and Global supply chains with 5G, IoT, AI, and digital infrastructure. Leveraging telecom expertise to improve connectivity, extend operational visibility, and enable smarter, real-time supply chain planning.
             </p>
 
             <ul className="vision-pillars">
